@@ -1,4 +1,4 @@
-package com.pdg.WhatsApp.activities;
+package com.pdg.WhatsApp.activities.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
