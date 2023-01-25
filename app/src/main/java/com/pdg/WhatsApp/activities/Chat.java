@@ -1,15 +1,16 @@
-package com.pdg.WhatsApp;
+package com.pdg.WhatsApp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.pdg.WhatsApp.R;
+
+public class Chat extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        //Hola
+        setContentView(R.layout.activity_chat);
     }
 }
