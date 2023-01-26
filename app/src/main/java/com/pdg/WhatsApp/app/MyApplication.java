@@ -2,6 +2,8 @@ package com.pdg.WhatsApp.app;
 
 import android.app.Application;
 
+import com.pdg.WhatsApp.model.User;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 import io.realm.Realm;
@@ -10,14 +12,14 @@ import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 public class MyApplication extends Application {
-    public static AtomicInteger hobbyId = new AtomicInteger();
+    public static AtomicInteger userId = new AtomicInteger();
 
     @Override
     public void onCreate() {
         super.onCreate();
         setUpRealmConfig();
         Realm realm = Realm.getDefaultInstance();
-        hobbyId = getIdByTable(realm, Hobby.class);
+        userId = getIdByTable(realm, User.class);
         realm.close();
     }
 
