@@ -22,7 +22,7 @@ public class User extends RealmObject {
         this.nombre = nombre;
         this.grupo = grupo;
         this.email = email;
-        Password = password;
+        this.Password = password;
     }
 
     public int getId() {
