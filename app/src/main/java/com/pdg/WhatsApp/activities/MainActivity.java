@@ -1,10 +1,10 @@
 package com.pdg.WhatsApp.activities;
 
-import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -69,10 +69,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         switch (id) {
             case R.id.cerrar_sesion:
-                //CERRAR SESION
+
+                startActivity(new Intent(MainActivity.this, InicioDeSesion.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

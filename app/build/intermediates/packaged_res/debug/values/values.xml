@@ -9,8 +9,9 @@
     <color name="verde_whatsapp">#075750 </color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">WhatsApp</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <style name="Theme.WhatsApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Toolbar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
         <item name="colorPrimary">@color/verde_whatsapp</item>
         <item name="colorPrimaryVariant">@color/verde_whatsapp</item>
