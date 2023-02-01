@@ -3,30 +3,30 @@ package com.pdg.WhatsApp.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pdg.WhatsApp.R;
+import com.pdg.WhatsApp.model.Estado;
 
 import java.util.List;
 
 public class EstadoRecyclerAdapter extends RecyclerView.Adapter<EstadoRecyclerAdapter.EstadosDataHolder>{
-
-
-    private final List<Hobby> estadoList;
+    private final List<Estado> estadoList;
     private final OnItemClickListener itemListener;
 
-    public EstadoAdapter(List<Estado> hobbies, OnItemClickListener itemListener) {
-        this.estadoList = hobbies;
+    public EstadoRecyclerAdapter(List<Estado> estados, OnItemClickListener itemListener) {
+        this.estadoList = estados;
         this.itemListener = itemListener;
     }
 
     @NonNull
     @Override
     public EstadosDataHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.hobby_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.estado_item, parent, false);
         return new EstadosDataHolder(view);
     }
 
@@ -41,22 +41,22 @@ public class EstadoRecyclerAdapter extends RecyclerView.Adapter<EstadoRecyclerAd
     }
 
     public static class EstadosDataHolder extends RecyclerView.ViewHolder {
-        TextView type;
-        TextView title;
-        TextView note;
+        TextView nombreUsuario;
+        TextView tiempo;
+        ImageView fotoEstado;
 
         public EstadosDataHolder(@NonNull View itemView) {
             super(itemView);
-            type = (TextView) itemView.findViewById(R.id.textoTipo);
-            title = (TextView) itemView.findViewById(R.id.textoTitulo);
-            note = (TextView) itemView.findViewById(R.id.textoNota);
+            nombreUsuario = (TextView) itemView.findViewById(R.id.nombreEstado);
+            tiempo = (TextView) itemView.findViewById(R.id.tiempoEstado);
+            fotoEstado = (ImageView) itemView.findViewById(R.id.fotoEstado);
         }
 
         public void assignData(Estado estado, OnItemClickListener itemListener){
 
-            this.type.setText(estado.getTipo());
-            this.title.setText(estado.getNombre());
-            this.note.setText(String.valueOf(estado.getNota()));
+            this.nombreUsuario.setText(estado.getNombreUsuario());
+            this.tiempo.setText(estado.getTiempo());
+            //this.fotoEstado
 
             itemView.setOnClickListener(view -> itemListener.onItemClick(estado,getAdapterPosition()));
         }
