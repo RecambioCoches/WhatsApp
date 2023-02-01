@@ -22,7 +22,7 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/txtNombre"
+            android:id="@+id/txtNombreEstado"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/txtTiempo"
+            android:id="@+id/txtTiempoEstado"
             android:textSize="15sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -47,16 +47,16 @@ public class EstadoRecyclerAdapter extends RecyclerView.Adapter<EstadoRecyclerAd
 
         public EstadosDataHolder(@NonNull View itemView) {
             super(itemView);
-            nombreUsuario = (TextView) itemView.findViewById(R.id.nombreEstado);
-            tiempo = (TextView) itemView.findViewById(R.id.tiempoEstado);
-            fotoEstado = (ImageView) itemView.findViewById(R.id.fotoEstado);
+            nombreUsuario = (TextView) itemView.findViewById(R.id.txtNombreEstado);
+            tiempo = (TextView) itemView.findViewById(R.id.txtTiempoEstado);
+            fotoEstado = (ImageView) itemView.findViewById(R.id.imgFotoEstado);
         }
 
         public void assignData(Estado estado, OnItemClickListener itemListener){
 
             this.nombreUsuario.setText(estado.getNombreUsuario());
             this.tiempo.setText(estado.getTiempo());
-            //this.fotoEstado
+            this.fotoEstado.setImageResource(estado.getFoto());
 
             itemView.setOnClickListener(view -> itemListener.onItemClick(estado,getAdapterPosition()));
         }
