@@ -14,15 +14,17 @@ public class Chats extends RealmObject {
 
     private String nombreChat;
     private RealmList<Mensaje> mensajes;
+    private int imagen;
 
 
     public Chats() {
     }
 
-    public Chats(String nombreChat,RealmList<Mensaje> mensajes) {
-        this.id = MyApplication.userId.incrementAndGet();
+    public Chats(String nombreChat,RealmList<Mensaje> mensajes,int imagen) {
+        this.id = MyApplication.chatId.incrementAndGet();
         this.nombreChat = nombreChat;
         this.mensajes = mensajes;
+        this.imagen = imagen;
 
     }
 }

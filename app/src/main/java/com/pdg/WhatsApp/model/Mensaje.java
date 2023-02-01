@@ -15,16 +15,17 @@ public class Mensaje extends RealmObject {
 
     private String mensaje;
     private Date tiempo;
-
+    private int idUsuario;
 
 
     public Mensaje() {
     }
 
-    public Mensaje(String mensaje) {
+    public Mensaje(String mensaje,int idUsuario) {
         this.id = MyApplication.userId.incrementAndGet();
         this.mensaje = mensaje;
         tiempo = Calendar.getInstance().getTime();
+        this.idUsuario = idUsuario;
 
     }
 }
