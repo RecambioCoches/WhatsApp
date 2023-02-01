@@ -28,7 +28,7 @@ public class InicioDeSesion extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
         if (realm.isEmpty()){
             realm.beginTransaction();
-            realm.copyToRealm(Utils.getDummyData());
+            realm.copyToRealm(Utils.getDummyDataUsers());
             realm.commitTransaction();
         }
 
