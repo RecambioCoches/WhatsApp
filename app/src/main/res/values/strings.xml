@@ -3,4 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="estados_title">Estados de tus Contactos</string>
+    <string name="llamadas_title">Tus Llamadas</string>
+
 </resources>
