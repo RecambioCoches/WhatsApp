@@ -17,6 +17,7 @@ public class Utils {
         list.add(new User("Persona5","","persona5@gmail.com","password5"));
         list.add(new User("Persona6","Grupo6","persona6@gmail.com","password6"));
         list.add(new User("Persona7","Grupo7","persona7@gmail.com","password7"));
+        list.add(new User("1","1","1@gmail.com","1"));
         return list;
     }
 }

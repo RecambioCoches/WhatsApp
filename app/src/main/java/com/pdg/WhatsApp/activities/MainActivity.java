@@ -15,6 +15,8 @@ import com.google.android.material.tabs.TabLayout;
 import com.pdg.WhatsApp.R;
 import com.pdg.WhatsApp.adapters.MyViewPagerAdapter;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
+
+
 
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.camara_icon));
