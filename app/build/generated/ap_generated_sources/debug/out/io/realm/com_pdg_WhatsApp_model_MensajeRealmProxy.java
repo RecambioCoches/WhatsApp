@@ -46,13 +46,15 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         long idColKey;
         long mensajeColKey;
         long tiempoColKey;
+        long idUsuarioColKey;
 
         MensajeColumnInfo(OsSchemaInfo schemaInfo) {
-            super(3);
+            super(4);
             OsObjectSchemaInfo objectSchemaInfo = schemaInfo.getObjectSchemaInfo("Mensaje");
             this.idColKey = addColumnDetails("id", "id", objectSchemaInfo);
             this.mensajeColKey = addColumnDetails("mensaje", "mensaje", objectSchemaInfo);
             this.tiempoColKey = addColumnDetails("tiempo", "tiempo", objectSchemaInfo);
+            this.idUsuarioColKey = addColumnDetails("idUsuario", "idUsuario", objectSchemaInfo);
         }
 
         MensajeColumnInfo(ColumnInfo src, boolean mutable) {
@@ -72,6 +74,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
             dst.idColKey = src.idColKey;
             dst.mensajeColKey = src.mensajeColKey;
             dst.tiempoColKey = src.tiempoColKey;
+            dst.idUsuarioColKey = src.idUsuarioColKey;
         }
     }
 
@@ -180,11 +183,34 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         proxyState.getRow$realm().setDate(columnInfo.tiempoColKey, value);
     }
 
+    @Override
+    @SuppressWarnings("cast")
+    public int realmGet$idUsuario() {
+        proxyState.getRealm$realm().checkIfValid();
+        return (int) proxyState.getRow$realm().getLong(columnInfo.idUsuarioColKey);
+    }
+
+    @Override
+    public void realmSet$idUsuario(int value) {
+        if (proxyState.isUnderConstruction()) {
+            if (!proxyState.getAcceptDefaultValue$realm()) {
+                return;
+            }
+            final Row row = proxyState.getRow$realm();
+            row.getTable().setLong(columnInfo.idUsuarioColKey, row.getObjectKey(), value, true);
+            return;
+        }
+
+        proxyState.getRealm$realm().checkIfValid();
+        proxyState.getRow$realm().setLong(columnInfo.idUsuarioColKey, value);
+    }
+
     private static OsObjectSchemaInfo createExpectedObjectSchemaInfo() {
-        OsObjectSchemaInfo.Builder builder = new OsObjectSchemaInfo.Builder(NO_ALIAS, "Mensaje", false, 3, 0);
+        OsObjectSchemaInfo.Builder builder = new OsObjectSchemaInfo.Builder(NO_ALIAS, "Mensaje", false, 4, 0);
         builder.addPersistedProperty(NO_ALIAS, "id", RealmFieldType.INTEGER, Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED);
         builder.addPersistedProperty(NO_ALIAS, "mensaje", RealmFieldType.STRING, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED);
         builder.addPersistedProperty(NO_ALIAS, "tiempo", RealmFieldType.DATE, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED);
+        builder.addPersistedProperty(NO_ALIAS, "idUsuario", RealmFieldType.INTEGER, !Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED);
         return builder.build();
     }
 
@@ -259,6 +285,13 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
                 }
             }
         }
+        if (json.has("idUsuario")) {
+            if (json.isNull("idUsuario")) {
+                throw new IllegalArgumentException("Trying to set non-nullable field 'idUsuario' to null.");
+            } else {
+                objProxy.realmSet$idUsuario((int) json.getInt("idUsuario"));
+            }
+        }
         return obj;
     }
 
@@ -299,6 +332,13 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
                     }
                 } else {
                     objProxy.realmSet$tiempo(JsonUtils.stringToDate(reader.nextString()));
+                }
+            } else if (name.equals("idUsuario")) {
+                if (reader.peek() != JsonToken.NULL) {
+                    objProxy.realmSet$idUsuario((int) reader.nextInt());
+                } else {
+                    reader.skipValue();
+                    throw new IllegalArgumentException("Trying to set non-nullable field 'idUsuario' to null.");
                 }
             } else {
                 reader.skipValue();
@@ -373,6 +413,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         builder.addInteger(columnInfo.idColKey, unmanagedSource.realmGet$id());
         builder.addString(columnInfo.mensajeColKey, unmanagedSource.realmGet$mensaje());
         builder.addDate(columnInfo.tiempoColKey, unmanagedSource.realmGet$tiempo());
+        builder.addInteger(columnInfo.idUsuarioColKey, unmanagedSource.realmGet$idUsuario());
 
         // Create the underlying object and cache it before setting any object/objectlist references
         // This will allow us to break any circular dependencies by using the object cache.
@@ -410,6 +451,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         if (realmGet$tiempo != null) {
             Table.nativeSetTimestamp(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo.getTime(), false);
         }
+        Table.nativeSetLong(tableNativePtr, columnInfo.idUsuarioColKey, objKey, ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$idUsuario(), false);
         return objKey;
     }
 
@@ -447,6 +489,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
             if (realmGet$tiempo != null) {
                 Table.nativeSetTimestamp(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo.getTime(), false);
             }
+            Table.nativeSetLong(tableNativePtr, columnInfo.idUsuarioColKey, objKey, ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$idUsuario(), false);
         }
     }
 
@@ -479,6 +522,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         } else {
             Table.nativeSetNull(tableNativePtr, columnInfo.tiempoColKey, objKey, false);
         }
+        Table.nativeSetLong(tableNativePtr, columnInfo.idUsuarioColKey, objKey, ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$idUsuario(), false);
         return objKey;
     }
 
@@ -518,6 +562,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
             } else {
                 Table.nativeSetNull(tableNativePtr, columnInfo.tiempoColKey, objKey, false);
             }
+            Table.nativeSetLong(tableNativePtr, columnInfo.idUsuarioColKey, objKey, ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$idUsuario(), false);
         }
     }
 
@@ -544,6 +589,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         unmanagedCopy.realmSet$id(realmSource.realmGet$id());
         unmanagedCopy.realmSet$mensaje(realmSource.realmGet$mensaje());
         unmanagedCopy.realmSet$tiempo(realmSource.realmGet$tiempo());
+        unmanagedCopy.realmSet$idUsuario(realmSource.realmGet$idUsuario());
 
         return unmanagedObject;
     }
@@ -556,6 +602,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         builder.addInteger(columnInfo.idColKey, realmObjectSource.realmGet$id());
         builder.addString(columnInfo.mensajeColKey, realmObjectSource.realmGet$mensaje());
         builder.addDate(columnInfo.tiempoColKey, realmObjectSource.realmGet$tiempo());
+        builder.addInteger(columnInfo.idUsuarioColKey, realmObjectSource.realmGet$idUsuario());
 
         builder.updateExistingTopLevelObject();
         return realmObject;
@@ -578,6 +625,10 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         stringBuilder.append(",");
         stringBuilder.append("{tiempo:");
         stringBuilder.append(realmGet$tiempo() != null ? realmGet$tiempo() : "null");
+        stringBuilder.append("}");
+        stringBuilder.append(",");
+        stringBuilder.append("{idUsuario:");
+        stringBuilder.append(realmGet$idUsuario());
         stringBuilder.append("}");
         stringBuilder.append("]");
         return stringBuilder.toString();

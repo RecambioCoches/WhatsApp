@@ -46,13 +46,15 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         long idColKey;
         long nombreChatColKey;
         long mensajesColKey;
+        long imagenColKey;
 
         ChatsColumnInfo(OsSchemaInfo schemaInfo) {
-            super(3);
+            super(4);
             OsObjectSchemaInfo objectSchemaInfo = schemaInfo.getObjectSchemaInfo("Chats");
             this.idColKey = addColumnDetails("id", "id", objectSchemaInfo);
             this.nombreChatColKey = addColumnDetails("nombreChat", "nombreChat", objectSchemaInfo);
             this.mensajesColKey = addColumnDetails("mensajes", "mensajes", objectSchemaInfo);
+            this.imagenColKey = addColumnDetails("imagen", "imagen", objectSchemaInfo);
         }
 
         ChatsColumnInfo(ColumnInfo src, boolean mutable) {
@@ -72,6 +74,7 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
             dst.idColKey = src.idColKey;
             dst.nombreChatColKey = src.nombreChatColKey;
             dst.mensajesColKey = src.mensajesColKey;
+            dst.imagenColKey = src.imagenColKey;
         }
     }
 
@@ -209,11 +212,34 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         }
     }
 
+    @Override
+    @SuppressWarnings("cast")
+    public int realmGet$imagen() {
+        proxyState.getRealm$realm().checkIfValid();
+        return (int) proxyState.getRow$realm().getLong(columnInfo.imagenColKey);
+    }
+
+    @Override
+    public void realmSet$imagen(int value) {
+        if (proxyState.isUnderConstruction()) {
+            if (!proxyState.getAcceptDefaultValue$realm()) {
+                return;
+            }
+            final Row row = proxyState.getRow$realm();
+            row.getTable().setLong(columnInfo.imagenColKey, row.getObjectKey(), value, true);
+            return;
+        }
+
+        proxyState.getRealm$realm().checkIfValid();
+        proxyState.getRow$realm().setLong(columnInfo.imagenColKey, value);
+    }
+
     private static OsObjectSchemaInfo createExpectedObjectSchemaInfo() {
-        OsObjectSchemaInfo.Builder builder = new OsObjectSchemaInfo.Builder(NO_ALIAS, "Chats", false, 3, 0);
+        OsObjectSchemaInfo.Builder builder = new OsObjectSchemaInfo.Builder(NO_ALIAS, "Chats", false, 4, 0);
         builder.addPersistedProperty(NO_ALIAS, "id", RealmFieldType.INTEGER, Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED);
         builder.addPersistedProperty(NO_ALIAS, "nombreChat", RealmFieldType.STRING, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED);
         builder.addPersistedLinkProperty(NO_ALIAS, "mensajes", RealmFieldType.LIST, "Mensaje");
+        builder.addPersistedProperty(NO_ALIAS, "imagen", RealmFieldType.INTEGER, !Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED);
         return builder.build();
     }
 
@@ -291,6 +317,13 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
                 }
             }
         }
+        if (json.has("imagen")) {
+            if (json.isNull("imagen")) {
+                throw new IllegalArgumentException("Trying to set non-nullable field 'imagen' to null.");
+            } else {
+                objProxy.realmSet$imagen((int) json.getInt("imagen"));
+            }
+        }
         return obj;
     }
 
@@ -332,6 +365,13 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
                         objProxy.realmGet$mensajes().add(item);
                     }
                     reader.endArray();
+                }
+            } else if (name.equals("imagen")) {
+                if (reader.peek() != JsonToken.NULL) {
+                    objProxy.realmSet$imagen((int) reader.nextInt());
+                } else {
+                    reader.skipValue();
+                    throw new IllegalArgumentException("Trying to set non-nullable field 'imagen' to null.");
                 }
             } else {
                 reader.skipValue();
@@ -405,6 +445,7 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         // Add all non-"object reference" fields
         builder.addInteger(columnInfo.idColKey, unmanagedSource.realmGet$id());
         builder.addString(columnInfo.nombreChatColKey, unmanagedSource.realmGet$nombreChat());
+        builder.addInteger(columnInfo.imagenColKey, unmanagedSource.realmGet$imagen());
 
         // Create the underlying object and cache it before setting any object/objectlist references
         // This will allow us to break any circular dependencies by using the object cache.
@@ -466,6 +507,7 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
                 mensajesOsList.addRow(cacheItemIndexmensajes);
             }
         }
+        Table.nativeSetLong(tableNativePtr, columnInfo.imagenColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$imagen(), false);
         return objKey;
     }
 
@@ -511,6 +553,7 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
                     mensajesOsList.addRow(cacheItemIndexmensajes);
                 }
             }
+            Table.nativeSetLong(tableNativePtr, columnInfo.imagenColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$imagen(), false);
         }
     }
 
@@ -564,6 +607,7 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
             }
         }
 
+        Table.nativeSetLong(tableNativePtr, columnInfo.imagenColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$imagen(), false);
         return objKey;
     }
 
@@ -624,6 +668,7 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
                 }
             }
 
+            Table.nativeSetLong(tableNativePtr, columnInfo.imagenColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$imagen(), false);
         }
     }
 
@@ -664,6 +709,7 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
                 unmanagedmensajesList.add(item);
             }
         }
+        unmanagedCopy.realmSet$imagen(realmSource.realmGet$imagen());
 
         return unmanagedObject;
     }
@@ -692,6 +738,7 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         } else {
             builder.addObjectList(columnInfo.mensajesColKey, new RealmList<com.pdg.WhatsApp.model.Mensaje>());
         }
+        builder.addInteger(columnInfo.imagenColKey, realmObjectSource.realmGet$imagen());
 
         builder.updateExistingTopLevelObject();
         return realmObject;
@@ -714,6 +761,10 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         stringBuilder.append(",");
         stringBuilder.append("{mensajes:");
         stringBuilder.append("RealmList<Mensaje>[").append(realmGet$mensajes().size()).append("]");
+        stringBuilder.append("}");
+        stringBuilder.append(",");
+        stringBuilder.append("{imagen:");
+        stringBuilder.append(realmGet$imagen());
         stringBuilder.append("}");
         stringBuilder.append("]");
         return stringBuilder.toString();

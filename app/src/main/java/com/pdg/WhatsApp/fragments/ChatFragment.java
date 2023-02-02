@@ -54,18 +54,14 @@ public class ChatFragment extends Fragment {
 
 
         chatRecyclerAdapter = new ChatRecyclerAdapter(realmChat, getActivity().getBaseContext(), new ChatRecyclerAdapter.OnItemClickListener(){
+
             @Override
-            public void onItemClick(String name, int position){
-
-                //Integer id = realmChat.get(position).getId();
+            public void onItemClick(String name, int position) {
+                Integer id = realmChat.get(position).getId();
                 callback.sendData(id);
-
-
-
-
             }
         });
-        recyclerView.setAdapter(chatRecyclerAdapter);
+            recyclerView.setAdapter(chatRecyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(),1));
         return view;
     }

@@ -8,4 +8,6 @@ public interface com_pdg_WhatsApp_model_ChatsRealmProxyInterface {
     public void realmSet$nombreChat(String value);
     public RealmList<com.pdg.WhatsApp.model.Mensaje> realmGet$mensajes();
     public void realmSet$mensajes(RealmList<com.pdg.WhatsApp.model.Mensaje> value);
+    public int realmGet$imagen();
+    public void realmSet$imagen(int value);
 }

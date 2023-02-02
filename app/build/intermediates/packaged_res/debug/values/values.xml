@@ -10,7 +10,9 @@
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">WhatsApp</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="estados_title">Estados de tus Contactos</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="llamadas_title">Tus Llamadas</string>
     <style name="Theme.Toolbar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
         <item name="colorPrimary">@color/verde_whatsapp</item>

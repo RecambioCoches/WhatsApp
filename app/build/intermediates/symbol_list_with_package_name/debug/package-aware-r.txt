@@ -2872,6 +2872,8 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imgFotoEstado
+id imgFotoLlamada
 id immediateStop
 id included
 id indeterminate
@@ -2995,6 +2997,8 @@ id radio
 id ratio
 id rectangles
 id recyclerChatId
+id recyclerViewEstados
+id recyclerViewLlamadas
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3086,6 +3090,9 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView2
+id textView3
+id textView5
 id textViewCantidadMensajes
 id textViewHora
 id textViewMensaje
@@ -3117,7 +3124,13 @@ id transition_transform
 id triangle
 id tvPass
 id tvUser
+id txtEspacio
+id txtEstadoLlamada
+id txtNombreEstado
+id txtNombreLlamada
 id txtPass
+id txtTiempoEstado
+id txtTiempoLLamada
 id txtUser
 id unchecked
 id uniform
@@ -3286,10 +3299,12 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout estado_item
 layout fragment_camara
 layout fragment_chat
 layout fragment_estado
 layout fragment_llamada
+layout llamada_item
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3400,6 +3415,7 @@ string clear_text_end_icon_content_description
 string common_google_play_services_unknown_issue
 string error_a11y_label
 string error_icon_content_description
+string estados_title
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
@@ -3407,6 +3423,7 @@ string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string llamadas_title
 string m3_sys_motion_easing_emphasized
 string m3_sys_motion_easing_emphasized_accelerate
 string m3_sys_motion_easing_emphasized_decelerate

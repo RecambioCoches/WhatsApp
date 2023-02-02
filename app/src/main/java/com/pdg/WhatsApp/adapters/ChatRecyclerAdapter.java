@@ -13,15 +13,25 @@ import com.pdg.WhatsApp.model.Chats;
 
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
+
 public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapter.RecyclerDataHolder> implements View.OnClickListener {
     List<Chats> chatList;
+    Realm realm;
+    RealmResults<Chats> realmChat;
     private View.OnClickListener listener;
     private OnItemClickListener itemListener;
-    public ChatRecyclerAdapter(List<Chats> chatList, EstadoRecyclerAdapter.OnItemClickListener listener){
-        this.chatList = chatList;
+    //public ChatRecyclerAdapter(List<Chats> chatList, EstadoRecyclerAdapter.OnItemClickListener listener){
+     //   this.chatList = chatList;
+      //  this.itemListener = (OnItemClickListener) listener;
+
+
+    //}
+
+    public ChatRecyclerAdapter(RealmResults<Chats> realmChat, Context baseContext, OnItemClickListener onItemClickListener) {
+        this.realmChat = realmChat;
         this.itemListener = (OnItemClickListener) listener;
-
-
     }
 
     @NonNull
