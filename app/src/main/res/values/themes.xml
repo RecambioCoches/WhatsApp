@@ -16,6 +16,8 @@
     <style name="SplashScreen" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">
             @color/verde_whatsapp
+
         </item>
+
     </style>
 </resources>

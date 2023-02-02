@@ -36,6 +36,7 @@ id tabLayout
 id textView
 id textView2
 id textView3
+id textView4
 id textView5
 id textViewCantidadMensajes
 id textViewHora
@@ -74,7 +75,6 @@ string cerrar_sesion
 string estados_title
 string hello_blank_fragment
 string llamadas_title
-style SplashScreen
 style Theme.Toolbar
 xml backup_rules
 xml data_extraction_rules

@@ -28,8 +28,8 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     static {
         Set<Class<? extends RealmModel>> modelClasses = new HashSet<Class<? extends RealmModel>>(5);
         modelClasses.add(com.pdg.WhatsApp.model.Chats.class);
-        modelClasses.add(com.pdg.WhatsApp.model.Estado.class);
         modelClasses.add(com.pdg.WhatsApp.model.Llamada.class);
+        modelClasses.add(com.pdg.WhatsApp.model.Estado.class);
         modelClasses.add(com.pdg.WhatsApp.model.Mensaje.class);
         modelClasses.add(com.pdg.WhatsApp.model.User.class);
         MODEL_CLASSES = Collections.unmodifiableSet(modelClasses);
@@ -39,8 +39,8 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     public Map<Class<? extends RealmModel>, OsObjectSchemaInfo> getExpectedObjectSchemaInfoMap() {
         Map<Class<? extends RealmModel>, OsObjectSchemaInfo> infoMap = new HashMap<Class<? extends RealmModel>, OsObjectSchemaInfo>(5);
         infoMap.put(com.pdg.WhatsApp.model.Chats.class, io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.getExpectedObjectSchemaInfo());
-        infoMap.put(com.pdg.WhatsApp.model.Estado.class, io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.getExpectedObjectSchemaInfo());
         infoMap.put(com.pdg.WhatsApp.model.Llamada.class, io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.getExpectedObjectSchemaInfo());
+        infoMap.put(com.pdg.WhatsApp.model.Estado.class, io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.getExpectedObjectSchemaInfo());
         infoMap.put(com.pdg.WhatsApp.model.Mensaje.class, io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy.getExpectedObjectSchemaInfo());
         infoMap.put(com.pdg.WhatsApp.model.User.class, io.realm.com_pdg_WhatsApp_model_UserRealmProxy.getExpectedObjectSchemaInfo());
         return infoMap;
@@ -53,11 +53,11 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
             return io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.createColumnInfo(schemaInfo);
         }
-        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-            return io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.createColumnInfo(schemaInfo);
-        }
         if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
             return io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.createColumnInfo(schemaInfo);
+        }
+        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+            return io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.createColumnInfo(schemaInfo);
         }
         if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
             return io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy.createColumnInfo(schemaInfo);
@@ -75,11 +75,11 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
             return "Chats";
         }
-        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-            return "Estado";
-        }
         if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
             return "Llamada";
+        }
+        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+            return "Estado";
         }
         if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
             return "Mensaje";
@@ -97,11 +97,11 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         if (className.equals("Chats")) {
             return com.pdg.WhatsApp.model.Chats.class;
         }
-        if (className.equals("Estado")) {
-            return com.pdg.WhatsApp.model.Estado.class;
-        }
         if (className.equals("Llamada")) {
             return com.pdg.WhatsApp.model.Llamada.class;
+        }
+        if (className.equals("Estado")) {
+            return com.pdg.WhatsApp.model.Estado.class;
         }
         if (className.equals("Mensaje")) {
             return com.pdg.WhatsApp.model.Mensaje.class;
@@ -115,8 +115,8 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     @Override
     public boolean hasPrimaryKeyImpl(Class<? extends RealmModel> clazz) {
         return com.pdg.WhatsApp.model.Chats.class.isAssignableFrom(clazz)
-                || com.pdg.WhatsApp.model.Estado.class.isAssignableFrom(clazz)
                 || com.pdg.WhatsApp.model.Llamada.class.isAssignableFrom(clazz)
+                || com.pdg.WhatsApp.model.Estado.class.isAssignableFrom(clazz)
                 || com.pdg.WhatsApp.model.Mensaje.class.isAssignableFrom(clazz)
                 || com.pdg.WhatsApp.model.User.class.isAssignableFrom(clazz);
     }
@@ -131,11 +131,11 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
             if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
                 return clazz.cast(new io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy());
             }
-            if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-                return clazz.cast(new io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy());
-            }
             if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
                 return clazz.cast(new io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy());
+            }
+            if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+                return clazz.cast(new io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy());
             }
             if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
                 return clazz.cast(new io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy());
@@ -164,13 +164,13 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
             com_pdg_WhatsApp_model_ChatsRealmProxy.ChatsColumnInfo columnInfo = (com_pdg_WhatsApp_model_ChatsRealmProxy.ChatsColumnInfo) realm.getSchema().getColumnInfo(com.pdg.WhatsApp.model.Chats.class);
             return clazz.cast(io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.copyOrUpdate(realm, columnInfo, (com.pdg.WhatsApp.model.Chats) obj, update, cache, flags));
         }
-        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-            com_pdg_WhatsApp_model_EstadoRealmProxy.EstadoColumnInfo columnInfo = (com_pdg_WhatsApp_model_EstadoRealmProxy.EstadoColumnInfo) realm.getSchema().getColumnInfo(com.pdg.WhatsApp.model.Estado.class);
-            return clazz.cast(io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.copyOrUpdate(realm, columnInfo, (com.pdg.WhatsApp.model.Estado) obj, update, cache, flags));
-        }
         if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
             com_pdg_WhatsApp_model_LlamadaRealmProxy.LlamadaColumnInfo columnInfo = (com_pdg_WhatsApp_model_LlamadaRealmProxy.LlamadaColumnInfo) realm.getSchema().getColumnInfo(com.pdg.WhatsApp.model.Llamada.class);
             return clazz.cast(io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.copyOrUpdate(realm, columnInfo, (com.pdg.WhatsApp.model.Llamada) obj, update, cache, flags));
+        }
+        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+            com_pdg_WhatsApp_model_EstadoRealmProxy.EstadoColumnInfo columnInfo = (com_pdg_WhatsApp_model_EstadoRealmProxy.EstadoColumnInfo) realm.getSchema().getColumnInfo(com.pdg.WhatsApp.model.Estado.class);
+            return clazz.cast(io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.copyOrUpdate(realm, columnInfo, (com.pdg.WhatsApp.model.Estado) obj, update, cache, flags));
         }
         if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
             com_pdg_WhatsApp_model_MensajeRealmProxy.MensajeColumnInfo columnInfo = (com_pdg_WhatsApp_model_MensajeRealmProxy.MensajeColumnInfo) realm.getSchema().getColumnInfo(com.pdg.WhatsApp.model.Mensaje.class);
@@ -191,10 +191,10 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
 
         if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
             return io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.insert(realm, (com.pdg.WhatsApp.model.Chats) object, cache);
-        } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-            return io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insert(realm, (com.pdg.WhatsApp.model.Estado) object, cache);
         } else if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
             return io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.insert(realm, (com.pdg.WhatsApp.model.Llamada) object, cache);
+        } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+            return io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insert(realm, (com.pdg.WhatsApp.model.Estado) object, cache);
         } else if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
             return io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy.insert(realm, (com.pdg.WhatsApp.model.Mensaje) object, cache);
         } else if (clazz.equals(com.pdg.WhatsApp.model.User.class)) {
@@ -218,10 +218,10 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
 
             if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
                 io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.insert(realm, (com.pdg.WhatsApp.model.Chats) object, cache);
-            } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-                io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insert(realm, (com.pdg.WhatsApp.model.Estado) object, cache);
             } else if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
                 io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.insert(realm, (com.pdg.WhatsApp.model.Llamada) object, cache);
+            } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+                io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insert(realm, (com.pdg.WhatsApp.model.Estado) object, cache);
             } else if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
                 io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy.insert(realm, (com.pdg.WhatsApp.model.Mensaje) object, cache);
             } else if (clazz.equals(com.pdg.WhatsApp.model.User.class)) {
@@ -232,10 +232,10 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
             if (iterator.hasNext()) {
                 if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
                     io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.insert(realm, iterator, cache);
-                } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-                    io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insert(realm, iterator, cache);
                 } else if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
                     io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.insert(realm, iterator, cache);
+                } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+                    io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insert(realm, iterator, cache);
                 } else if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
                     io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy.insert(realm, iterator, cache);
                 } else if (clazz.equals(com.pdg.WhatsApp.model.User.class)) {
@@ -255,10 +255,10 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
 
         if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
             return io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.insertOrUpdate(realm, (com.pdg.WhatsApp.model.Chats) obj, cache);
-        } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-            return io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insertOrUpdate(realm, (com.pdg.WhatsApp.model.Estado) obj, cache);
         } else if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
             return io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.insertOrUpdate(realm, (com.pdg.WhatsApp.model.Llamada) obj, cache);
+        } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+            return io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insertOrUpdate(realm, (com.pdg.WhatsApp.model.Estado) obj, cache);
         } else if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
             return io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy.insertOrUpdate(realm, (com.pdg.WhatsApp.model.Mensaje) obj, cache);
         } else if (clazz.equals(com.pdg.WhatsApp.model.User.class)) {
@@ -282,10 +282,10 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
 
             if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
                 io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.insertOrUpdate(realm, (com.pdg.WhatsApp.model.Chats) object, cache);
-            } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-                io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insertOrUpdate(realm, (com.pdg.WhatsApp.model.Estado) object, cache);
             } else if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
                 io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.insertOrUpdate(realm, (com.pdg.WhatsApp.model.Llamada) object, cache);
+            } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+                io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insertOrUpdate(realm, (com.pdg.WhatsApp.model.Estado) object, cache);
             } else if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
                 io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy.insertOrUpdate(realm, (com.pdg.WhatsApp.model.Mensaje) object, cache);
             } else if (clazz.equals(com.pdg.WhatsApp.model.User.class)) {
@@ -296,10 +296,10 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
             if (iterator.hasNext()) {
                 if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
                     io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.insertOrUpdate(realm, iterator, cache);
-                } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-                    io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insertOrUpdate(realm, iterator, cache);
                 } else if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
                     io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.insertOrUpdate(realm, iterator, cache);
+                } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+                    io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.insertOrUpdate(realm, iterator, cache);
                 } else if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
                     io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy.insertOrUpdate(realm, iterator, cache);
                 } else if (clazz.equals(com.pdg.WhatsApp.model.User.class)) {
@@ -319,11 +319,11 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
             return clazz.cast(io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
         }
-        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-            return clazz.cast(io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
-        }
         if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
             return clazz.cast(io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
+        }
+        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+            return clazz.cast(io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
         }
         if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
             return clazz.cast(io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
@@ -342,11 +342,11 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
             return clazz.cast(io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.createUsingJsonStream(realm, reader));
         }
-        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-            return clazz.cast(io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.createUsingJsonStream(realm, reader));
-        }
         if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
             return clazz.cast(io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.createUsingJsonStream(realm, reader));
+        }
+        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+            return clazz.cast(io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.createUsingJsonStream(realm, reader));
         }
         if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
             return clazz.cast(io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy.createUsingJsonStream(realm, reader));
@@ -366,11 +366,11 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
             return clazz.cast(io.realm.com_pdg_WhatsApp_model_ChatsRealmProxy.createDetachedCopy((com.pdg.WhatsApp.model.Chats) realmObject, 0, maxDepth, cache));
         }
-        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-            return clazz.cast(io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.createDetachedCopy((com.pdg.WhatsApp.model.Estado) realmObject, 0, maxDepth, cache));
-        }
         if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
             return clazz.cast(io.realm.com_pdg_WhatsApp_model_LlamadaRealmProxy.createDetachedCopy((com.pdg.WhatsApp.model.Llamada) realmObject, 0, maxDepth, cache));
+        }
+        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+            return clazz.cast(io.realm.com_pdg_WhatsApp_model_EstadoRealmProxy.createDetachedCopy((com.pdg.WhatsApp.model.Estado) realmObject, 0, maxDepth, cache));
         }
         if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
             return clazz.cast(io.realm.com_pdg_WhatsApp_model_MensajeRealmProxy.createDetachedCopy((com.pdg.WhatsApp.model.Mensaje) realmObject, 0, maxDepth, cache));
@@ -386,10 +386,10 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
             return false;
         }
-        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+        if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
             return false;
         }
-        if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
+        if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
             return false;
         }
         if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
@@ -409,10 +409,10 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
 
         if (clazz.equals(com.pdg.WhatsApp.model.Chats.class)) {
             throw getNotEmbeddedClassException("com.pdg.WhatsApp.model.Chats");
-        } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
-            throw getNotEmbeddedClassException("com.pdg.WhatsApp.model.Estado");
         } else if (clazz.equals(com.pdg.WhatsApp.model.Llamada.class)) {
             throw getNotEmbeddedClassException("com.pdg.WhatsApp.model.Llamada");
+        } else if (clazz.equals(com.pdg.WhatsApp.model.Estado.class)) {
+            throw getNotEmbeddedClassException("com.pdg.WhatsApp.model.Estado");
         } else if (clazz.equals(com.pdg.WhatsApp.model.Mensaje.class)) {
             throw getNotEmbeddedClassException("com.pdg.WhatsApp.model.Mensaje");
         } else if (clazz.equals(com.pdg.WhatsApp.model.User.class)) {

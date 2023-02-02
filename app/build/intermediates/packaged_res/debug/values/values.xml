@@ -13,11 +13,6 @@
     <string name="estados_title">Estados de tus Contactos</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="llamadas_title">Tus Llamadas</string>
-    <style name="SplashScreen" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">
-            @color/verde_whatsapp
-        </item>
-    </style>
     <style name="Theme.Toolbar" parent="Theme.AppCompat.NoActionBar">
         
         <item name="colorPrimary">@color/verde_whatsapp</item>

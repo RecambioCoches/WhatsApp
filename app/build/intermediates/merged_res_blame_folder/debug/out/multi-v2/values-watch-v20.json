@@ -4,7 +4,7 @@
             "outputFile": "com.pdg.WhatsApp.app-mergeDebugResources-29:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Lenovo\\.gradle\\caches\\transforms-3\\cf0527ba74c0c021467ce8beb76f26ce\\transformed\\appcompat-1.6.0\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\Gabriel_C\\.gradle\\caches\\transforms-3\\cf0527ba74c0c021467ce8beb76f26ce\\transformed\\appcompat-1.6.0\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

@@ -4,24 +4,26 @@
             "outputFile": "com.pdg.WhatsApp.app-mergeDebugResources-29:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Lenovo\\.gradle\\caches\\transforms-3\\cf0527ba74c0c021467ce8beb76f26ce\\transformed\\appcompat-1.6.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "C:\\Users\\Gabriel_C\\AndroidStudioProjects\\WhatsApp\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593,687",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "120,204,288,384,486,588,682,771"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "102",
+                        "endLines": "14",
+                        "endColumns": "12",
+                        "endOffsets": "808"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6,7,8,46",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593,3919",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "120,204,288,384,486,588,682,4003"
+                        "startLines": "33",
+                        "startColumns": "4",
+                        "startOffsets": "3341",
+                        "endLines": "45",
+                        "endColumns": "12",
+                        "endOffsets": "3914"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Lenovo\\.gradle\\caches\\transforms-3\\fd304d383319b99a86cf0c3b80a41110\\transformed\\material-1.7.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "C:\\Users\\Gabriel_C\\.gradle\\caches\\transforms-3\\fd304d383319b99a86cf0c3b80a41110\\transformed\\material-1.7.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,22 +40,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Lenovo\\Desktop\\Pablo_Fernandez\\CLASE\\2DAM_RECUPERACION\\ANDROID\\WhatsApp\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "C:\\Users\\Gabriel_C\\.gradle\\caches\\transforms-3\\cf0527ba74c0c021467ce8beb76f26ce\\transformed\\appcompat-1.6.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "102",
-                        "endLines": "14",
-                        "endColumns": "12",
-                        "endOffsets": "808"
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593,687",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "120,204,288,384,486,588,682,771"
                     },
                     "to": {
-                        "startLines": "33",
-                        "startColumns": "4",
-                        "startOffsets": "3341",
-                        "endLines": "45",
-                        "endColumns": "12",
-                        "endOffsets": "3914"
+                        "startLines": "2,3,4,5,6,7,8,46",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593,3919",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "120,204,288,384,486,588,682,4003"
                     }
                 }
             ]

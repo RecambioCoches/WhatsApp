@@ -4,7 +4,7 @@
             "outputFile": "com.pdg.WhatsApp.app-mergeDebugResources-29:/values-v26/values-v26.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Lenovo\\.gradle\\caches\\transforms-3\\cf0527ba74c0c021467ce8beb76f26ce\\transformed\\appcompat-1.6.0\\res\\values-v26\\values-v26.xml",
+                    "source": "C:\\Users\\Gabriel_C\\.gradle\\caches\\transforms-3\\cf0527ba74c0c021467ce8beb76f26ce\\transformed\\appcompat-1.6.0\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

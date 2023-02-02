@@ -3094,6 +3094,7 @@ id textTop
 id textView
 id textView2
 id textView3
+id textView4
 id textView5
 id textViewCantidadMensajes
 id textViewHora
@@ -3889,7 +3890,6 @@ style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Day
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Window_Fullscreen
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Year
 style ShapeAppearanceOverlay_MaterialComponents_TextInputLayout_FilledBox
-style SplashScreen
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2
