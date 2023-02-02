@@ -19,6 +19,7 @@ drawable icono_app_background
 drawable mujer
 drawable mujer_1
 drawable nina
+drawable splash
 drawable whatsapp
 drawable whatsapp_negro
 id btnLogin
@@ -53,6 +54,7 @@ id viewPager
 layout activity_chat
 layout activity_inicio_de_sesion
 layout activity_main
+layout activity_splash
 layout chat_list
 layout estado_item
 layout fragment_camara
@@ -71,6 +73,7 @@ string cerrar_sesion
 string estados_title
 string hello_blank_fragment
 string llamadas_title
+style SplashScreen
 style Theme.Toolbar
 xml backup_rules
 xml data_extraction_rules

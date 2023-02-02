@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Toolbar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Toolbar" parent="Theme.AppCompat.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/verde_whatsapp</item>
         <item name="colorPrimaryVariant">@color/verde_whatsapp</item>
@@ -12,5 +12,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="SplashScreen" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">
+            @drawable/splash
+        </item>
     </style>
 </resources>

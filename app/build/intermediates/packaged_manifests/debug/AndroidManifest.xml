@@ -33,16 +33,21 @@
         android:testOnly="true"
         android:theme="@style/Theme.AppCompat.NoActionBar" >
         <activity
-            android:name="com.pdg.WhatsApp.activities.Chat"
-            android:exported="false" />
-        <activity
-            android:name="com.pdg.WhatsApp.activities.InicioDeSesion"
-            android:exported="true" >
+            android:name="com.pdg.WhatsApp.activities.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pdg.WhatsApp.activities.Chat"
+            android:exported="false" />
+        <activity
+            android:name="com.pdg.WhatsApp.activities.InicioDeSesion"
+            android:exported="true" >
         </activity>
         <activity
             android:name="com.pdg.WhatsApp.activities.MainActivity"

@@ -50,9 +50,9 @@ public class LlamadaRecyclerAdapter extends RecyclerView.Adapter<LlamadaRecycler
         public LlamadasDataHolder(@NonNull View itemView) {
             super(itemView);
             nombre = (TextView) itemView.findViewById(R.id.txtNombreLlamada);
-            fecha = (TextView) itemView.findViewById(R.id.txtFechaLlamada);
+            fecha = (TextView) itemView.findViewById(R.id.txtTiempoLLamada);
             estado = (TextView) itemView.findViewById(R.id.txtEstadoLlamada);
-            foto = (ImageView) itemView.findViewById(R.id.imgfotoLlamada);
+            foto = (ImageView) itemView.findViewById(R.id.imgFotoLlamada);
         }
 
         public void assignData(Llamada llamada, OnItemClickListener itemListener){
