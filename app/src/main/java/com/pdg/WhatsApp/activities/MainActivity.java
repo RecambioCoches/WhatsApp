@@ -2,6 +2,7 @@ package com.pdg.WhatsApp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -14,8 +15,12 @@ import android.widget.TextView;
 import com.google.android.material.tabs.TabLayout;
 import com.pdg.WhatsApp.R;
 import com.pdg.WhatsApp.adapters.MyViewPagerAdapter;
+import com.pdg.WhatsApp.model.Chats;
 
 import java.util.Objects;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,11 +28,20 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     MyViewPagerAdapter myViewPagerAdapter;
-
+    RecyclerView recyclerView;
+    Realm realm;
+    RealmResults<Chats> realmChat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerChatId);
+
+
+
+        realm = Realm.getDefaultInstance();
+
 
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);

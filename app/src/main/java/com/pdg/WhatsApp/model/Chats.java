@@ -27,4 +27,36 @@ public class Chats extends RealmObject {
         this.imagen = imagen;
 
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombreChat() {
+        return nombreChat;
+    }
+
+    public void setNombreChat(String nombreChat) {
+        this.nombreChat = nombreChat;
+    }
+
+    public RealmList<Mensaje> getMensajes() {
+        return mensajes;
+    }
+
+    public void setMensajes(RealmList<Mensaje> mensajes) {
+        this.mensajes = mensajes;
+    }
+
+    public int getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(int imagen) {
+        this.imagen = imagen;
+    }
 }

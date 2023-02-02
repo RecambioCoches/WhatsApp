@@ -2555,11 +2555,14 @@ drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable camara_fotografica
 drawable camara_icon
+drawable chico
+drawable chico_1
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable hijo
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -2627,7 +2630,10 @@ drawable mtrl_switch_thumb_unchecked_pressed
 drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
+drawable mujer
+drawable mujer_1
 drawable navigation_empty_icon
+drawable nina
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -2988,6 +2994,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerChatId
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3079,6 +3086,10 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textViewCantidadMensajes
+id textViewHora
+id textViewMensaje
+id textViewNombreChat
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3258,6 +3269,7 @@ layout abc_tooltip
 layout activity_chat
 layout activity_inicio_de_sesion
 layout activity_main
+layout chat_list
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

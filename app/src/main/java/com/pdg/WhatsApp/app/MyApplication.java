@@ -17,6 +17,7 @@ public class MyApplication extends Application {
     public static AtomicInteger userId = new AtomicInteger();
     public static AtomicInteger estadoId = new AtomicInteger();
     public static AtomicInteger llamadaId = new AtomicInteger();
+    public static AtomicInteger chatId = new AtomicInteger();
 
     @Override
     public void onCreate() {
@@ -26,6 +27,7 @@ public class MyApplication extends Application {
         userId = getIdByTable(realm, User.class);
         estadoId = getIdByTable(realm, Estado.class);
         llamadaId = getIdByTable(realm, Llamada.class);
+        chatId = getIdByTable(realm, Llamada.class);
         realm.close();
     }
 

@@ -13,10 +13,13 @@ import com.pdg.WhatsApp.model.Chats;
 
 import java.util.List;
 
-public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapter.RecyclerDataHolder> {
+public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapter.RecyclerDataHolder> implements View.OnClickListener {
     List<Chats> chatList;
-    public ChatRecyclerAdapter(List<Chats> chatList){
+    private View.OnClickListener listener;
+    private OnItemClickListener itemListener;
+    public ChatRecyclerAdapter(List<Chats> chatList, EstadoRecyclerAdapter.OnItemClickListener listener){
         this.chatList = chatList;
+        this.itemListener = (OnItemClickListener) listener;
 
 
     }
@@ -31,7 +34,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerDataHolder holder, int position) {
-        holder.assignData(chatList.get(position));
+        holder.assignDataChat(chatList.get(position));
     }
 
     @Override
@@ -39,17 +42,38 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
         return 0;
     }
 
+    @Override
+    public void onClick(View view) {
+
+    }
+    public interface OnItemClickListener{
+        void onItemClick(String name, int position);
+
+
+    }
+
     public class RecyclerDataHolder extends RecyclerView.ViewHolder{
 
         public RecyclerDataHolder(@NonNull View itemView){
             super(itemView);
 
+
+
+        }
+
+
+        public void assignDataChat(Chats chats) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemListener.onItemClick(chats.getNombreChat(),getAdapterPosition());
+
+                }
+            });
         }
     }
 
-    public void assignData(Chats c){
-        c.get
-    }
+
 
 }
 
