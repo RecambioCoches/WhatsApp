@@ -25,6 +25,7 @@ drawable whatsapp_negro
 id btnLogin
 id cerrar_sesion
 id imageView
+id imageView2
 id imgFotoEstado
 id imgFotoLlamada
 id my_toolbar

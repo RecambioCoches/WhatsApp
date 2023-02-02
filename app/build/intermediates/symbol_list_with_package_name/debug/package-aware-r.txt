@@ -2873,6 +2873,7 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imageView2
 id imgFotoEstado
 id imgFotoLlamada
 id immediateStop
