@@ -15,9 +15,10 @@
 
             android:id="@+id/imageViewChat"
             android:layout_width="0sp"
-            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
+            android:gravity="center"
+            android:paddingLeft="40px"
             tools:srcCompat="@tools:sample/avatars" />
 
         <LinearLayout

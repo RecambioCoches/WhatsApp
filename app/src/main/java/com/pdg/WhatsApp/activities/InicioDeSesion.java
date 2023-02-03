@@ -31,9 +31,14 @@ public class InicioDeSesion extends AppCompatActivity {
             realm.beginTransaction();
             realm.copyToRealm(Utils.getDummyDataChats());
             realm.copyToRealm(Utils.getDummyDataUsers());
+            realm.copyToRealm(Utils.getDummyDataLlamada());
+            realm.copyToRealm(Utils.getDummyDataEstado());
             realm.commitTransaction();
         }
 
+//        realm.beginTransaction();
+//        realm.deleteAll();
+//        realm.commitTransaction();
 
 
         txtUsername = findViewById(R.id.txtUser);
