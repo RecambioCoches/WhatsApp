@@ -55,6 +55,8 @@ public class Utils {
 
     public static List<Chats> getDummyDataChats(){
         List<Chats> listChats = new ArrayList<Chats>();
+
+        // Lista conversaciones de la persona 1 con otras personas.
         RealmList<String> Participantes1 = new RealmList<>();
         Participantes1.add("Persona1");
         Participantes1.add("Persona2");
@@ -68,10 +70,37 @@ public class Utils {
         Participantes2.add("Persona1");
         Participantes2.add("Persona3");
 
+        RealmList<String> Participantes4 = new RealmList<>();
+        Participantes2.add("Persona1");
+        Participantes2.add("Persona5");
+
+        RealmList<String> Participantes5 = new RealmList<>();
+        Participantes2.add("Persona1");
+        Participantes2.add("Persona6");
+
+        RealmList<String> Participantes6 = new RealmList<>();
+        Participantes2.add("Persona1");
+        Participantes2.add("Persona3");
+
+        RealmList<String> Participantes7 = new RealmList<>();
+        Participantes2.add("Persona1");
+        Participantes2.add("Persona7");
+
+        RealmList<String> Participantes8 = new RealmList<>();
+        Participantes2.add("Persona1");
+        Participantes2.add("Persona3");
+        Participantes2.add("Persona7");
+        Participantes2.add("Persona5");
+
 
         listChats.add(new Chats("María Álvarez",new RealmList<Mensaje>(),R.drawable.nina,Participantes1 ));
-        listChats.add(new Chats("Francisco Flores",new RealmList<Mensaje>(),R.drawable.nina,Participantes2 ));
-        listChats.add(new Chats("Carolina Gonzalez",new RealmList<Mensaje>(),R.drawable.nina,Participantes3 ));
+        listChats.add(new Chats("Francisco Flores",new RealmList<Mensaje>(),R.drawable.chico,Participantes2 ));
+        listChats.add(new Chats("Carolina Gonzalez",new RealmList<Mensaje>(),R.drawable.mujer_1,Participantes3 ));
+        listChats.add(new Chats("David Salas",new RealmList<Mensaje>(),R.drawable.hijo,Participantes4 ));
+        listChats.add(new Chats("Pablo Perez",new RealmList<Mensaje>(),R.drawable.chico_1,Participantes5 ));
+        listChats.add(new Chats("Iker Lopez",new RealmList<Mensaje>(),R.drawable.chico_1,Participantes6 ));
+        listChats.add(new Chats("Sergio Cancelo",new RealmList<Mensaje>(),R.drawable.chico_1,Participantes7 ));
+        listChats.add(new Chats("Victor Garcia",new RealmList<Mensaje>(),R.drawable.diversidad,Participantes8 ));
 
 
         return listChats;
