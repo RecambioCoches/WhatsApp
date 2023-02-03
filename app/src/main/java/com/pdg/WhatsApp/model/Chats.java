@@ -3,6 +3,7 @@ package com.pdg.WhatsApp.model;
 import com.pdg.WhatsApp.app.MyApplication;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
@@ -14,17 +15,20 @@ public class Chats extends RealmObject {
 
     private String nombreChat;
     private RealmList<Mensaje> mensajes;
+    private RealmList<String> nombreUsers;
     private int imagen;
 
 
     public Chats() {
     }
 
-    public Chats(String nombreChat,RealmList<Mensaje> mensajes,int imagen) {
+    public Chats(String nombreChat, RealmList<Mensaje> mensajes, int imagen, RealmList<String> users) {
         this.id = MyApplication.chatId.incrementAndGet();
+
         this.nombreChat = nombreChat;
         this.mensajes = mensajes;
         this.imagen = imagen;
+        this.nombreUsers = nombreUsers;
 
     }
 

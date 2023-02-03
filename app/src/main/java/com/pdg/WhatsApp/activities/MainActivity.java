@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.google.android.material.tabs.TabLayout;
 import com.pdg.WhatsApp.R;
 import com.pdg.WhatsApp.adapters.MyViewPagerAdapter;
+import com.pdg.WhatsApp.fragments.ChatFragment;
 import com.pdg.WhatsApp.model.Chats;
 
 import java.util.Objects;
@@ -22,7 +23,7 @@ import java.util.Objects;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ChatFragment.DataListener {
 
     Toolbar toolbar;
     TabLayout tabLayout;
@@ -95,5 +96,10 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void sendData(Integer Data) {
+        realm = Realm.getDefaultInstance();
     }
 }

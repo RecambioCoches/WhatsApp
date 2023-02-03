@@ -18,6 +18,7 @@ public class Mensaje extends RealmObject {
     private int idUsuario;
 
 
+
     public Mensaje() {
     }
 
@@ -27,5 +28,38 @@ public class Mensaje extends RealmObject {
         tiempo = Calendar.getInstance().getTime();
         this.idUsuario = idUsuario;
 
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public Date getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(Date tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 }

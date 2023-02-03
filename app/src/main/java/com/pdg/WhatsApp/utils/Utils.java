@@ -1,12 +1,18 @@
 package com.pdg.WhatsApp.utils;
 
 import com.pdg.WhatsApp.R;
+import com.pdg.WhatsApp.model.Chats;
 import com.pdg.WhatsApp.model.Estado;
 import com.pdg.WhatsApp.model.Llamada;
+import com.pdg.WhatsApp.model.Mensaje;
 import com.pdg.WhatsApp.model.User;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import io.realm.RealmList;
+import io.realm.RealmResults;
 
 public class Utils {
 
@@ -31,6 +37,9 @@ public class Utils {
         listEstados.add(new Estado(R.drawable.mujer, "Arantxa Moriones", "Hace 6 horas"));
         listEstados.add(new Estado(R.drawable.chico, "David Pérez", "Hace 20 horas"));
         return listEstados;
+
+
+
     }
 
     public static List<Llamada> getDummyDataLlamada(){
@@ -41,6 +50,16 @@ public class Utils {
         listLlamadas.add(new Llamada(R.drawable.mujer_1, "Iratxe Aldabe", "29/10/2022", "Entrante"));
         listLlamadas.add(new Llamada(R.drawable.hijo, "Juan", "15/7/2020", "Saliente"));
         return listLlamadas;
+
+    }
+
+    public static List<Chats> getDummyDataChats(){
+        List<Chats> listChats = new ArrayList<Chats>();
+        RealmList<String> Participantes1 = new RealmList<>();
+        Participantes1.add("Persona1");
+        Participantes1.add("Persona2");
+        listChats.add(new Chats("María Álvarez",new RealmList<Mensaje>(),R.drawable.nina,Participantes1 ));
+        return listChats;
 
     }
 }

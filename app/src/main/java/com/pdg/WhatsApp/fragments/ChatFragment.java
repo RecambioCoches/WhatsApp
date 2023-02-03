@@ -51,8 +51,6 @@ public class ChatFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerChatId);
 
-
-
         chatRecyclerAdapter = new ChatRecyclerAdapter(realmChat, getActivity().getBaseContext(), new ChatRecyclerAdapter.OnItemClickListener(){
 
             @Override
@@ -61,7 +59,8 @@ public class ChatFragment extends Fragment {
                 callback.sendData(id);
             }
         });
-            recyclerView.setAdapter(chatRecyclerAdapter);
+
+        recyclerView.setAdapter(chatRecyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(),1));
         return view;
     }
