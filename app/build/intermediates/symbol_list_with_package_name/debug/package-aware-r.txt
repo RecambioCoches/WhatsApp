@@ -2543,6 +2543,8 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable avatar
+drawable avatardehombre
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -2555,6 +2557,7 @@ drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable camara_fotografica
 drawable camara_icon
+drawable carafeliz
 drawable chico
 drawable chico_1
 drawable design_fab_background
@@ -2562,6 +2565,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable diversidad
 drawable hijo
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
@@ -2632,6 +2636,7 @@ drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
 drawable mujer
 drawable mujer_1
+drawable mujersoltera
 drawable navigation_empty_icon
 drawable nina
 drawable notification_action_background
@@ -2646,6 +2651,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable servicioalcliente
 drawable splash
 drawable test_level_drawable
 drawable tooltip_frame_dark

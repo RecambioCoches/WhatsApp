@@ -92,15 +92,63 @@ public class Utils {
         Participantes2.add("Persona7");
         Participantes2.add("Persona5");
 
-
+        //lista de chats persona1 con otras personas
         listChats.add(new Chats("María Álvarez",new RealmList<Mensaje>(),R.drawable.nina,Participantes1 ));
         listChats.add(new Chats("Francisco Flores",new RealmList<Mensaje>(),R.drawable.chico,Participantes2 ));
         listChats.add(new Chats("Carolina Gonzalez",new RealmList<Mensaje>(),R.drawable.mujer_1,Participantes3 ));
         listChats.add(new Chats("David Salas",new RealmList<Mensaje>(),R.drawable.hijo,Participantes4 ));
-        listChats.add(new Chats("Pablo Perez",new RealmList<Mensaje>(),R.drawable.chico_1,Participantes5 ));
-        listChats.add(new Chats("Iker Lopez",new RealmList<Mensaje>(),R.drawable.chico_1,Participantes6 ));
-        listChats.add(new Chats("Sergio Cancelo",new RealmList<Mensaje>(),R.drawable.chico_1,Participantes7 ));
-        listChats.add(new Chats("Victor Garcia",new RealmList<Mensaje>(),R.drawable.diversidad,Participantes8 ));
+        listChats.add(new Chats("Pablo Perez",new RealmList<Mensaje>(),R.drawable.avatardehombre,Participantes5 ));
+        listChats.add(new Chats("Iker Lopez",new RealmList<Mensaje>(),R.drawable.carafeliz,Participantes6 ));
+        listChats.add(new Chats("Sofia Cancelo",new RealmList<Mensaje>(),R.drawable.mujersoltera,Participantes7 ));
+        listChats.add(new Chats("Grupo 2 Dam",new RealmList<Mensaje>(),R.drawable.diversidad,Participantes8 ));
+
+        RealmList<String> ParticipantesdeDavid1 = new RealmList<>();
+        Participantes1.add("Persona2");
+        Participantes1.add("Persona1");
+
+        RealmList<String> ParticipantesdeDavid2 = new RealmList<>();
+        Participantes2.add("Persona2");
+        Participantes2.add("Persona4");
+
+
+        RealmList<String> ParticipantesdeDavid3 = new RealmList<>();
+        Participantes2.add("Persona2");
+        Participantes2.add("Persona3");
+
+        RealmList<String> ParticipantesdeDavid4 = new RealmList<>();
+        Participantes2.add("Persona2");
+        Participantes2.add("Persona5");
+
+        RealmList<String> ParticipantesdeDavid5 = new RealmList<>();
+        Participantes2.add("Persona2");
+        Participantes2.add("Persona6");
+
+        RealmList<String> ParticipantesdeDavid6 = new RealmList<>();
+        Participantes2.add("Persona2");
+        Participantes2.add("Persona7");
+
+        RealmList<String> ParticipantesdeDavid7 = new RealmList<>();
+        Participantes2.add("Persona2");
+        Participantes2.add("Persona7");
+        Participantes2.add("Persona5");
+
+        RealmList<String> ParticipantesdeDavid8 = new RealmList<>();
+        Participantes2.add("Persona2");
+        Participantes2.add("Persona1");
+        Participantes2.add("Persona6");
+        Participantes2.add("Persona5");
+
+        //lista de chats persona1 con otras personas
+        listChats.add(new Chats("Jonas",new RealmList<Mensaje>(),R.drawable.carafeliz,ParticipantesdeDavid1 ));
+        listChats.add(new Chats("Juan",new RealmList<Mensaje>(),R.drawable.servicioalcliente,ParticipantesdeDavid2 ));
+        listChats.add(new Chats("Felipe Gonzalez",new RealmList<Mensaje>(),R.drawable.avatar,ParticipantesdeDavid3 ));
+        listChats.add(new Chats("Gabriel Fernandez",new RealmList<Mensaje>(),R.drawable.avatardehombre,ParticipantesdeDavid4 ));
+        listChats.add(new Chats("Pedri Gonzalez",new RealmList<Mensaje>(),R.drawable.evaluar,ParticipantesdeDavid5 ));
+        listChats.add(new Chats("Irene Elorz",new RealmList<Mensaje>(),R.drawable.mujer_1,ParticipantesdeDavid6 ));
+        listChats.add(new Chats("Familia",new RealmList<Mensaje>(),R.drawable.personas,ParticipantesdeDavid7 ));
+        listChats.add(new Chats("Grupo de Bingo",new RealmList<Mensaje>(),R.drawable.diversidad,ParticipantesdeDavid8 ));
+
+
 
 
         return listChats;

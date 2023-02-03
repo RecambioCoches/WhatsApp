@@ -29,7 +29,11 @@ public class InicioDeSesion extends AppCompatActivity {
         setContentView(R.layout.activity_inicio_de_sesion);
         realm = Realm.getDefaultInstance();
 
+        //realm.beginTransaction();
+        //realm.deleteAll();
+        //realm.commitTransaction();
 
+        //realm = Realm.getDefaultInstance();
         if (realm.isEmpty()){
 
             realm.beginTransaction();
@@ -40,9 +44,7 @@ public class InicioDeSesion extends AppCompatActivity {
             realm.commitTransaction();
         }
 
-//        realm.beginTransaction();
-//        realm.deleteAll();
-//        realm.commitTransaction();
+
 
 
         txtUsername = findViewById(R.id.txtUser);
