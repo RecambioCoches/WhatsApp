@@ -9,8 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.pdg.WhatsApp.R;
+import com.pdg.WhatsApp.model.Chats;
 import com.pdg.WhatsApp.model.User;
 import com.pdg.WhatsApp.utils.Utils;
+
+import java.util.List;
 
 import io.realm.Realm;
 
@@ -24,8 +27,9 @@ public class InicioDeSesion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_de_sesion);
-
         realm = Realm.getDefaultInstance();
+
+
         if (realm.isEmpty()){
 
             realm.beginTransaction();

@@ -58,8 +58,22 @@ public class Utils {
         RealmList<String> Participantes1 = new RealmList<>();
         Participantes1.add("Persona1");
         Participantes1.add("Persona2");
-        listChats.add(new Chats("María Álvarez",new RealmList<Mensaje>(),R.drawable.nina,Participantes1 ));
-        return listChats;
 
+        RealmList<String> Participantes2 = new RealmList<>();
+        Participantes2.add("Persona1");
+        Participantes2.add("Persona4");
+
+
+        RealmList<String> Participantes3 = new RealmList<>();
+        Participantes2.add("Persona1");
+        Participantes2.add("Persona3");
+
+
+        listChats.add(new Chats("María Álvarez",new RealmList<Mensaje>(),R.drawable.nina,Participantes1 ));
+        listChats.add(new Chats("Francisco Flores",new RealmList<Mensaje>(),R.drawable.nina,Participantes2 ));
+        listChats.add(new Chats("Carolina Gonzalez",new RealmList<Mensaje>(),R.drawable.nina,Participantes3 ));
+
+
+        return listChats;
     }
 }
