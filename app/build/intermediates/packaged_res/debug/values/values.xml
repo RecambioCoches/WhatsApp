@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="verde_whatsapp">#075750 </color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">WhatsApp</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="estados_title">Estados de tus Contactos</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="llamadas_title">Tus Llamadas</string>
+    <style name="SplashScreen" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">
+            @color/verde_whatsapp
+
+        </item>
+
+    </style>
+    <style name="Theme.Toolbar" parent="Theme.AppCompat.NoActionBar">
+        
+        <item name="colorPrimary">@color/verde_whatsapp</item>
+        <item name="colorPrimaryVariant">@color/verde_whatsapp</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        
+    </style>
+</resources>
