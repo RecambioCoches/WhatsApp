@@ -79,8 +79,6 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
             nombreChat = (TextView) itemView.findViewById(R.id.textViewNombreChat);
             mensajeChat = (TextView) itemView.findViewById(R.id.textViewMensajeChat);
             horaChat = (TextView) itemView.findViewById(R.id.textViewHoraChat);
-
-
         }
 
 

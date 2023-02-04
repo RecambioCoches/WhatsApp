@@ -1,5 +1,6 @@
 package com.pdg.WhatsApp.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,13 @@ import com.pdg.WhatsApp.model.Estado;
 
 import java.util.List;
 
-public class EstadoRecyclerAdapter extends RecyclerView.Adapter<EstadoRecyclerAdapter.EstadosDataHolder>{
-    private final List<Estado> estadoList;
-    private final OnItemClickListener itemListener;
+import io.realm.RealmResults;
 
-    public EstadoRecyclerAdapter(List<Estado> estados, OnItemClickListener itemListener) {
+public class EstadoRecyclerAdapter extends RecyclerView.Adapter<EstadoRecyclerAdapter.EstadosDataHolder>{
+    private  RealmResults<Estado> estadoList;
+    private  OnItemClickListener itemListener;
+
+    public EstadoRecyclerAdapter(RealmResults<Estado> estados, Context baseContext, OnItemClickListener itemListener) {
         this.estadoList = estados;
         this.itemListener = itemListener;
     }
@@ -49,7 +52,7 @@ public class EstadoRecyclerAdapter extends RecyclerView.Adapter<EstadoRecyclerAd
             super(itemView);
             nombreUsuario = (TextView) itemView.findViewById(R.id.txtNombreEstado);
             tiempo = (TextView) itemView.findViewById(R.id.txtTiempoEstado);
-            fotoEstado = (ImageView) itemView.findViewById(R.id.imgFotoEstado);
+            fotoEstado = (ImageView) itemView.findViewById(R.id.imgEstado);
         }
 
         public void assignData(Estado estado, OnItemClickListener itemListener){
