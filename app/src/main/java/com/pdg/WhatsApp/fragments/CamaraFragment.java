@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import com.pdg.WhatsApp.R;
 
 public class CamaraFragment extends Fragment {
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
+    /*private static final int REQUEST_IMAGE_CAPTURE = 1;
     Camera camera;
     public CamaraFragment() {}
     @Override
@@ -56,7 +56,7 @@ public class CamaraFragment extends Fragment {
             camera.release();
             camera = null;
         }
-    }
+    }*/
 
 
 }

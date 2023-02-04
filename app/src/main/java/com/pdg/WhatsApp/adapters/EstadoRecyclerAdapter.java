@@ -13,59 +13,56 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.pdg.WhatsApp.R;
 import com.pdg.WhatsApp.model.Estado;
 
-import java.util.List;
-
 import io.realm.RealmResults;
 
-public class EstadoRecyclerAdapter extends RecyclerView.Adapter<EstadoRecyclerAdapter.EstadosDataHolder>{
-    private  RealmResults<Estado> estadoList;
-    private  OnItemClickListener itemListener;
+public class EstadoRecyclerAdapter extends RecyclerView.Adapter <EstadoRecyclerAdapter.RecyclerDataHolder> {
 
-    public EstadoRecyclerAdapter(RealmResults<Estado> estados, Context baseContext, OnItemClickListener itemListener) {
-        this.estadoList = estados;
-        this.itemListener = itemListener;
+    RealmResults<Estado> realmChat;
+
+
+    public EstadoRecyclerAdapter(RealmResults<Estado> realmChat, Context baseContext) {
+        this.realmChat = realmChat;
     }
 
     @NonNull
     @Override
-    public EstadosDataHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.estado_item, parent, false);
-        return new EstadosDataHolder(view);
+    public RecyclerDataHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.estado_item,null,false);
+        return new RecyclerDataHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EstadosDataHolder holder, int position) {
-        holder.assignData(estadoList.get(position),itemListener);
+    public void onBindViewHolder(@NonNull RecyclerDataHolder holder, int position) {
+        holder.assignDataChat(realmChat.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return estadoList.size();
+        return realmChat.size();
     }
 
-    public static class EstadosDataHolder extends RecyclerView.ViewHolder {
-        TextView nombreUsuario;
-        TextView tiempo;
-        ImageView fotoEstado;
+    public class RecyclerDataHolder extends RecyclerView.ViewHolder{
+        ImageView imagenChat;
+        TextView nombreChat;
+        TextView horaChat;
 
-        public EstadosDataHolder(@NonNull View itemView) {
+        public RecyclerDataHolder(@NonNull View itemView){
             super(itemView);
-            nombreUsuario = (TextView) itemView.findViewById(R.id.txtNombreEstado);
-            tiempo = (TextView) itemView.findViewById(R.id.txtTiempoEstado);
-            fotoEstado = (ImageView) itemView.findViewById(R.id.imgEstado);
+            imagenChat = (ImageView) itemView.findViewById(R.id.imgEstado);
+            nombreChat = (TextView) itemView.findViewById(R.id.txtNombreEstado);
+            horaChat = (TextView) itemView.findViewById(R.id.txtTiempoEstado);
         }
 
-        public void assignData(Estado estado, OnItemClickListener itemListener){
 
-            this.nombreUsuario.setText(estado.getNombreUsuario());
-            this.tiempo.setText(estado.getTiempo());
-            this.fotoEstado.setImageResource(estado.getFoto());
+        public void assignDataChat(Estado chats) {
 
-            itemView.setOnClickListener(view -> itemListener.onItemClick(estado,getAdapterPosition()));
+            this.nombreChat.setText(chats.getNombreUsuario());
+            this.imagenChat.setImageResource(chats.getFoto());
+            this.horaChat.setText(chats.getTiempo());
         }
     }
 
-    public interface OnItemClickListener{
-        void onItemClick(Estado estado, int position);
-    }
+
+
 }
+

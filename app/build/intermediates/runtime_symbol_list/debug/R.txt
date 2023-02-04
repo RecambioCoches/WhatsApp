@@ -2763,6 +2763,7 @@ int id btnLogin 0x7f080062
 int id buttonPanel 0x7f080063
 int id cache_measures 0x7f080064
 int id callMeasure 0x7f080065
+int id camara 0x7f080200
 int id cancel_button 0x7f080066
 int id carryVelocity 0x7f080067
 int id center 0x7f080068

@@ -7,6 +7,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,17 +30,11 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Data
     TabLayout tabLayout;
     ViewPager viewPager;
     MyViewPagerAdapter myViewPagerAdapter;
-    RecyclerView recyclerView;
     Realm realm;
-    RealmResults<Chats> realmChat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerChatId);
-
-
 
         realm = Realm.getDefaultInstance();
 
@@ -50,15 +45,15 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Data
 
 
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.camara_icon));
+        tabLayout.addTab(tabLayout.newTab().setText("LLAMADAS"));
         tabLayout.addTab(tabLayout.newTab().setText("CHATS"));
         tabLayout.addTab(tabLayout.newTab().setText("ESTADOS"));
-        tabLayout.addTab(tabLayout.newTab().setText("LLAMADAS"));
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         myViewPagerAdapter = new MyViewPagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        viewPager.setCurrentItem(1);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -93,10 +88,18 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Data
 
                 startActivity(new Intent(MainActivity.this, InicioDeSesion.class));
                 return true;
+
+            case R.id.camara:
+                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(i);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
+
         }
     }
+
 
     @Override
     public void sendData(Integer Data) {

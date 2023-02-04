@@ -2764,6 +2764,7 @@ id btnLogin
 id buttonPanel
 id cache_measures
 id callMeasure
+id camara
 id cancel_button
 id carryVelocity
 id center

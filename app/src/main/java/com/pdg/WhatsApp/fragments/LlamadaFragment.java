@@ -11,14 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pdg.WhatsApp.R;
-import com.pdg.WhatsApp.adapters.Estado2RecyclerAdapter;
-import com.pdg.WhatsApp.adapters.EstadoRecyclerAdapter;
-import com.pdg.WhatsApp.adapters.Llamada2RecyclerAdapter;
 import com.pdg.WhatsApp.adapters.LlamadaRecyclerAdapter;
-import com.pdg.WhatsApp.model.Estado;
 import com.pdg.WhatsApp.model.Llamada;
-
-import java.util.Objects;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -28,7 +22,6 @@ public class LlamadaFragment extends Fragment {
     Realm realm;
     RealmResults<Llamada> realmLlamada;
     RecyclerView recyclerView;
-    LlamadaRecyclerAdapter llamadaRecyclerAdapter;
 
     public LlamadaFragment() {}
 
@@ -42,9 +35,9 @@ public class LlamadaFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerChatId);
 
-        Llamada2RecyclerAdapter llamada2RecyclerAdapter = new Llamada2RecyclerAdapter(realmLlamada,getActivity().getBaseContext());
+        LlamadaRecyclerAdapter llamadaRecyclerAdapter = new LlamadaRecyclerAdapter(realmLlamada,getActivity().getBaseContext());
 
-        recyclerView.setAdapter(llamada2RecyclerAdapter);
+        recyclerView.setAdapter(llamadaRecyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(),1));
         return view;
     }

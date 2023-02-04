@@ -1,5 +1,6 @@
 package com.pdg.WhatsApp.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,61 +13,59 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.pdg.WhatsApp.R;
 import com.pdg.WhatsApp.model.Llamada;
 
-import java.util.List;
+import io.realm.RealmResults;
 
-public class LlamadaRecyclerAdapter extends RecyclerView.Adapter<LlamadaRecyclerAdapter.LlamadasDataHolder>{
+public class LlamadaRecyclerAdapter extends RecyclerView.Adapter <LlamadaRecyclerAdapter.RecyclerDataHolder> {
 
-    private final List<Llamada> llamadaList;
-    private final OnItemClickListener itemListener;
+    RealmResults<Llamada> realmChat;
 
-    public LlamadaRecyclerAdapter(List<Llamada> llamadas, OnItemClickListener itemListener) {
-        this.llamadaList = llamadas;
-        this.itemListener = itemListener;
+
+    public LlamadaRecyclerAdapter(RealmResults<Llamada> realmChat, Context baseContext) {
+        this.realmChat = realmChat;
     }
 
     @NonNull
     @Override
-    public LlamadasDataHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.llamada_item, parent, false);
-        return new LlamadasDataHolder(view);
+    public RecyclerDataHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.llamada_item,null,false);
+        return new RecyclerDataHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LlamadasDataHolder holder, int position) {
-        holder.assignData(llamadaList.get(position),itemListener);
+    public void onBindViewHolder(@NonNull RecyclerDataHolder holder, int position) {
+        holder.assignDataChat(realmChat.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return llamadaList.size();
+        return realmChat.size();
     }
 
-    public static class LlamadasDataHolder extends RecyclerView.ViewHolder {
+    public class RecyclerDataHolder extends RecyclerView.ViewHolder{
         TextView nombre;
         TextView fecha;
         TextView estado;
         ImageView foto;
 
-        public LlamadasDataHolder(@NonNull View itemView) {
+        public RecyclerDataHolder(@NonNull View itemView){
             super(itemView);
             nombre = (TextView) itemView.findViewById(R.id.txtNombreLlamada);
             fecha = (TextView) itemView.findViewById(R.id.txtHoraLlamada);
             estado = (TextView) itemView.findViewById(R.id.txtEstadoLlamada);
-            foto = (ImageView) itemView.findViewById(R.id.imgLlamada);}
+            foto = (ImageView) itemView.findViewById(R.id.imgLlamada);
+        }
 
-        public void assignData(Llamada llamada, OnItemClickListener itemListener){
+
+        public void assignDataChat(Llamada llamada) {
 
             this.nombre.setText(llamada.getNombreUsuario());
             this.fecha.setText(llamada.getFecha());
             this.estado.setText(llamada.getEstadoLlamada());
             this.foto.setImageResource(llamada.getFoto());
-
-            itemView.setOnClickListener(view -> itemListener.onItemClick(llamada,getAdapterPosition()));
         }
     }
 
-    public interface OnItemClickListener{
-        void onItemClick(Llamada llamada, int position);
-    }
+
 
 }
+
