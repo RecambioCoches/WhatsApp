@@ -33,13 +33,10 @@ public class Utils {
     public static List<Estado> getDummyDataEstado(){
         List<Estado> listEstados = new ArrayList<Estado>();
 
-        listEstados.add(new Estado(R.drawable.chico, "Asier Martínez", "Hace 30 minutos"));
-        listEstados.add(new Estado(R.drawable.mujer, "Arantxa Moriones", "Hace 6 horas"));
-        listEstados.add(new Estado(R.drawable.chico, "David Pérez", "Hace 20 horas"));
+        listEstados.add(new Estado(R.drawable.arbol, "Asier Martínez", "Hace 30 minutos"));
+        listEstados.add(new Estado(R.drawable.carretera, "Arantxa Moriones", "Hace 6 horas"));
+        listEstados.add(new Estado(R.drawable.montanas, "David Pérez", "Hace 20 horas"));
         return listEstados;
-
-
-
     }
 
     public static List<Llamada> getDummyDataLlamada(){
@@ -50,7 +47,6 @@ public class Utils {
         listLlamadas.add(new Llamada(R.drawable.mujer_1, "Iratxe Aldabe", "29/10/2022", "Entrante"));
         listLlamadas.add(new Llamada(R.drawable.hijo, "Juan", "15/7/2020", "Saliente"));
         return listLlamadas;
-
     }
 
     public static List<Chats> getDummyDataChats(){
@@ -147,9 +143,6 @@ public class Utils {
         listChats.add(new Chats("Irene Elorz",new RealmList<Mensaje>(),R.drawable.mujer_1,ParticipantesdeDavid6 ));
         listChats.add(new Chats("Familia",new RealmList<Mensaje>(),R.drawable.personas,ParticipantesdeDavid7 ));
         listChats.add(new Chats("Grupo de Bingo",new RealmList<Mensaje>(),R.drawable.diversidad,ParticipantesdeDavid8 ));
-
-
-
 
         return listChats;
     }
