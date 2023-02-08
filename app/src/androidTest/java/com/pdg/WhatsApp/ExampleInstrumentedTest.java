@@ -1,4 +1,4 @@
-package com.pdg.WhatsApp;
+package com.pdg.whatsapp;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.pdg.WhatsApp", appContext.getPackageName());
+        assertEquals("com.pdg.whatsapp", appContext.getPackageName());
     }
 }

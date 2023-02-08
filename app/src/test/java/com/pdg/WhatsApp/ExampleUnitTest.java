@@ -1,4 +1,4 @@
-package com.pdg.WhatsApp;
+package com.pdg.whatsapp;
 
 import org.junit.Test;
 
