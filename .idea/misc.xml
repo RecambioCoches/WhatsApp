@@ -4,8 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/drawable/icono_app_background.xml" value="0.1345" />
+        <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/layout/activity_chat.xml" value="0.1796875" />
         <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/layout/activity_inicio_de_sesion.xml" value="0.1796875" />
         <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/layout/chat_list.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/layout/estado_item.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/layout/fragment_camara.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/layout/fragment_estado.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/layout/fragment_llamada.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/layout/llamada_item.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/layout/recycler_view_item.xml" value="0.1796875" />
         <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/layout/toolbar_menu.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/Lenovo/Desktop/Pablo_Fernandez/CLASE/2DAM_RECUPERACION/ANDROID/WhatsApp/app/src/main/res/menu/toolbar_menu.xml" value="0.1796875" />
         <entry key="..\:/Users/david/AndroidStudioProjects/WhatsApp/app/src/main/res/layout/activity_chat.xml" value="0.234375" />

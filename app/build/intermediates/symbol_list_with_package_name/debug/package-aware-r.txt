@@ -2543,6 +2543,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable arbol
 drawable avatar
 drawable avatardehombre
 drawable avd_hide_password
@@ -2558,6 +2559,7 @@ drawable btn_radio_on_to_off_mtrl_animation
 drawable camara_fotografica
 drawable camara_icon
 drawable carafeliz
+drawable carretera
 drawable chico
 drawable chico_1
 drawable design_fab_background
@@ -2599,6 +2601,7 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable montanas
 drawable mtrl_bottomsheet_drag_handle
 drawable mtrl_checkbox_button
 drawable mtrl_checkbox_button_checked_unchecked

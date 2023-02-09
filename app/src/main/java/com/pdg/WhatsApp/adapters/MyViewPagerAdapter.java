@@ -20,9 +20,9 @@ public class MyViewPagerAdapter extends FragmentStatePagerAdapter {
         super(fm, behavior);
         this.numberOfTabs = behavior;
         fragmentArray = new ArrayList<>();
-        fragmentArray.add(new LlamadaFragment());
         fragmentArray.add(new ChatFragment());
         fragmentArray.add(new EstadoFragment());
+        fragmentArray.add(new LlamadaFragment());
 
     }
 

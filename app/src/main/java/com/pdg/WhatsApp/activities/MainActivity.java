@@ -45,15 +45,15 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Data
 
 
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        tabLayout.addTab(tabLayout.newTab().setText("LLAMADAS"));
-        tabLayout.addTab(tabLayout.newTab().setText("CHATS"));
-        tabLayout.addTab(tabLayout.newTab().setText("ESTADOS"));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.chats));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.estados));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.llamadas));
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         myViewPagerAdapter = new MyViewPagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        viewPager.setCurrentItem(1);
+        viewPager.setCurrentItem(0);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
