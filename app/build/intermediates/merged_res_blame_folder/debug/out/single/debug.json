@@ -92,6 +92,10 @@
         "source": "com.pdg.WhatsApp.app-main-33:/layout/llamada_item.xml"
     },
     {
+        "merged": "com.pdg.WhatsApp.app-merged_res-31:/layout_mensaje_list.xml.flat",
+        "source": "com.pdg.WhatsApp.app-main-33:/layout/mensaje_list.xml"
+    },
+    {
         "merged": "com.pdg.WhatsApp.app-merged_res-31:/drawable_hijo.png.flat",
         "source": "com.pdg.WhatsApp.app-main-33:/drawable/hijo.png"
     },
@@ -130,10 +134,6 @@
     {
         "merged": "com.pdg.WhatsApp.app-merged_res-31:/mipmap-xxhdpi_icono_app_foreground.png.flat",
         "source": "com.pdg.WhatsApp.app-main-33:/mipmap-xxhdpi/icono_app_foreground.png"
-    },
-    {
-        "merged": "com.pdg.WhatsApp.app-merged_res-31:/layout_fragment_camara.xml.flat",
-        "source": "com.pdg.WhatsApp.app-main-33:/layout/fragment_camara.xml"
     },
     {
         "merged": "com.pdg.WhatsApp.app-merged_res-31:/mipmap-mdpi_icono_app_round.png.flat",

@@ -2,6 +2,8 @@ package com.pdg.WhatsApp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -12,6 +14,14 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.pdg.WhatsApp.R;
+import com.pdg.WhatsApp.adapters.ChatRecyclerAdapter;
+import com.pdg.WhatsApp.adapters.MensajeRecyclerAdapter;
+import com.pdg.WhatsApp.model.Chats;
+import com.pdg.WhatsApp.model.Mensaje;
+
+import io.realm.Realm;
+import io.realm.RealmList;
+import io.realm.RealmResults;
 
 public class Chat extends AppCompatActivity {
 
@@ -32,6 +42,10 @@ public class Chat extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
         }
     }
+    Realm realm;
+    RealmResults<Mensaje> realmMensaje;
+    RecyclerView recyclerView;
+    MensajeRecyclerAdapter mensajeRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +81,29 @@ public class Chat extends AppCompatActivity {
 
         //FINALMENTE LANZAMOS LA NOTIFICACIÓN
         notificationManager.notify(notificacionID, notificacion.build());
+
+
+        //Realm y cosas del recycler
+
+        realm = Realm.getDefaultInstance();
+        realmMensaje = realm.where(Mensaje.class).findAll();
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerMensajeId);
+
+
+        mensajeRecyclerAdapter = new MensajeRecyclerAdapter(realmMensaje, getBaseContext(), new MensajeRecyclerAdapter.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(String name, int position) {
+
+            }
+
+
+        });
+
+        recyclerView.setAdapter(mensajeRecyclerAdapter);
+        recyclerView.setAdapter(mensajeRecyclerAdapter);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
+
     }
 
 

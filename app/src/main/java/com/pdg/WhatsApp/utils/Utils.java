@@ -33,10 +33,13 @@ public class Utils {
     public static List<Estado> getDummyDataEstado(){
         List<Estado> listEstados = new ArrayList<Estado>();
 
-        listEstados.add(new Estado(R.drawable.arbol, "Asier Martínez", "Hace 30 minutos"));
-        listEstados.add(new Estado(R.drawable.carretera, "Arantxa Moriones", "Hace 6 horas"));
-        listEstados.add(new Estado(R.drawable.montanas, "David Pérez", "Hace 20 horas"));
+        listEstados.add(new Estado(R.drawable.chico, "Asier Martínez", "Hace 30 minutos"));
+        listEstados.add(new Estado(R.drawable.mujer, "Arantxa Moriones", "Hace 6 horas"));
+        listEstados.add(new Estado(R.drawable.chico, "David Pérez", "Hace 20 horas"));
         return listEstados;
+
+
+
     }
 
     public static List<Llamada> getDummyDataLlamada(){
@@ -47,6 +50,7 @@ public class Utils {
         listLlamadas.add(new Llamada(R.drawable.mujer_1, "Iratxe Aldabe", "29/10/2022", "Entrante"));
         listLlamadas.add(new Llamada(R.drawable.hijo, "Juan", "15/7/2020", "Saliente"));
         return listLlamadas;
+
     }
 
     public static List<Chats> getDummyDataChats(){
@@ -88,10 +92,31 @@ public class Utils {
         Participantes2.add("Persona7");
         Participantes2.add("Persona5");
 
+        //Mensajes
+        RealmList<Mensaje> mensaje1 = new RealmList<Mensaje>();
+        mensaje1.add(new Mensaje("Hola","Persona2"));
+        mensaje1.add(new Mensaje("¿Que tal?","Persona1"));
+        mensaje1.add(new Mensaje("Aqui estamos","Persona2"));
+        mensaje1.add(new Mensaje("Todo bien","Persona2"));
+
+
+        //Mensajes segunda persona
+        RealmList<Mensaje> mensaje2 = new RealmList<Mensaje>();
+        mensaje2.add(new Mensaje("Cuando era el examen de Moviles???","Persona1"));
+        mensaje2.add(new Mensaje("Noo me acuerdo, puede que mañana :v","Persona3"));
+        mensaje2.add(new Mensaje("¿Como no te puedes acordar?","Persona1"));
+        mensaje2.add(new Mensaje("Me di un golpe en la cabeza","Persona3"));
+
+        RealmList<Mensaje> mensaje3 = new RealmList<Mensaje>();
+        mensaje3.add(new Mensaje("Buenos dias","Persona1"));
+        mensaje3.add(new Mensaje("Que pasa","Persona4"));
+        mensaje3.add(new Mensaje("Te recuerdo que me tienes que pagar el alquiler.","Persona1"));
+        mensaje3.add(new Mensaje("Va","Persona4"));
+
         //lista de chats persona1 con otras personas
-        listChats.add(new Chats("María Álvarez",new RealmList<Mensaje>(),R.drawable.nina,Participantes1 ));
-        listChats.add(new Chats("Francisco Flores",new RealmList<Mensaje>(),R.drawable.chico,Participantes2 ));
-        listChats.add(new Chats("Carolina Gonzalez",new RealmList<Mensaje>(),R.drawable.mujer_1,Participantes3 ));
+        listChats.add(new Chats("María Álvarez",mensaje1,R.drawable.nina,Participantes1 ));
+        listChats.add(new Chats("Francisco Flores",mensaje3,R.drawable.chico,Participantes2 ));
+        listChats.add(new Chats("Carolina Gonzalez",mensaje2,R.drawable.mujer_1,Participantes3 ));
         listChats.add(new Chats("David Salas",new RealmList<Mensaje>(),R.drawable.hijo,Participantes4 ));
         listChats.add(new Chats("Pablo Perez",new RealmList<Mensaje>(),R.drawable.avatardehombre,Participantes5 ));
         listChats.add(new Chats("Iker Lopez",new RealmList<Mensaje>(),R.drawable.carafeliz,Participantes6 ));
@@ -143,6 +168,9 @@ public class Utils {
         listChats.add(new Chats("Irene Elorz",new RealmList<Mensaje>(),R.drawable.mujer_1,ParticipantesdeDavid6 ));
         listChats.add(new Chats("Familia",new RealmList<Mensaje>(),R.drawable.personas,ParticipantesdeDavid7 ));
         listChats.add(new Chats("Grupo de Bingo",new RealmList<Mensaje>(),R.drawable.diversidad,ParticipantesdeDavid8 ));
+
+
+
 
         return listChats;
     }

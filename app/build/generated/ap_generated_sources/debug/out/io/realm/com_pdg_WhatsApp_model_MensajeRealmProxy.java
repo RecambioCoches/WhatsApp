@@ -46,7 +46,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         long idColKey;
         long mensajeColKey;
         long tiempoColKey;
-        long idUsuarioColKey;
+        long nombreUsuarioColKey;
 
         MensajeColumnInfo(OsSchemaInfo schemaInfo) {
             super(4);
@@ -54,7 +54,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
             this.idColKey = addColumnDetails("id", "id", objectSchemaInfo);
             this.mensajeColKey = addColumnDetails("mensaje", "mensaje", objectSchemaInfo);
             this.tiempoColKey = addColumnDetails("tiempo", "tiempo", objectSchemaInfo);
-            this.idUsuarioColKey = addColumnDetails("idUsuario", "idUsuario", objectSchemaInfo);
+            this.nombreUsuarioColKey = addColumnDetails("nombreUsuario", "nombreUsuario", objectSchemaInfo);
         }
 
         MensajeColumnInfo(ColumnInfo src, boolean mutable) {
@@ -74,7 +74,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
             dst.idColKey = src.idColKey;
             dst.mensajeColKey = src.mensajeColKey;
             dst.tiempoColKey = src.tiempoColKey;
-            dst.idUsuarioColKey = src.idUsuarioColKey;
+            dst.nombreUsuarioColKey = src.nombreUsuarioColKey;
         }
     }
 
@@ -185,24 +185,32 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
 
     @Override
     @SuppressWarnings("cast")
-    public int realmGet$idUsuario() {
+    public String realmGet$nombreUsuario() {
         proxyState.getRealm$realm().checkIfValid();
-        return (int) proxyState.getRow$realm().getLong(columnInfo.idUsuarioColKey);
+        return (java.lang.String) proxyState.getRow$realm().getString(columnInfo.nombreUsuarioColKey);
     }
 
     @Override
-    public void realmSet$idUsuario(int value) {
+    public void realmSet$nombreUsuario(String value) {
         if (proxyState.isUnderConstruction()) {
             if (!proxyState.getAcceptDefaultValue$realm()) {
                 return;
             }
             final Row row = proxyState.getRow$realm();
-            row.getTable().setLong(columnInfo.idUsuarioColKey, row.getObjectKey(), value, true);
+            if (value == null) {
+                row.getTable().setNull(columnInfo.nombreUsuarioColKey, row.getObjectKey(), true);
+                return;
+            }
+            row.getTable().setString(columnInfo.nombreUsuarioColKey, row.getObjectKey(), value, true);
             return;
         }
 
         proxyState.getRealm$realm().checkIfValid();
-        proxyState.getRow$realm().setLong(columnInfo.idUsuarioColKey, value);
+        if (value == null) {
+            proxyState.getRow$realm().setNull(columnInfo.nombreUsuarioColKey);
+            return;
+        }
+        proxyState.getRow$realm().setString(columnInfo.nombreUsuarioColKey, value);
     }
 
     private static OsObjectSchemaInfo createExpectedObjectSchemaInfo() {
@@ -210,7 +218,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         builder.addPersistedProperty(NO_ALIAS, "id", RealmFieldType.INTEGER, Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED);
         builder.addPersistedProperty(NO_ALIAS, "mensaje", RealmFieldType.STRING, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED);
         builder.addPersistedProperty(NO_ALIAS, "tiempo", RealmFieldType.DATE, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED);
-        builder.addPersistedProperty(NO_ALIAS, "idUsuario", RealmFieldType.INTEGER, !Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED);
+        builder.addPersistedProperty(NO_ALIAS, "nombreUsuario", RealmFieldType.STRING, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED);
         return builder.build();
     }
 
@@ -285,11 +293,11 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
                 }
             }
         }
-        if (json.has("idUsuario")) {
-            if (json.isNull("idUsuario")) {
-                throw new IllegalArgumentException("Trying to set non-nullable field 'idUsuario' to null.");
+        if (json.has("nombreUsuario")) {
+            if (json.isNull("nombreUsuario")) {
+                objProxy.realmSet$nombreUsuario(null);
             } else {
-                objProxy.realmSet$idUsuario((int) json.getInt("idUsuario"));
+                objProxy.realmSet$nombreUsuario((String) json.getString("nombreUsuario"));
             }
         }
         return obj;
@@ -333,12 +341,12 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
                 } else {
                     objProxy.realmSet$tiempo(JsonUtils.stringToDate(reader.nextString()));
                 }
-            } else if (name.equals("idUsuario")) {
+            } else if (name.equals("nombreUsuario")) {
                 if (reader.peek() != JsonToken.NULL) {
-                    objProxy.realmSet$idUsuario((int) reader.nextInt());
+                    objProxy.realmSet$nombreUsuario((String) reader.nextString());
                 } else {
                     reader.skipValue();
-                    throw new IllegalArgumentException("Trying to set non-nullable field 'idUsuario' to null.");
+                    objProxy.realmSet$nombreUsuario(null);
                 }
             } else {
                 reader.skipValue();
@@ -413,7 +421,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         builder.addInteger(columnInfo.idColKey, unmanagedSource.realmGet$id());
         builder.addString(columnInfo.mensajeColKey, unmanagedSource.realmGet$mensaje());
         builder.addDate(columnInfo.tiempoColKey, unmanagedSource.realmGet$tiempo());
-        builder.addInteger(columnInfo.idUsuarioColKey, unmanagedSource.realmGet$idUsuario());
+        builder.addString(columnInfo.nombreUsuarioColKey, unmanagedSource.realmGet$nombreUsuario());
 
         // Create the underlying object and cache it before setting any object/objectlist references
         // This will allow us to break any circular dependencies by using the object cache.
@@ -451,7 +459,10 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         if (realmGet$tiempo != null) {
             Table.nativeSetTimestamp(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo.getTime(), false);
         }
-        Table.nativeSetLong(tableNativePtr, columnInfo.idUsuarioColKey, objKey, ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$idUsuario(), false);
+        String realmGet$nombreUsuario = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$nombreUsuario();
+        if (realmGet$nombreUsuario != null) {
+            Table.nativeSetString(tableNativePtr, columnInfo.nombreUsuarioColKey, objKey, realmGet$nombreUsuario, false);
+        }
         return objKey;
     }
 
@@ -489,7 +500,10 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
             if (realmGet$tiempo != null) {
                 Table.nativeSetTimestamp(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo.getTime(), false);
             }
-            Table.nativeSetLong(tableNativePtr, columnInfo.idUsuarioColKey, objKey, ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$idUsuario(), false);
+            String realmGet$nombreUsuario = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$nombreUsuario();
+            if (realmGet$nombreUsuario != null) {
+                Table.nativeSetString(tableNativePtr, columnInfo.nombreUsuarioColKey, objKey, realmGet$nombreUsuario, false);
+            }
         }
     }
 
@@ -522,7 +536,12 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         } else {
             Table.nativeSetNull(tableNativePtr, columnInfo.tiempoColKey, objKey, false);
         }
-        Table.nativeSetLong(tableNativePtr, columnInfo.idUsuarioColKey, objKey, ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$idUsuario(), false);
+        String realmGet$nombreUsuario = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$nombreUsuario();
+        if (realmGet$nombreUsuario != null) {
+            Table.nativeSetString(tableNativePtr, columnInfo.nombreUsuarioColKey, objKey, realmGet$nombreUsuario, false);
+        } else {
+            Table.nativeSetNull(tableNativePtr, columnInfo.nombreUsuarioColKey, objKey, false);
+        }
         return objKey;
     }
 
@@ -562,7 +581,12 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
             } else {
                 Table.nativeSetNull(tableNativePtr, columnInfo.tiempoColKey, objKey, false);
             }
-            Table.nativeSetLong(tableNativePtr, columnInfo.idUsuarioColKey, objKey, ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$idUsuario(), false);
+            String realmGet$nombreUsuario = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$nombreUsuario();
+            if (realmGet$nombreUsuario != null) {
+                Table.nativeSetString(tableNativePtr, columnInfo.nombreUsuarioColKey, objKey, realmGet$nombreUsuario, false);
+            } else {
+                Table.nativeSetNull(tableNativePtr, columnInfo.nombreUsuarioColKey, objKey, false);
+            }
         }
     }
 
@@ -589,7 +613,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         unmanagedCopy.realmSet$id(realmSource.realmGet$id());
         unmanagedCopy.realmSet$mensaje(realmSource.realmGet$mensaje());
         unmanagedCopy.realmSet$tiempo(realmSource.realmGet$tiempo());
-        unmanagedCopy.realmSet$idUsuario(realmSource.realmGet$idUsuario());
+        unmanagedCopy.realmSet$nombreUsuario(realmSource.realmGet$nombreUsuario());
 
         return unmanagedObject;
     }
@@ -602,7 +626,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         builder.addInteger(columnInfo.idColKey, realmObjectSource.realmGet$id());
         builder.addString(columnInfo.mensajeColKey, realmObjectSource.realmGet$mensaje());
         builder.addDate(columnInfo.tiempoColKey, realmObjectSource.realmGet$tiempo());
-        builder.addInteger(columnInfo.idUsuarioColKey, realmObjectSource.realmGet$idUsuario());
+        builder.addString(columnInfo.nombreUsuarioColKey, realmObjectSource.realmGet$nombreUsuario());
 
         builder.updateExistingTopLevelObject();
         return realmObject;
@@ -627,8 +651,8 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         stringBuilder.append(realmGet$tiempo() != null ? realmGet$tiempo() : "null");
         stringBuilder.append("}");
         stringBuilder.append(",");
-        stringBuilder.append("{idUsuario:");
-        stringBuilder.append(realmGet$idUsuario());
+        stringBuilder.append("{nombreUsuario:");
+        stringBuilder.append(realmGet$nombreUsuario() != null ? realmGet$nombreUsuario() : "null");
         stringBuilder.append("}");
         stringBuilder.append("]");
         return stringBuilder.toString();

@@ -1,6 +1,7 @@
 package com.pdg.WhatsApp.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pdg.WhatsApp.R;
+import com.pdg.WhatsApp.activities.Chat;
+import com.pdg.WhatsApp.activities.MainActivity;
 import com.pdg.WhatsApp.model.Chats;
 import com.pdg.WhatsApp.model.Mensaje;
 
@@ -19,6 +22,7 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 import io.realm.RealmResults;
 
 public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapter.RecyclerDataHolder> implements View.OnClickListener {
@@ -27,16 +31,11 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
     RealmResults<Chats> realmChat;
     private View.OnClickListener listener;
     private OnItemClickListener itemListener;
-    //public ChatRecyclerAdapter(List<Chats> chatList, EstadoRecyclerAdapter.OnItemClickListener listener){
-     //   this.chatList = chatList;
-      //  this.itemListener = (OnItemClickListener) listener;
 
-
-    //}
 
     public ChatRecyclerAdapter(RealmResults<Chats> realmChat, Context baseContext, OnItemClickListener onItemClickListener) {
         this.realmChat = realmChat;
-        this.itemListener = (OnItemClickListener) listener;
+        this.itemListener = (OnItemClickListener) onItemClickListener;
     }
 
     @NonNull
@@ -49,7 +48,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerDataHolder holder, int position) {
-        holder.assignDataChat(realmChat.get(position));
+        holder.assignDataChat(realmChat.get(position),itemListener);
     }
 
     @Override
@@ -62,7 +61,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
 
     }
     public interface OnItemClickListener{
-        void onItemClick(String name, int position);
+        void onItemClick(RealmList<Mensaje> mensajes, int position);
 
 
     }
@@ -82,7 +81,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
         }
 
 
-        public void assignDataChat(Chats chats) {
+        public void assignDataChat(Chats chats, final OnItemClickListener onItemClickListener) {
             this.nombreChat.setText(chats.getNombreChat());
             if (chats.getMensajes().size() == 0){
                 this.mensajeChat.setText("");
@@ -100,7 +99,11 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    itemListener.onItemClick(chats.getNombreChat(),getAdapterPosition());
+                    onItemClickListener.onItemClick(chats.getMensajes(),getAdapterPosition());
+
+
+
+
 
                 }
             });

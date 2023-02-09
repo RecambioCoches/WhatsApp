@@ -8,6 +8,6 @@ public interface com_pdg_WhatsApp_model_MensajeRealmProxyInterface {
     public void realmSet$mensaje(String value);
     public java.util.Date realmGet$tiempo();
     public void realmSet$tiempo(java.util.Date value);
-    public int realmGet$idUsuario();
-    public void realmSet$idUsuario(int value);
+    public String realmGet$nombreUsuario();
+    public void realmSet$nombreUsuario(String value);
 }

@@ -1,6 +1,7 @@
 package com.pdg.WhatsApp.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,10 +15,13 @@ import android.view.ViewGroup;
 
 
 import com.pdg.WhatsApp.R;
+import com.pdg.WhatsApp.activities.Chat;
 import com.pdg.WhatsApp.adapters.ChatRecyclerAdapter;
 import com.pdg.WhatsApp.model.Chats;
+import com.pdg.WhatsApp.model.Mensaje;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 import io.realm.RealmResults;
 
 public class ChatFragment extends Fragment {
@@ -54,9 +58,11 @@ public class ChatFragment extends Fragment {
         chatRecyclerAdapter = new ChatRecyclerAdapter(realmChat, getActivity().getBaseContext(), new ChatRecyclerAdapter.OnItemClickListener(){
 
             @Override
-            public void onItemClick(String name, int position) {
+            public void onItemClick(RealmList<Mensaje> mensajes, int position) {
                 Integer id = realmChat.get(position).getId();
                 callback.sendData(id);
+                Intent intent = new Intent(getActivity(), Chat.class);
+                startActivity(intent);
             }
         });
 

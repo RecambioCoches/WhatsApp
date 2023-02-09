@@ -38,7 +38,7 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
     @NonNull
     @Override
     public MensajeRecyclerAdapter.RecyclerDataHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_list,null,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mensaje_list,null,false);
         view.setOnClickListener(this);
         return new MensajeRecyclerAdapter.RecyclerDataHolder(view);
     }
@@ -64,21 +64,19 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
     }
 
     public class RecyclerDataHolder extends RecyclerView.ViewHolder{
-        ImageView imagenChat;
-        TextView nombreChat;
-        TextView mensajeChat;
-        TextView horaChat;
+
+        TextView mensaje;
+
 
         public RecyclerDataHolder(@NonNull View itemView){
             super(itemView);
-            imagenChat = (ImageView) itemView.findViewById(R.id.imageViewChat);
-            nombreChat = (TextView) itemView.findViewById(R.id.textViewNombreChat);
-            mensajeChat = (TextView) itemView.findViewById(R.id.textViewMensajeChat);
-            horaChat = (TextView) itemView.findViewById(R.id.textViewHoraChat);
+            mensaje = (TextView) itemView.findViewById(R.id.textViewMensajeList);
+
         }
 
 
         public void assignDataChat(Mensaje mensaje) {
+            this.mensaje.setText(mensaje.getMensaje());
 
 
 
