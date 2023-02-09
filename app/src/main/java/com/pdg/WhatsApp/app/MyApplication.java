@@ -2,8 +2,10 @@ package com.pdg.WhatsApp.app;
 
 import android.app.Application;
 
+import com.pdg.WhatsApp.model.Chats;
 import com.pdg.WhatsApp.model.Estado;
 import com.pdg.WhatsApp.model.Llamada;
+import com.pdg.WhatsApp.model.Mensaje;
 import com.pdg.WhatsApp.model.User;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -18,6 +20,7 @@ public class MyApplication extends Application {
     public static AtomicInteger estadoId = new AtomicInteger();
     public static AtomicInteger llamadaId = new AtomicInteger();
     public static AtomicInteger chatId = new AtomicInteger();
+    public static AtomicInteger mensajeId = new AtomicInteger();
 
     @Override
     public void onCreate() {
@@ -27,7 +30,8 @@ public class MyApplication extends Application {
         userId = getIdByTable(realm, User.class);
         estadoId = getIdByTable(realm, Estado.class);
         llamadaId = getIdByTable(realm, Llamada.class);
-        chatId = getIdByTable(realm, Llamada.class);
+        chatId = getIdByTable(realm, Chats.class);
+        mensajeId = getIdByTable(realm, Mensaje.class);
         realm.close();
     }
 

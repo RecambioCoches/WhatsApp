@@ -29,11 +29,11 @@ public class InicioDeSesion extends AppCompatActivity {
         setContentView(R.layout.activity_inicio_de_sesion);
         realm = Realm.getDefaultInstance();
 
-        //realm.beginTransaction();
-        //realm.deleteAll();
-        //realm.commitTransaction();
+        realm.beginTransaction();
+        realm.deleteAll();
+        realm.commitTransaction();
 
-        //realm = Realm.getDefaultInstance();
+
         if (realm.isEmpty()){
 
             realm.beginTransaction();
@@ -61,6 +61,7 @@ public class InicioDeSesion extends AppCompatActivity {
                     try {
                         Intent intent = new Intent(InicioDeSesion.this, MainActivity.class);
                         intent.putExtra("id", user.getId());
+                        intent.putExtra("name", user.getNombre());
                         txtUsername.setText("");
                         txtPassword.setText("");
                         startActivity(intent);

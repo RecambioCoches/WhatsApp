@@ -23,7 +23,7 @@ public class Mensaje extends RealmObject {
     }
 
     public Mensaje(String mensaje,String nombreUsuario) {
-        this.id = MyApplication.userId.incrementAndGet();
+        this.id = MyApplication.mensajeId.incrementAndGet();
         this.mensaje = mensaje;
         tiempo = Calendar.getInstance().getTime();
         this.nombreUsuario = nombreUsuario;

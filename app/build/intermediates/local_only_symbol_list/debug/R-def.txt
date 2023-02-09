@@ -36,8 +36,10 @@ drawable splash
 drawable whatsapp
 drawable whatsapp_negro
 id btnLogin
+id buttonSend
 id camara
 id cerrar_sesion
+id editTextNuevoMensaje
 id imageView
 id imageView2
 id imageViewChat

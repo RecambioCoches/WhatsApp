@@ -63,36 +63,36 @@ public class Utils {
 
         RealmList<String> Participantes2 = new RealmList<>();
         Participantes2.add("Persona1");
-        Participantes2.add("Persona4");
+        Participantes2.add("Persona3");
 
 
         RealmList<String> Participantes3 = new RealmList<>();
-        Participantes2.add("Persona1");
-        Participantes2.add("Persona3");
+        Participantes3.add("Persona1");
+        Participantes3.add("Persona4");
 
         RealmList<String> Participantes4 = new RealmList<>();
-        Participantes2.add("Persona1");
-        Participantes2.add("Persona5");
+        Participantes4.add("Persona1");
+        Participantes4.add("Persona5");
 
         RealmList<String> Participantes5 = new RealmList<>();
-        Participantes2.add("Persona1");
-        Participantes2.add("Persona6");
+        Participantes4.add("Persona1");
+        Participantes4.add("Persona6");
 
         RealmList<String> Participantes6 = new RealmList<>();
-        Participantes2.add("Persona1");
-        Participantes2.add("Persona3");
+        Participantes5.add("Persona1");
+        Participantes5.add("Persona3");
 
         RealmList<String> Participantes7 = new RealmList<>();
-        Participantes2.add("Persona1");
-        Participantes2.add("Persona7");
+        Participantes6.add("Persona1");
+        Participantes6.add("Persona7");
 
         RealmList<String> Participantes8 = new RealmList<>();
-        Participantes2.add("Persona1");
-        Participantes2.add("Persona3");
-        Participantes2.add("Persona7");
-        Participantes2.add("Persona5");
+        Participantes8.add("Persona1");
+        Participantes8.add("Persona3");
+        Participantes8.add("Persona7");
+        Participantes8.add("Persona5");
 
-        //Mensajes
+        //Mensajes de Persona1 con Persona 2
         RealmList<Mensaje> mensaje1 = new RealmList<Mensaje>();
         mensaje1.add(new Mensaje("Hola","Persona2"));
         mensaje1.add(new Mensaje("¿Que tal?","Persona1"));
@@ -100,13 +100,14 @@ public class Utils {
         mensaje1.add(new Mensaje("Todo bien","Persona2"));
 
 
-        //Mensajes segunda persona
+        //Mensajes de Persona1 con Persona 3
         RealmList<Mensaje> mensaje2 = new RealmList<Mensaje>();
         mensaje2.add(new Mensaje("Cuando era el examen de Moviles???","Persona1"));
         mensaje2.add(new Mensaje("Noo me acuerdo, puede que mañana :v","Persona3"));
         mensaje2.add(new Mensaje("¿Como no te puedes acordar?","Persona1"));
         mensaje2.add(new Mensaje("Me di un golpe en la cabeza","Persona3"));
 
+        //Mensajes de Persona1 con Persona 4
         RealmList<Mensaje> mensaje3 = new RealmList<Mensaje>();
         mensaje3.add(new Mensaje("Buenos dias","Persona1"));
         mensaje3.add(new Mensaje("Que pasa","Persona4"));
@@ -115,8 +116,8 @@ public class Utils {
 
         //lista de chats persona1 con otras personas
         listChats.add(new Chats("María Álvarez",mensaje1,R.drawable.nina,Participantes1 ));
-        listChats.add(new Chats("Francisco Flores",mensaje3,R.drawable.chico,Participantes2 ));
-        listChats.add(new Chats("Carolina Gonzalez",mensaje2,R.drawable.mujer_1,Participantes3 ));
+        listChats.add(new Chats("Francisco Flores",mensaje2,R.drawable.chico,Participantes2 ));
+        listChats.add(new Chats("Carolina Gonzalez",mensaje3,R.drawable.mujer_1,Participantes3 ));
         listChats.add(new Chats("David Salas",new RealmList<Mensaje>(),R.drawable.hijo,Participantes4 ));
         listChats.add(new Chats("Pablo Perez",new RealmList<Mensaje>(),R.drawable.avatardehombre,Participantes5 ));
         listChats.add(new Chats("Iker Lopez",new RealmList<Mensaje>(),R.drawable.carafeliz,Participantes6 ));
@@ -124,40 +125,40 @@ public class Utils {
         listChats.add(new Chats("Grupo 2 Dam",new RealmList<Mensaje>(),R.drawable.diversidad,Participantes8 ));
 
         RealmList<String> ParticipantesdeDavid1 = new RealmList<>();
-        Participantes1.add("Persona2");
-        Participantes1.add("Persona1");
+        ParticipantesdeDavid1.add("Persona2");
+        ParticipantesdeDavid1.add("Persona1");
 
         RealmList<String> ParticipantesdeDavid2 = new RealmList<>();
-        Participantes2.add("Persona2");
-        Participantes2.add("Persona4");
+        ParticipantesdeDavid2.add("Persona2");
+        ParticipantesdeDavid2.add("Persona4");
 
 
         RealmList<String> ParticipantesdeDavid3 = new RealmList<>();
-        Participantes2.add("Persona2");
-        Participantes2.add("Persona3");
+        ParticipantesdeDavid3.add("Persona2");
+        ParticipantesdeDavid3.add("Persona3");
 
         RealmList<String> ParticipantesdeDavid4 = new RealmList<>();
-        Participantes2.add("Persona2");
-        Participantes2.add("Persona5");
+        ParticipantesdeDavid4.add("Persona2");
+        ParticipantesdeDavid4.add("Persona5");
 
         RealmList<String> ParticipantesdeDavid5 = new RealmList<>();
-        Participantes2.add("Persona2");
-        Participantes2.add("Persona6");
+        ParticipantesdeDavid5.add("Persona2");
+        ParticipantesdeDavid5.add("Persona6");
 
         RealmList<String> ParticipantesdeDavid6 = new RealmList<>();
-        Participantes2.add("Persona2");
-        Participantes2.add("Persona7");
+        ParticipantesdeDavid6.add("Persona2");
+        ParticipantesdeDavid6.add("Persona7");
 
         RealmList<String> ParticipantesdeDavid7 = new RealmList<>();
-        Participantes2.add("Persona2");
-        Participantes2.add("Persona7");
-        Participantes2.add("Persona5");
+        ParticipantesdeDavid7.add("Persona2");
+        ParticipantesdeDavid7.add("Persona7");
+        ParticipantesdeDavid7.add("Persona5");
 
         RealmList<String> ParticipantesdeDavid8 = new RealmList<>();
-        Participantes2.add("Persona2");
-        Participantes2.add("Persona1");
-        Participantes2.add("Persona6");
-        Participantes2.add("Persona5");
+        ParticipantesdeDavid8.add("Persona2");
+        ParticipantesdeDavid8.add("Persona1");
+        ParticipantesdeDavid8.add("Persona6");
+        ParticipantesdeDavid8.add("Persona5");
 
         //lista de chats persona1 con otras personas
         listChats.add(new Chats("Jonas",new RealmList<Mensaje>(),R.drawable.carafeliz,ParticipantesdeDavid1 ));

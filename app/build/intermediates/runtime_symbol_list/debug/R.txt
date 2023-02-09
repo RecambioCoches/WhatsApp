@@ -2764,6 +2764,7 @@ int id bounceEnd 0x7f080060
 int id bounceStart 0x7f080061
 int id btnLogin 0x7f080062
 int id buttonPanel 0x7f080063
+int id buttonSend 0x7f0801fd
 int id cache_measures 0x7f080064
 int id callMeasure 0x7f080065
 int id camara 0x7f080066
@@ -2837,6 +2838,7 @@ int id easeIn 0x7f0800a9
 int id easeInOut 0x7f0800aa
 int id easeOut 0x7f0800ab
 int id east 0x7f0800ac
+int id editTextNuevoMensaje 0x7f0801fe
 int id edit_query 0x7f0800ad
 int id elastic 0x7f0800ae
 int id embed 0x7f0800af

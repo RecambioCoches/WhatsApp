@@ -28,12 +28,12 @@ import io.realm.RealmResults;
 public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapter.RecyclerDataHolder> implements View.OnClickListener {
 
     Realm realm;
-    RealmResults<Chats> realmChat;
+    RealmList<Chats> realmChat;
     private View.OnClickListener listener;
     private OnItemClickListener itemListener;
 
 
-    public ChatRecyclerAdapter(RealmResults<Chats> realmChat, Context baseContext, OnItemClickListener onItemClickListener) {
+    public ChatRecyclerAdapter(RealmList<Chats> realmChat, Context baseContext, OnItemClickListener onItemClickListener) {
         this.realmChat = realmChat;
         this.itemListener = (OnItemClickListener) onItemClickListener;
     }

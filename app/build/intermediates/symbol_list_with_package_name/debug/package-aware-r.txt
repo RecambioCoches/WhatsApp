@@ -2765,6 +2765,7 @@ id bounceEnd
 id bounceStart
 id btnLogin
 id buttonPanel
+id buttonSend
 id cache_measures
 id callMeasure
 id camara
@@ -2838,6 +2839,7 @@ id easeIn
 id easeInOut
 id easeOut
 id east
+id editTextNuevoMensaje
 id edit_query
 id elastic
 id embed

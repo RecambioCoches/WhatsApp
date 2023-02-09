@@ -15,12 +15,13 @@ import com.pdg.WhatsApp.model.Chats;
 import com.pdg.WhatsApp.model.Mensaje;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 import io.realm.RealmResults;
 
 public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecyclerAdapter.RecyclerDataHolder> implements View.OnClickListener {
 
     Realm realm;
-    RealmResults<Mensaje> realmMensaje;
+    RealmList<Mensaje> realmMensaje;
     private View.OnClickListener listener;
     private MensajeRecyclerAdapter.OnItemClickListener itemListener;
     //public ChatRecyclerAdapter(List<Chats> chatList, EstadoRecyclerAdapter.OnItemClickListener listener){
@@ -30,7 +31,7 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
 
     //}
 
-    public MensajeRecyclerAdapter(RealmResults<Mensaje> realmMensaje, Context baseContext, MensajeRecyclerAdapter.OnItemClickListener onItemClickListener) {
+    public MensajeRecyclerAdapter(RealmList<Mensaje> realmMensaje, Context baseContext, MensajeRecyclerAdapter.OnItemClickListener onItemClickListener) {
         this.realmMensaje = realmMensaje;
         this.itemListener = (MensajeRecyclerAdapter.OnItemClickListener) listener;
     }

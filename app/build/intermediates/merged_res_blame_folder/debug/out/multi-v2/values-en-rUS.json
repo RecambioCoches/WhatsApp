@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.pdg.WhatsApp.app-mergeDebugResources-29:/values-en-rUS/values-en-rUS.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\david\\AndroidStudioProjects\\WhatsApp\\app\\src\\main\\res\\values-en-rUS\\strings.xml",
+                    "from": {
+                        "startLines": "2,13,5,4,6,10,8,12,11,7,9",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "57,601,214,163,257,440,342,547,489,298,387",
+                        "endColumns": "45,51,41,49,39,47,43,52,56,42,51",
+                        "endOffsets": "98,648,251,208,292,483,381,595,541,336,434"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,101,153,195,245,285,333,377,430,487,530",
+                        "endColumns": "45,51,41,49,39,47,43,52,56,42,51",
+                        "endOffsets": "96,148,190,240,280,328,372,425,482,525,577"
+                    }
+                }
+            ]
+        }
+    ]
+}

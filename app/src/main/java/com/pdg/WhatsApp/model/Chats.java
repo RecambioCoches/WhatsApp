@@ -28,7 +28,7 @@ public class Chats extends RealmObject {
         this.nombreChat = nombreChat;
         this.mensajes = mensajes;
         this.imagen = imagen;
-        this.nombreUsers = nombreUsers;
+        this.nombreUsers = users;
 
     }
 
@@ -62,5 +62,13 @@ public class Chats extends RealmObject {
 
     public void setImagen(int imagen) {
         this.imagen = imagen;
+    }
+
+    public RealmList<String> getNombreUsers() {
+        return nombreUsers;
+    }
+
+    public void setNombreUsers(RealmList<String> nombreUsers) {
+        this.nombreUsers = nombreUsers;
     }
 }

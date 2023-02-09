@@ -21,9 +21,9 @@
         android:id="@+id/tvPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
-        android:text="Contraseña"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/contrasena"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/tvUser"
         app:layout_constraintTop_toBottomOf="@+id/tvUser" />
@@ -32,34 +32,37 @@
         android:id="@+id/txtUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Usuario"
+        android:hint="@string/hint_nombre_usuario"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvUser"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvUser" />
+        app:layout_constraintTop_toTopOf="@+id/tvUser"
+        app:layout_constraintVertical_bias="0.714" />
 
     <EditText
         android:id="@+id/txtPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:ems="10"
-        android:hint="Contraseña"
+        android:hint="@string/hint_contrasena"
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvPass"
         app:layout_constraintStart_toStartOf="@+id/txtUser"
-        app:layout_constraintTop_toTopOf="@+id/tvPass" />
+        app:layout_constraintTop_toTopOf="@+id/tvPass"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="Logearse"
         android:backgroundTint="@color/verde_whatsapp"
+        android:text="@string/btnIniciarSesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPass" />
@@ -68,9 +71,9 @@
         android:id="@+id/tvUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="72dp"
-        android:text="Usuario"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/nombre_usuario"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />

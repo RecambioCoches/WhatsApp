@@ -42,7 +42,9 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Data
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
-
+        //Recibimos el usuario que ha hecho login
+        Bundle b = getIntent().getExtras();
+        String name = b.getString("name");
 
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.chats));
@@ -54,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Data
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         viewPager.setCurrentItem(0);
+        ChatFragment michat = (ChatFragment) myViewPagerAdapter.getItem(0);
+        michat.SetNombre(name);
+
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

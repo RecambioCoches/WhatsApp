@@ -11,7 +11,9 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.pdg.WhatsApp.R;
 import com.pdg.WhatsApp.adapters.ChatRecyclerAdapter;
@@ -46,6 +48,9 @@ public class Chat extends AppCompatActivity {
     RealmResults<Mensaje> realmMensaje;
     RecyclerView recyclerView;
     MensajeRecyclerAdapter mensajeRecyclerAdapter;
+    Button buttonSend;
+    EditText editTextNuevoMensaje;
+    Integer chatId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,27 +87,41 @@ public class Chat extends AppCompatActivity {
         //FINALMENTE LANZAMOS LA NOTIFICACIÓN
         notificationManager.notify(notificacionID, notificacion.build());
 
-
+        editTextNuevoMensaje = (EditText) findViewById(R.id.editTextNuevoMensaje);
+        buttonSend = (Button) findViewById(R.id.buttonSend);
         //Realm y cosas del recycler
-
+        Bundle b = getIntent().getExtras();
+        int id = b.getInt("id");
+        chatId = id;
         realm = Realm.getDefaultInstance();
-        realmMensaje = realm.where(Mensaje.class).findAll();
+
+
+        Chats c = realm.where(Chats.class).equalTo("id",chatId).findFirst();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerMensajeId);
 
 
-        mensajeRecyclerAdapter = new MensajeRecyclerAdapter(realmMensaje, getBaseContext(), new MensajeRecyclerAdapter.OnItemClickListener(){
+        mensajeRecyclerAdapter = new MensajeRecyclerAdapter(c.getMensajes(), getBaseContext(), new MensajeRecyclerAdapter.OnItemClickListener(){
 
             @Override
             public void onItemClick(String name, int position) {
-
+                String mensaje = editTextNuevoMensaje.toString();
             }
 
 
         });
+        Bundle bundle = getIntent().getExtras();
+        String name = bundle.getString("name");
+
 
         recyclerView.setAdapter(mensajeRecyclerAdapter);
-        recyclerView.setAdapter(mensajeRecyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this,1));
+
+        buttonSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 
