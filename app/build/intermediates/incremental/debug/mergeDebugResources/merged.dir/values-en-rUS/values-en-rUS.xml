@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WhatsApp</string>
+    <string name="btnIniciarSesion">Log In</string>
+    <string name="camara">Camera</string>
+    <string name="cerrar_sesion">Log Out</string>
+    <string name="chats">CHATS</string>
+    <string name="contrasena">Password</string>
+    <string name="estados">STORIES</string>
+    <string name="hint_contrasena">Password</string>
+    <string name="hint_nombre_usuario">Username</string>
+    <string name="llamadas">CALLS</string>
+    <string name="nombre_usuario">Username</string>
+</resources>
