@@ -29,9 +29,9 @@ public class InicioDeSesion extends AppCompatActivity {
         setContentView(R.layout.activity_inicio_de_sesion);
         realm = Realm.getDefaultInstance();
 
-        realm.beginTransaction();
-        realm.deleteAll();
-        realm.commitTransaction();
+        //realm.beginTransaction();
+        //realm.deleteAll();
+        //realm.commitTransaction();
 
 
         if (realm.isEmpty()){

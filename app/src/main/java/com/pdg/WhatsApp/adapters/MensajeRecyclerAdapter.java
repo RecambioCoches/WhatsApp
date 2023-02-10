@@ -1,6 +1,8 @@
 package com.pdg.WhatsApp.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,17 +25,20 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
     Realm realm;
     RealmList<Mensaje> realmMensaje;
     private View.OnClickListener listener;
+    private String name;
     private MensajeRecyclerAdapter.OnItemClickListener itemListener;
-    //public ChatRecyclerAdapter(List<Chats> chatList, EstadoRecyclerAdapter.OnItemClickListener listener){
+    //public ChatRecyclerAdapter(List<Chats> chatList, EstadoRecyclerAdapter.OnItemClickListener listener, Bundle bundle){
     //   this.chatList = chatList;
     //  this.itemListener = (OnItemClickListener) listener;
 
 
     //}
 
-    public MensajeRecyclerAdapter(RealmList<Mensaje> realmMensaje, Context baseContext, MensajeRecyclerAdapter.OnItemClickListener onItemClickListener) {
+
+    public MensajeRecyclerAdapter(RealmList<Mensaje> realmMensaje, String name, MensajeRecyclerAdapter.OnItemClickListener onItemClickListener) {
         this.realmMensaje = realmMensaje;
-        this.itemListener = (MensajeRecyclerAdapter.OnItemClickListener) listener;
+        this.itemListener = onItemClickListener;
+        this.name = name;
     }
 
     @NonNull
@@ -46,7 +51,9 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
 
     @Override
     public void onBindViewHolder(@NonNull MensajeRecyclerAdapter.RecyclerDataHolder holder, int position) {
-        holder.assignDataChat(realmMensaje.get(position));
+        View itemView = holder.itemView;
+        Mensaje mensaje = realmMensaje.get(position);
+        holder.assignDataChat(itemView, mensaje, name);
     }
 
     @Override
@@ -67,17 +74,31 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
     public class RecyclerDataHolder extends RecyclerView.ViewHolder{
 
         TextView mensaje;
+        String nombreUser;
+
+
 
 
         public RecyclerDataHolder(@NonNull View itemView){
             super(itemView);
+
             mensaje = (TextView) itemView.findViewById(R.id.textViewMensajeList);
+
+
 
         }
 
 
-        public void assignDataChat(Mensaje mensaje) {
-            this.mensaje.setText(mensaje.getMensaje());
+        public void assignDataChat(View itemView, Mensaje mensaje, String name) {
+            TextView mensajeTextView = itemView.findViewById(R.id.textViewMensajeList);
+            mensajeTextView.setText(mensaje.getMensaje());
+            nombreUser = mensaje.getNombreUsuario();
+
+            if (nombreUser.equals(name)) {
+                mensajeTextView.setGravity(Gravity.END);
+            } else {
+                mensajeTextView.setGravity(Gravity.START);
+            }
 
 
 
@@ -89,6 +110,8 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
 
                 }
             });
+
+
         }
     }
 

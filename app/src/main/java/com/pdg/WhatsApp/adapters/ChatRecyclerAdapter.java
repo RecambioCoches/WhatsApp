@@ -72,12 +72,22 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
         TextView mensajeChat;
         TextView horaChat;
 
+        TextView nombredelChat;
+        ImageView imagendelChat;
+
         public RecyclerDataHolder(@NonNull View itemView){
             super(itemView);
             imagenChat = (ImageView) itemView.findViewById(R.id.imageViewChat);
             nombreChat = (TextView) itemView.findViewById(R.id.textViewNombreChat);
             mensajeChat = (TextView) itemView.findViewById(R.id.textViewMensajeChat);
             horaChat = (TextView) itemView.findViewById(R.id.textViewHoraChat);
+
+            //Mensaje
+            imagendelChat  = (ImageView) itemView.findViewById(R.id.imageView);
+            nombredelChat = (TextView) itemView.findViewById(R.id.textViewNombre);
+
+
+
         }
 
 
@@ -94,6 +104,8 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
 
             this.nombreChat.setText(chats.getNombreChat());
 
+            //this.nombredelChat.setText(chats.getNombreChat());
+            //this.imagendelChat.setImageResource(chats.getImagen());
 
             this.imagenChat.setImageResource(chats.getImagen());
             itemView.setOnClickListener(new View.OnClickListener() {

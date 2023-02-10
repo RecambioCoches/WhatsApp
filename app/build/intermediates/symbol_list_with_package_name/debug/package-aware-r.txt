@@ -2911,6 +2911,7 @@ id legacy
 id line1
 id line3
 id linear
+id linearLayout
 id listMode
 id list_item
 id marquee
@@ -3115,6 +3116,7 @@ id textView4
 id textViewHoraChat
 id textViewMensajeChat
 id textViewMensajeList
+id textViewNombre
 id textViewNombreChat
 id text_input_end_icon
 id text_input_error_icon

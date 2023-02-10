@@ -20,6 +20,7 @@ import com.pdg.WhatsApp.adapters.ChatRecyclerAdapter;
 import com.pdg.WhatsApp.adapters.MensajeRecyclerAdapter;
 import com.pdg.WhatsApp.model.Chats;
 import com.pdg.WhatsApp.model.Mensaje;
+import com.pdg.WhatsApp.utils.Utils;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -51,6 +52,7 @@ public class Chat extends AppCompatActivity {
     Button buttonSend;
     EditText editTextNuevoMensaje;
     Integer chatId;
+    String nombreUserLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +94,7 @@ public class Chat extends AppCompatActivity {
         //Realm y cosas del recycler
         Bundle b = getIntent().getExtras();
         int id = b.getInt("id");
+        nombreUserLog =  b.getString("name");
         chatId = id;
         realm = Realm.getDefaultInstance();
 
@@ -100,15 +103,13 @@ public class Chat extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerMensajeId);
 
 
-        mensajeRecyclerAdapter = new MensajeRecyclerAdapter(c.getMensajes(), getBaseContext(), new MensajeRecyclerAdapter.OnItemClickListener(){
-
+        mensajeRecyclerAdapter = new MensajeRecyclerAdapter(c.getMensajes(), nombreUserLog, new MensajeRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(String name, int position) {
-                String mensaje = editTextNuevoMensaje.toString();
+                String mensaje = editTextNuevoMensaje.getText().toString();
             }
-
-
         });
+
         Bundle bundle = getIntent().getExtras();
         String name = bundle.getString("name");
 
@@ -116,10 +117,26 @@ public class Chat extends AppCompatActivity {
         recyclerView.setAdapter(mensajeRecyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this,1));
 
+        realm = Realm.getDefaultInstance();
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
+                realm.beginTransaction();
 
+                String nuevoMensaje = editTextNuevoMensaje.getText().toString();
+                Mensaje mensaje = new Mensaje(nombreUserLog,nuevoMensaje);
+
+                realm.copyToRealm(mensaje);
+                realm.commitTransaction();
+
+                mensajeRecyclerAdapter.addMensaje(mensaje);
+                editTextNuevoMensaje.setText("");
+
+
+                mensajeRecyclerAdapter.notifyDataSetChanged();
+
+                 */
             }
         });
 

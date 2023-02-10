@@ -45,6 +45,7 @@ id imageView2
 id imageViewChat
 id imgEstado
 id imgLlamada
+id linearLayout
 id my_toolbar
 id recyclerChatId
 id recyclerMensajeId
@@ -57,6 +58,7 @@ id textView4
 id textViewHoraChat
 id textViewMensajeChat
 id textViewMensajeList
+id textViewNombre
 id textViewNombreChat
 id tvPass
 id tvUser
