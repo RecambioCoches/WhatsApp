@@ -31,6 +31,7 @@ public class Chat extends AppCompatActivity {
     private static final String CHANNEL_ID = "Canal de Notificaciones";
     NotificationManager notificationManager;
     Integer notificacionID;
+    Chats c;
 
     //CREACIÓN DE UNA FUNCIÓN CANAL PARA LAS NOTIFICACIONES
     private void createNotificationChannel()
@@ -71,20 +72,20 @@ public class Chat extends AppCompatActivity {
         //CREACIÓN DE LA PROPIA NOTIFICACIÓN, CON SUS ATRIBUTOS DEPENDIENDO QUIEN TE MANDA EL MENSAJE
         NotificationCompat.Builder notificacion = new NotificationCompat.Builder(this, CHANNEL_ID)
 
-            //LOGO DE WHATSAPP O FOTO DE QUIEN TE MANDA LA NOTIFICACIÓN
-            .setSmallIcon(R.drawable.whatsapp)
-            //NOMBRE DE QUIEN TE MANDA LA NOTIFICACIÓN
-            .setContentTitle("Nombre del usuario")
-            //CONTENIDO DEL MENSAJE QUE RECIBES DE QUIEN TE MANDA LA NOTIFICACIÓN
-            .setContentText("Mensaje")
-            //ESCOGEMOS LA PRIORIDAD DE NUESTRO MENSAJE DE NOTIFICACION
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            //ELEGIMOS QUE TIPO DE MENSAJE SE MOSTRARÁ
-            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-            //LE METEMOS AL INTENT SELECCINADO EL INTENT PENDIENTE (SOLO SI USAMOS FIREBASE)
-            .setContentIntent(pendingIntent)
-            //PONEMOS LA AUTOCANCELACIÓN A TRUE (SOLO SI USAMOS FIREBASE)
-            .setAutoCancel(true);
+                //LOGO DE WHATSAPP O FOTO DE QUIEN TE MANDA LA NOTIFICACIÓN
+                .setSmallIcon(R.drawable.whatsapp)
+                //NOMBRE DE QUIEN TE MANDA LA NOTIFICACIÓN
+                .setContentTitle("Nombre del usuario")
+                //CONTENIDO DEL MENSAJE QUE RECIBES DE QUIEN TE MANDA LA NOTIFICACIÓN
+                .setContentText("Mensaje")
+                //ESCOGEMOS LA PRIORIDAD DE NUESTRO MENSAJE DE NOTIFICACION
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                //ELEGIMOS QUE TIPO DE MENSAJE SE MOSTRARÁ
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                //LE METEMOS AL INTENT SELECCINADO EL INTENT PENDIENTE (SOLO SI USAMOS FIREBASE)
+                .setContentIntent(pendingIntent)
+                //PONEMOS LA AUTOCANCELACIÓN A TRUE (SOLO SI USAMOS FIREBASE)
+                .setAutoCancel(true);
 
         //FINALMENTE LANZAMOS LA NOTIFICACIÓN
         notificationManager.notify(notificacionID, notificacion.build());
@@ -99,7 +100,7 @@ public class Chat extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
 
 
-        Chats c = realm.where(Chats.class).equalTo("id",chatId).findFirst();
+        c = realm.where(Chats.class).equalTo("id",chatId).findFirst();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerMensajeId);
 
 
@@ -121,28 +122,21 @@ public class Chat extends AppCompatActivity {
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
                 realm.beginTransaction();
-
                 String nuevoMensaje = editTextNuevoMensaje.getText().toString();
-                Mensaje mensaje = new Mensaje(nombreUserLog,nuevoMensaje);
-
-                realm.copyToRealm(mensaje);
-                realm.commitTransaction();
-
-                mensajeRecyclerAdapter.addMensaje(mensaje);
-                editTextNuevoMensaje.setText("");
-
-
+                Mensaje mensaje = new Mensaje(nuevoMensaje,nombreUserLog);
+                c.getMensajes().add(mensaje);
                 mensajeRecyclerAdapter.notifyDataSetChanged();
 
-                 */
+                realm.copyToRealmOrUpdate(c);
+                realm.commitTransaction();
+
+
+
+
+
             }
         });
 
     }
-
-
-
-
 }

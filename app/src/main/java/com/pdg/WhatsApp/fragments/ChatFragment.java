@@ -70,7 +70,11 @@ public class ChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         realm = Realm.getDefaultInstance();
+
+        //Lista de todos los chats
         realmChat2 = realm.where(Chats.class).findAll();
+
+
         chats = getChatByName(nombre,realmChat2);
 
 

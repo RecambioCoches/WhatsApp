@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pdg.WhatsApp.R;
@@ -27,12 +29,7 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
     private View.OnClickListener listener;
     private String name;
     private MensajeRecyclerAdapter.OnItemClickListener itemListener;
-    //public ChatRecyclerAdapter(List<Chats> chatList, EstadoRecyclerAdapter.OnItemClickListener listener, Bundle bundle){
-    //   this.chatList = chatList;
-    //  this.itemListener = (OnItemClickListener) listener;
 
-
-    //}
 
 
     public MensajeRecyclerAdapter(RealmList<Mensaje> realmMensaje, String name, MensajeRecyclerAdapter.OnItemClickListener onItemClickListener) {
@@ -91,13 +88,16 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
 
         public void assignDataChat(View itemView, Mensaje mensaje, String name) {
             TextView mensajeTextView = itemView.findViewById(R.id.textViewMensajeList);
+            LinearLayout linearCardView = itemView.findViewById(R.id.mensaje_text_view);
             mensajeTextView.setText(mensaje.getMensaje());
             nombreUser = mensaje.getNombreUsuario();
 
             if (nombreUser.equals(name)) {
-                mensajeTextView.setGravity(Gravity.END);
+                linearCardView.setGravity(Gravity.END);
+
             } else {
-                mensajeTextView.setGravity(Gravity.START);
+                linearCardView.setGravity(Gravity.START);
+
             }
 
 

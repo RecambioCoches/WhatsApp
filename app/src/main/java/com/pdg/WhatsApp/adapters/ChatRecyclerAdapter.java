@@ -48,6 +48,8 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerDataHolder holder, int position) {
+        View itemView = holder.itemView;
+        Chats chat = realmChat.get(position);
         holder.assignDataChat(realmChat.get(position),itemListener);
     }
 
@@ -104,8 +106,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
 
             this.nombreChat.setText(chats.getNombreChat());
 
-            //this.nombredelChat.setText(chats.getNombreChat());
-            //this.imagendelChat.setImageResource(chats.getImagen());
+
 
             this.imagenChat.setImageResource(chats.getImagen());
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -125,4 +126,5 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
 
 
 }
+
 
