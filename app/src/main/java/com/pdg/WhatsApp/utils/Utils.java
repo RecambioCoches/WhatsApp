@@ -114,8 +114,9 @@ public class Utils {
         mensaje3.add(new Mensaje("Te recuerdo que me tienes que pagar el alquiler.","Persona1"));
         mensaje3.add(new Mensaje("Va","Persona4"));
 
+        Chats c = new Chats("María Álvarez",mensaje1,R.drawable.nina,Participantes1 );
         //lista de chats persona1 con otras personas
-        listChats.add(new Chats("María Álvarez",mensaje1,R.drawable.nina,Participantes1 ));
+        listChats.add(c);
         listChats.add(new Chats("Francisco Flores",mensaje2,R.drawable.chico,Participantes2 ));
         listChats.add(new Chats("Carolina Gonzalez",mensaje3,R.drawable.mujer_1,Participantes3 ));
         listChats.add(new Chats("David Salas",new RealmList<Mensaje>(),R.drawable.hijo,Participantes4 ));
@@ -161,7 +162,7 @@ public class Utils {
         ParticipantesdeDavid8.add("Persona5");
 
         //lista de chats persona1 con otras personas
-        listChats.add(new Chats("Jonas",new RealmList<Mensaje>(),R.drawable.carafeliz,ParticipantesdeDavid1 ));
+        listChats.add(c);
         listChats.add(new Chats("Juan",new RealmList<Mensaje>(),R.drawable.servicioalcliente,ParticipantesdeDavid2 ));
         listChats.add(new Chats("Felipe Gonzalez",new RealmList<Mensaje>(),R.drawable.avatar,ParticipantesdeDavid3 ));
         listChats.add(new Chats("Gabriel Fernandez",new RealmList<Mensaje>(),R.drawable.avatardehombre,ParticipantesdeDavid4 ));

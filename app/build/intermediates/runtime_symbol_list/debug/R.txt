@@ -2769,6 +2769,7 @@ int id cache_measures 0x7f080065
 int id callMeasure 0x7f080066
 int id camara 0x7f080067
 int id cancel_button 0x7f080068
+int id card 0x7f080201
 int id carryVelocity 0x7f080069
 int id center 0x7f08006a
 int id centerCrop 0x7f08006b
@@ -2936,6 +2937,7 @@ int id material_timepicker_ok_button 0x7f08010b
 int id material_timepicker_view 0x7f08010c
 int id material_value_index 0x7f08010d
 int id matrix 0x7f08010e
+int id mensaje_text_view 0x7f080202
 int id message 0x7f08010f
 int id middle 0x7f080110
 int id mini 0x7f080111

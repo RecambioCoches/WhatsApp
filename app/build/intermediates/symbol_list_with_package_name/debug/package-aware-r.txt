@@ -2770,6 +2770,7 @@ id cache_measures
 id callMeasure
 id camara
 id cancel_button
+id card
 id carryVelocity
 id center
 id centerCrop
@@ -2937,6 +2938,7 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id matrix
+id mensaje_text_view
 id message
 id middle
 id mini

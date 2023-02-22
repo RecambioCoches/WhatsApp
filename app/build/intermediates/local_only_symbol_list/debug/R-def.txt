@@ -38,6 +38,7 @@ drawable whatsapp_negro
 id btnLogin
 id buttonSend
 id camara
+id card
 id cerrar_sesion
 id editTextNuevoMensaje
 id imageView
@@ -46,6 +47,7 @@ id imageViewChat
 id imgEstado
 id imgLlamada
 id linearLayout
+id mensaje_text_view
 id my_toolbar
 id recyclerChatId
 id recyclerMensajeId
