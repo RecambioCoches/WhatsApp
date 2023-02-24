@@ -60,10 +60,6 @@
         "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\drawable-v24\\camara_fotografica.png"
     },
     {
-        "merged": "com.pdg.WhatsApp.app-merged_res-31:/layout_mensaje_list.xml.flat",
-        "source": "com.pdg.WhatsApp.app-main-33:/layout/mensaje_list.xml"
-    },
-    {
         "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\layout_estado_item.xml.flat",
         "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\layout\\estado_item.xml"
     },
@@ -86,6 +82,10 @@
     {
         "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.pdg.WhatsApp.app-merged_res-31:/layout_activity_chat.xml.flat",
+        "source": "com.pdg.WhatsApp.app-main-33:/layout/activity_chat.xml"
     },
     {
         "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\mipmap-xxxhdpi_ic_launcher.webp.flat",

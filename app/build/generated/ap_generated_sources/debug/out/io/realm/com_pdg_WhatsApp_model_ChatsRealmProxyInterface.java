@@ -12,4 +12,8 @@ public interface com_pdg_WhatsApp_model_ChatsRealmProxyInterface {
     public void realmSet$nombreUsers(RealmList<String> value);
     public int realmGet$imagen();
     public void realmSet$imagen(int value);
+    public boolean realmGet$esGrupo();
+    public void realmSet$esGrupo(boolean value);
+    public int realmGet$ultimoMensajeLeido();
+    public void realmSet$ultimoMensajeLeido(int value);
 }

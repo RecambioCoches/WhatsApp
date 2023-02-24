@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import com.pdg.WhatsApp.R;
@@ -35,16 +37,32 @@ public class ChatFragment extends Fragment {
     String nombre;
 
 
+
     public static RealmList<Chats> getChatByName(String nombre, RealmResults<Chats> realmChat2) {
         RealmList<Chats> result = new RealmList<>();
         for (Chats chat : realmChat2) {
-            for(String s : chat.getNombreUsers()) {
-                if (s.equals(nombre)){
-                    result.add(chat);
+            RealmList<String> chatUsers = chat.getNombreUsers();
+            if (chatUsers.size() == 2) { // Individual chat
+                String user1 = chatUsers.get(0);
+                String user2 = chatUsers.get(1);
+                String chatName;
+                if (user1.equals(nombre)) {
+                    chatName = user2;
+                } else if (user2.equals(nombre)) {
+                    chatName = user1;
+                } else {
+                    continue;
                 }
+                Chats renamedChat = new Chats(chatName, chat.getMensajes(), chat.getImagen(), chatUsers, false);
+                renamedChat.setId(chat.getId());
+                result.add(renamedChat);
+            } else if (chatUsers.contains(nombre)) { // Group chat
+                Chats renamedChat = new Chats(chat.getNombreChat(), chat.getMensajes(), chat.getImagen(), chatUsers, true);
+                renamedChat.setId(chat.getId());
+                result.add(renamedChat);
             }
         }
-        return result.isEmpty() ? new RealmList<Chats>() : result;
+        return result;
     }
 
     public interface DataListener {
@@ -75,6 +93,7 @@ public class ChatFragment extends Fragment {
         realmChat2 = realm.where(Chats.class).findAll();
 
 
+
         chats = getChatByName(nombre,realmChat2);
 
 
@@ -83,16 +102,24 @@ public class ChatFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerChatId);
 
+
+
         chatRecyclerAdapter = new ChatRecyclerAdapter(chats, getActivity().getBaseContext(), new ChatRecyclerAdapter.OnItemClickListener(){
 
             @Override
             public void onItemClick(RealmList<Mensaje> mensajes, int position) {
                 Integer id = chats.get(position).getId();
+                Integer imagen = chats.get(position).getImagen();
+                String nombreCabecera = chats.get(position).getNombreChat();
                 callback.sendData(id);
+
 
                 Intent intent = new Intent(getActivity(), Chat.class);
                 intent.putExtra("name", nombre);
                 intent.putExtra("id", id);
+                intent.putExtra("nameCabecera", nombreCabecera);
+                intent.putExtra("imagen", imagen);
+
                 startActivity(intent);
             }
         });

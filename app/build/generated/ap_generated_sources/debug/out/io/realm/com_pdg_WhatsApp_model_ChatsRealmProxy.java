@@ -48,15 +48,19 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         long mensajesColKey;
         long nombreUsersColKey;
         long imagenColKey;
+        long esGrupoColKey;
+        long ultimoMensajeLeidoColKey;
 
         ChatsColumnInfo(OsSchemaInfo schemaInfo) {
-            super(5);
+            super(7);
             OsObjectSchemaInfo objectSchemaInfo = schemaInfo.getObjectSchemaInfo("Chats");
             this.idColKey = addColumnDetails("id", "id", objectSchemaInfo);
             this.nombreChatColKey = addColumnDetails("nombreChat", "nombreChat", objectSchemaInfo);
             this.mensajesColKey = addColumnDetails("mensajes", "mensajes", objectSchemaInfo);
             this.nombreUsersColKey = addColumnDetails("nombreUsers", "nombreUsers", objectSchemaInfo);
             this.imagenColKey = addColumnDetails("imagen", "imagen", objectSchemaInfo);
+            this.esGrupoColKey = addColumnDetails("esGrupo", "esGrupo", objectSchemaInfo);
+            this.ultimoMensajeLeidoColKey = addColumnDetails("ultimoMensajeLeido", "ultimoMensajeLeido", objectSchemaInfo);
         }
 
         ChatsColumnInfo(ColumnInfo src, boolean mutable) {
@@ -78,6 +82,8 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
             dst.mensajesColKey = src.mensajesColKey;
             dst.nombreUsersColKey = src.nombreUsersColKey;
             dst.imagenColKey = src.imagenColKey;
+            dst.esGrupoColKey = src.esGrupoColKey;
+            dst.ultimoMensajeLeidoColKey = src.ultimoMensajeLeidoColKey;
         }
     }
 
@@ -277,13 +283,59 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         proxyState.getRow$realm().setLong(columnInfo.imagenColKey, value);
     }
 
+    @Override
+    @SuppressWarnings("cast")
+    public boolean realmGet$esGrupo() {
+        proxyState.getRealm$realm().checkIfValid();
+        return (boolean) proxyState.getRow$realm().getBoolean(columnInfo.esGrupoColKey);
+    }
+
+    @Override
+    public void realmSet$esGrupo(boolean value) {
+        if (proxyState.isUnderConstruction()) {
+            if (!proxyState.getAcceptDefaultValue$realm()) {
+                return;
+            }
+            final Row row = proxyState.getRow$realm();
+            row.getTable().setBoolean(columnInfo.esGrupoColKey, row.getObjectKey(), value, true);
+            return;
+        }
+
+        proxyState.getRealm$realm().checkIfValid();
+        proxyState.getRow$realm().setBoolean(columnInfo.esGrupoColKey, value);
+    }
+
+    @Override
+    @SuppressWarnings("cast")
+    public int realmGet$ultimoMensajeLeido() {
+        proxyState.getRealm$realm().checkIfValid();
+        return (int) proxyState.getRow$realm().getLong(columnInfo.ultimoMensajeLeidoColKey);
+    }
+
+    @Override
+    public void realmSet$ultimoMensajeLeido(int value) {
+        if (proxyState.isUnderConstruction()) {
+            if (!proxyState.getAcceptDefaultValue$realm()) {
+                return;
+            }
+            final Row row = proxyState.getRow$realm();
+            row.getTable().setLong(columnInfo.ultimoMensajeLeidoColKey, row.getObjectKey(), value, true);
+            return;
+        }
+
+        proxyState.getRealm$realm().checkIfValid();
+        proxyState.getRow$realm().setLong(columnInfo.ultimoMensajeLeidoColKey, value);
+    }
+
     private static OsObjectSchemaInfo createExpectedObjectSchemaInfo() {
-        OsObjectSchemaInfo.Builder builder = new OsObjectSchemaInfo.Builder(NO_ALIAS, "Chats", false, 5, 0);
+        OsObjectSchemaInfo.Builder builder = new OsObjectSchemaInfo.Builder(NO_ALIAS, "Chats", false, 7, 0);
         builder.addPersistedProperty(NO_ALIAS, "id", RealmFieldType.INTEGER, Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED);
         builder.addPersistedProperty(NO_ALIAS, "nombreChat", RealmFieldType.STRING, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED);
         builder.addPersistedLinkProperty(NO_ALIAS, "mensajes", RealmFieldType.LIST, "Mensaje");
         builder.addPersistedValueListProperty(NO_ALIAS, "nombreUsers", RealmFieldType.STRING_LIST, !Property.REQUIRED);
         builder.addPersistedProperty(NO_ALIAS, "imagen", RealmFieldType.INTEGER, !Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED);
+        builder.addPersistedProperty(NO_ALIAS, "esGrupo", RealmFieldType.BOOLEAN, !Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED);
+        builder.addPersistedProperty(NO_ALIAS, "ultimoMensajeLeido", RealmFieldType.INTEGER, !Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED);
         return builder.build();
     }
 
@@ -372,6 +424,20 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
                 objProxy.realmSet$imagen((int) json.getInt("imagen"));
             }
         }
+        if (json.has("esGrupo")) {
+            if (json.isNull("esGrupo")) {
+                throw new IllegalArgumentException("Trying to set non-nullable field 'esGrupo' to null.");
+            } else {
+                objProxy.realmSet$esGrupo((boolean) json.getBoolean("esGrupo"));
+            }
+        }
+        if (json.has("ultimoMensajeLeido")) {
+            if (json.isNull("ultimoMensajeLeido")) {
+                throw new IllegalArgumentException("Trying to set non-nullable field 'ultimoMensajeLeido' to null.");
+            } else {
+                objProxy.realmSet$ultimoMensajeLeido((int) json.getInt("ultimoMensajeLeido"));
+            }
+        }
         return obj;
     }
 
@@ -422,6 +488,20 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
                 } else {
                     reader.skipValue();
                     throw new IllegalArgumentException("Trying to set non-nullable field 'imagen' to null.");
+                }
+            } else if (name.equals("esGrupo")) {
+                if (reader.peek() != JsonToken.NULL) {
+                    objProxy.realmSet$esGrupo((boolean) reader.nextBoolean());
+                } else {
+                    reader.skipValue();
+                    throw new IllegalArgumentException("Trying to set non-nullable field 'esGrupo' to null.");
+                }
+            } else if (name.equals("ultimoMensajeLeido")) {
+                if (reader.peek() != JsonToken.NULL) {
+                    objProxy.realmSet$ultimoMensajeLeido((int) reader.nextInt());
+                } else {
+                    reader.skipValue();
+                    throw new IllegalArgumentException("Trying to set non-nullable field 'ultimoMensajeLeido' to null.");
                 }
             } else {
                 reader.skipValue();
@@ -497,6 +577,8 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         builder.addString(columnInfo.nombreChatColKey, unmanagedSource.realmGet$nombreChat());
         builder.addStringList(columnInfo.nombreUsersColKey, unmanagedSource.realmGet$nombreUsers());
         builder.addInteger(columnInfo.imagenColKey, unmanagedSource.realmGet$imagen());
+        builder.addBoolean(columnInfo.esGrupoColKey, unmanagedSource.realmGet$esGrupo());
+        builder.addInteger(columnInfo.ultimoMensajeLeidoColKey, unmanagedSource.realmGet$ultimoMensajeLeido());
 
         // Create the underlying object and cache it before setting any object/objectlist references
         // This will allow us to break any circular dependencies by using the object cache.
@@ -571,6 +653,8 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
             }
         }
         Table.nativeSetLong(tableNativePtr, columnInfo.imagenColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$imagen(), false);
+        Table.nativeSetBoolean(tableNativePtr, columnInfo.esGrupoColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$esGrupo(), false);
+        Table.nativeSetLong(tableNativePtr, columnInfo.ultimoMensajeLeidoColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$ultimoMensajeLeido(), false);
         return objKey;
     }
 
@@ -629,6 +713,8 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
                 }
             }
             Table.nativeSetLong(tableNativePtr, columnInfo.imagenColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$imagen(), false);
+            Table.nativeSetBoolean(tableNativePtr, columnInfo.esGrupoColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$esGrupo(), false);
+            Table.nativeSetLong(tableNativePtr, columnInfo.ultimoMensajeLeidoColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$ultimoMensajeLeido(), false);
         }
     }
 
@@ -697,6 +783,8 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         }
 
         Table.nativeSetLong(tableNativePtr, columnInfo.imagenColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$imagen(), false);
+        Table.nativeSetBoolean(tableNativePtr, columnInfo.esGrupoColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$esGrupo(), false);
+        Table.nativeSetLong(tableNativePtr, columnInfo.ultimoMensajeLeidoColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$ultimoMensajeLeido(), false);
         return objKey;
     }
 
@@ -772,6 +860,8 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
             }
 
             Table.nativeSetLong(tableNativePtr, columnInfo.imagenColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$imagen(), false);
+            Table.nativeSetBoolean(tableNativePtr, columnInfo.esGrupoColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$esGrupo(), false);
+            Table.nativeSetLong(tableNativePtr, columnInfo.ultimoMensajeLeidoColKey, objKey, ((com_pdg_WhatsApp_model_ChatsRealmProxyInterface) object).realmGet$ultimoMensajeLeido(), false);
         }
     }
 
@@ -816,6 +906,8 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         unmanagedCopy.realmSet$nombreUsers(new RealmList<java.lang.String>());
         unmanagedCopy.realmGet$nombreUsers().addAll(realmSource.realmGet$nombreUsers());
         unmanagedCopy.realmSet$imagen(realmSource.realmGet$imagen());
+        unmanagedCopy.realmSet$esGrupo(realmSource.realmGet$esGrupo());
+        unmanagedCopy.realmSet$ultimoMensajeLeido(realmSource.realmGet$ultimoMensajeLeido());
 
         return unmanagedObject;
     }
@@ -846,6 +938,8 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         }
         builder.addStringList(columnInfo.nombreUsersColKey, realmObjectSource.realmGet$nombreUsers());
         builder.addInteger(columnInfo.imagenColKey, realmObjectSource.realmGet$imagen());
+        builder.addBoolean(columnInfo.esGrupoColKey, realmObjectSource.realmGet$esGrupo());
+        builder.addInteger(columnInfo.ultimoMensajeLeidoColKey, realmObjectSource.realmGet$ultimoMensajeLeido());
 
         builder.updateExistingTopLevelObject();
         return realmObject;
@@ -876,6 +970,14 @@ public class com_pdg_WhatsApp_model_ChatsRealmProxy extends com.pdg.WhatsApp.mod
         stringBuilder.append(",");
         stringBuilder.append("{imagen:");
         stringBuilder.append(realmGet$imagen());
+        stringBuilder.append("}");
+        stringBuilder.append(",");
+        stringBuilder.append("{esGrupo:");
+        stringBuilder.append(realmGet$esGrupo());
+        stringBuilder.append("}");
+        stringBuilder.append(",");
+        stringBuilder.append("{ultimoMensajeLeido:");
+        stringBuilder.append(realmGet$ultimoMensajeLeido());
         stringBuilder.append("}");
         stringBuilder.append("]");
         return stringBuilder.toString();

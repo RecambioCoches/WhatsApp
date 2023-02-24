@@ -152,16 +152,13 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
 
     @Override
     @SuppressWarnings("cast")
-    public Date realmGet$tiempo() {
+    public String realmGet$tiempo() {
         proxyState.getRealm$realm().checkIfValid();
-        if (proxyState.getRow$realm().isNull(columnInfo.tiempoColKey)) {
-            return null;
-        }
-        return (java.util.Date) proxyState.getRow$realm().getDate(columnInfo.tiempoColKey);
+        return (java.lang.String) proxyState.getRow$realm().getString(columnInfo.tiempoColKey);
     }
 
     @Override
-    public void realmSet$tiempo(Date value) {
+    public void realmSet$tiempo(String value) {
         if (proxyState.isUnderConstruction()) {
             if (!proxyState.getAcceptDefaultValue$realm()) {
                 return;
@@ -171,7 +168,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
                 row.getTable().setNull(columnInfo.tiempoColKey, row.getObjectKey(), true);
                 return;
             }
-            row.getTable().setDate(columnInfo.tiempoColKey, row.getObjectKey(), value, true);
+            row.getTable().setString(columnInfo.tiempoColKey, row.getObjectKey(), value, true);
             return;
         }
 
@@ -180,7 +177,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
             proxyState.getRow$realm().setNull(columnInfo.tiempoColKey);
             return;
         }
-        proxyState.getRow$realm().setDate(columnInfo.tiempoColKey, value);
+        proxyState.getRow$realm().setString(columnInfo.tiempoColKey, value);
     }
 
     @Override
@@ -217,7 +214,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         OsObjectSchemaInfo.Builder builder = new OsObjectSchemaInfo.Builder(NO_ALIAS, "Mensaje", false, 4, 0);
         builder.addPersistedProperty(NO_ALIAS, "id", RealmFieldType.INTEGER, Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED);
         builder.addPersistedProperty(NO_ALIAS, "mensaje", RealmFieldType.STRING, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED);
-        builder.addPersistedProperty(NO_ALIAS, "tiempo", RealmFieldType.DATE, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED);
+        builder.addPersistedProperty(NO_ALIAS, "tiempo", RealmFieldType.STRING, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED);
         builder.addPersistedProperty(NO_ALIAS, "nombreUsuario", RealmFieldType.STRING, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED);
         return builder.build();
     }
@@ -285,12 +282,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
             if (json.isNull("tiempo")) {
                 objProxy.realmSet$tiempo(null);
             } else {
-                Object timestamp = json.get("tiempo");
-                if (timestamp instanceof String) {
-                    objProxy.realmSet$tiempo(JsonUtils.stringToDate((String) timestamp));
-                } else {
-                    objProxy.realmSet$tiempo(new Date(json.getLong("tiempo")));
-                }
+                objProxy.realmSet$tiempo((String) json.getString("tiempo"));
             }
         }
         if (json.has("nombreUsuario")) {
@@ -330,16 +322,11 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
                     objProxy.realmSet$mensaje(null);
                 }
             } else if (name.equals("tiempo")) {
-                if (reader.peek() == JsonToken.NULL) {
+                if (reader.peek() != JsonToken.NULL) {
+                    objProxy.realmSet$tiempo((String) reader.nextString());
+                } else {
                     reader.skipValue();
                     objProxy.realmSet$tiempo(null);
-                } else if (reader.peek() == JsonToken.NUMBER) {
-                    long timestamp = reader.nextLong();
-                    if (timestamp > -1) {
-                        objProxy.realmSet$tiempo(new Date(timestamp));
-                    }
-                } else {
-                    objProxy.realmSet$tiempo(JsonUtils.stringToDate(reader.nextString()));
                 }
             } else if (name.equals("nombreUsuario")) {
                 if (reader.peek() != JsonToken.NULL) {
@@ -420,7 +407,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         // Add all non-"object reference" fields
         builder.addInteger(columnInfo.idColKey, unmanagedSource.realmGet$id());
         builder.addString(columnInfo.mensajeColKey, unmanagedSource.realmGet$mensaje());
-        builder.addDate(columnInfo.tiempoColKey, unmanagedSource.realmGet$tiempo());
+        builder.addString(columnInfo.tiempoColKey, unmanagedSource.realmGet$tiempo());
         builder.addString(columnInfo.nombreUsuarioColKey, unmanagedSource.realmGet$nombreUsuario());
 
         // Create the underlying object and cache it before setting any object/objectlist references
@@ -455,9 +442,9 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         if (realmGet$mensaje != null) {
             Table.nativeSetString(tableNativePtr, columnInfo.mensajeColKey, objKey, realmGet$mensaje, false);
         }
-        java.util.Date realmGet$tiempo = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$tiempo();
+        String realmGet$tiempo = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$tiempo();
         if (realmGet$tiempo != null) {
-            Table.nativeSetTimestamp(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo.getTime(), false);
+            Table.nativeSetString(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo, false);
         }
         String realmGet$nombreUsuario = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$nombreUsuario();
         if (realmGet$nombreUsuario != null) {
@@ -496,9 +483,9 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
             if (realmGet$mensaje != null) {
                 Table.nativeSetString(tableNativePtr, columnInfo.mensajeColKey, objKey, realmGet$mensaje, false);
             }
-            java.util.Date realmGet$tiempo = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$tiempo();
+            String realmGet$tiempo = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$tiempo();
             if (realmGet$tiempo != null) {
-                Table.nativeSetTimestamp(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo.getTime(), false);
+                Table.nativeSetString(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo, false);
             }
             String realmGet$nombreUsuario = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$nombreUsuario();
             if (realmGet$nombreUsuario != null) {
@@ -530,9 +517,9 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         } else {
             Table.nativeSetNull(tableNativePtr, columnInfo.mensajeColKey, objKey, false);
         }
-        java.util.Date realmGet$tiempo = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$tiempo();
+        String realmGet$tiempo = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$tiempo();
         if (realmGet$tiempo != null) {
-            Table.nativeSetTimestamp(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo.getTime(), false);
+            Table.nativeSetString(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo, false);
         } else {
             Table.nativeSetNull(tableNativePtr, columnInfo.tiempoColKey, objKey, false);
         }
@@ -575,9 +562,9 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
             } else {
                 Table.nativeSetNull(tableNativePtr, columnInfo.mensajeColKey, objKey, false);
             }
-            java.util.Date realmGet$tiempo = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$tiempo();
+            String realmGet$tiempo = ((com_pdg_WhatsApp_model_MensajeRealmProxyInterface) object).realmGet$tiempo();
             if (realmGet$tiempo != null) {
-                Table.nativeSetTimestamp(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo.getTime(), false);
+                Table.nativeSetString(tableNativePtr, columnInfo.tiempoColKey, objKey, realmGet$tiempo, false);
             } else {
                 Table.nativeSetNull(tableNativePtr, columnInfo.tiempoColKey, objKey, false);
             }
@@ -625,7 +612,7 @@ public class com_pdg_WhatsApp_model_MensajeRealmProxy extends com.pdg.WhatsApp.m
         OsObjectBuilder builder = new OsObjectBuilder(table, flags);
         builder.addInteger(columnInfo.idColKey, realmObjectSource.realmGet$id());
         builder.addString(columnInfo.mensajeColKey, realmObjectSource.realmGet$mensaje());
-        builder.addDate(columnInfo.tiempoColKey, realmObjectSource.realmGet$tiempo());
+        builder.addString(columnInfo.tiempoColKey, realmObjectSource.realmGet$tiempo());
         builder.addString(columnInfo.nombreUsuarioColKey, realmObjectSource.realmGet$nombreUsuario());
 
         builder.updateExistingTopLevelObject();

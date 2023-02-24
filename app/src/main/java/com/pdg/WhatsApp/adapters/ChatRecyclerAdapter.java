@@ -1,7 +1,6 @@
 package com.pdg.WhatsApp.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,18 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pdg.WhatsApp.R;
-import com.pdg.WhatsApp.activities.Chat;
-import com.pdg.WhatsApp.activities.MainActivity;
 import com.pdg.WhatsApp.model.Chats;
 import com.pdg.WhatsApp.model.Mensaje;
 
-import org.w3c.dom.Text;
-
-import java.util.List;
-
 import io.realm.Realm;
 import io.realm.RealmList;
-import io.realm.RealmResults;
 
 public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapter.RecyclerDataHolder> implements View.OnClickListener {
 
@@ -73,6 +65,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
         TextView nombreChat;
         TextView mensajeChat;
         TextView horaChat;
+        TextView cantidadMensajes;
 
         TextView nombredelChat;
         ImageView imagendelChat;
@@ -83,10 +76,11 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
             nombreChat = (TextView) itemView.findViewById(R.id.textViewNombreChat);
             mensajeChat = (TextView) itemView.findViewById(R.id.textViewMensajeChat);
             horaChat = (TextView) itemView.findViewById(R.id.textViewHoraChat);
+            cantidadMensajes = (TextView) itemView.findViewById(R.id.textViewCantidadMensajes);
 
             //Mensaje
             imagendelChat  = (ImageView) itemView.findViewById(R.id.imageView);
-            nombredelChat = (TextView) itemView.findViewById(R.id.textViewNombre);
+            nombredelChat = (TextView) itemView.findViewById(R.id.textViewNombreCabecera);
 
 
 
@@ -102,6 +96,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
                 Mensaje ultimoMensaje = chats.getMensajes().get(chats.getMensajes().size() - 1);
                 this.mensajeChat.setText(ultimoMensaje.getMensaje());
                 this.horaChat.setText(ultimoMensaje.getTiempo().toString());
+                //this.cantidadMensajes.setText();
             }
 
             this.nombreChat.setText(chats.getNombreChat());

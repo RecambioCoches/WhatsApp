@@ -3115,10 +3115,11 @@ id textView
 id textView2
 id textView3
 id textView4
+id textViewCantidadMensajes
 id textViewHoraChat
 id textViewMensajeChat
 id textViewMensajeList
-id textViewNombre
+id textViewNombreCabecera
 id textViewNombreChat
 id text_input_end_icon
 id text_input_error_icon

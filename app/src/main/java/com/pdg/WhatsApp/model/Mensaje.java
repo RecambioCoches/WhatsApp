@@ -5,7 +5,7 @@ import com.pdg.WhatsApp.app.MyApplication;
 
 import java.util.Date;
 import java.util.Calendar;
-
+import java.text.SimpleDateFormat;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -14,7 +14,7 @@ public class Mensaje extends RealmObject {
     private int id;
 
     private String mensaje;
-    private Date tiempo;
+    private String tiempo;
     private String nombreUsuario;
 
 
@@ -25,7 +25,11 @@ public class Mensaje extends RealmObject {
     public Mensaje(String mensaje,String nombreUsuario) {
         this.id = MyApplication.mensajeId.incrementAndGet();
         this.mensaje = mensaje;
-        tiempo = Calendar.getInstance().getTime();
+        // Crear un objeto SimpleDateFormat para formatear la hora
+        SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm");
+
+// Obtener la hora y los minutos formateados y asignarlos a la variable tiempo
+        this.tiempo = formatoHora.format(Calendar.getInstance().getTime());
         this.nombreUsuario = nombreUsuario;
 
 
@@ -47,11 +51,11 @@ public class Mensaje extends RealmObject {
         this.mensaje = mensaje;
     }
 
-    public Date getTiempo() {
+    public String getTiempo() {
         return tiempo;
     }
 
-    public void setTiempo(Date tiempo) {
+    public void setTiempo(String tiempo) {
         this.tiempo = tiempo;
     }
 

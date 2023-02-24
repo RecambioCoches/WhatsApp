@@ -1,6 +1,7 @@
 package com.pdg.WhatsApp.adapters;
 
 import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,13 +30,17 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
     private View.OnClickListener listener;
     private String name;
     private MensajeRecyclerAdapter.OnItemClickListener itemListener;
+    private Integer imagen;
+    private String nombreCabecera;
 
 
 
-    public MensajeRecyclerAdapter(RealmList<Mensaje> realmMensaje, String name, MensajeRecyclerAdapter.OnItemClickListener onItemClickListener) {
+    public MensajeRecyclerAdapter(RealmList<Mensaje> realmMensaje, String name, Integer imagen, String nombreCabecera, MensajeRecyclerAdapter.OnItemClickListener onItemClickListener) {
         this.realmMensaje = realmMensaje;
         this.itemListener = onItemClickListener;
         this.name = name;
+        this.imagen = imagen;
+        this.nombreCabecera = nombreCabecera;
     }
 
     @NonNull
@@ -50,7 +55,7 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
     public void onBindViewHolder(@NonNull MensajeRecyclerAdapter.RecyclerDataHolder holder, int position) {
         View itemView = holder.itemView;
         Mensaje mensaje = realmMensaje.get(position);
-        holder.assignDataChat(itemView, mensaje, name);
+        holder.assignDataChat(itemView, mensaje, name,imagen,nombreCabecera);
     }
 
     @Override
@@ -72,6 +77,8 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
 
         TextView mensaje;
         String nombreUser;
+        TextView nombreChat;
+        ImageView imagenChat;
 
 
 
@@ -80,17 +87,32 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
             super(itemView);
 
             mensaje = (TextView) itemView.findViewById(R.id.textViewMensajeList);
+            nombreChat = (TextView) itemView.findViewById(R.id.textViewNombreCabecera);
+            imagenChat = (ImageView) itemView.findViewById(R.id.imageView);
+
+
+
+
 
 
 
         }
 
 
-        public void assignDataChat(View itemView, Mensaje mensaje, String name) {
+        public void assignDataChat(View itemView, Mensaje mensaje, String name,Integer imagen,String nombreCabecera) {
             TextView mensajeTextView = itemView.findViewById(R.id.textViewMensajeList);
             LinearLayout linearCardView = itemView.findViewById(R.id.mensaje_text_view);
             mensajeTextView.setText(mensaje.getMensaje());
             nombreUser = mensaje.getNombreUsuario();
+            if (imagenChat != null) {
+                imagenChat.setImageResource((imagen));
+            }
+            if (nombreChat != null) {
+                nombreChat.setText((nombreCabecera));
+            }
+
+
+
 
             if (nombreUser.equals(name)) {
                 linearCardView.setGravity(Gravity.END);
