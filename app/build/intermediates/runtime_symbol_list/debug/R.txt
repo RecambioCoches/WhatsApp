@@ -1843,6 +1843,7 @@ int color teal_700 0x7f05025e
 int color tooltip_background_dark 0x7f05025f
 int color tooltip_background_light 0x7f050260
 int color verde_whatsapp 0x7f050261
+int color whatsapp_green 0x7f050263
 int color white 0x7f050262
 int dimen abc_action_bar_content_inset_material 0x7f060000
 int dimen abc_action_bar_content_inset_with_nav 0x7f060001
@@ -2770,6 +2771,7 @@ int id callMeasure 0x7f080066
 int id camara 0x7f080067
 int id cancel_button 0x7f080068
 int id card 0x7f080201
+int id cardviewCantidad 0x7f080205
 int id carryVelocity 0x7f080069
 int id center 0x7f08006a
 int id centerCrop 0x7f08006b

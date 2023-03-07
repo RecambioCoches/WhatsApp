@@ -54,6 +54,7 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
     @Override
     public void onBindViewHolder(@NonNull MensajeRecyclerAdapter.RecyclerDataHolder holder, int position) {
         View itemView = holder.itemView;
+
         Mensaje mensaje = realmMensaje.get(position);
         holder.assignDataChat(itemView, mensaje, name,imagen,nombreCabecera);
     }
@@ -77,8 +78,7 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
 
         TextView mensaje;
         String nombreUser;
-        TextView nombreChat;
-        ImageView imagenChat;
+
 
 
 
@@ -87,11 +87,6 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
             super(itemView);
 
             mensaje = (TextView) itemView.findViewById(R.id.textViewMensajeList);
-            nombreChat = (TextView) itemView.findViewById(R.id.textViewNombreCabecera);
-            imagenChat = (ImageView) itemView.findViewById(R.id.imageView);
-
-
-
 
 
 
@@ -104,15 +99,6 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
             LinearLayout linearCardView = itemView.findViewById(R.id.mensaje_text_view);
             mensajeTextView.setText(mensaje.getMensaje());
             nombreUser = mensaje.getNombreUsuario();
-            if (imagenChat != null) {
-                imagenChat.setImageResource((imagen));
-            }
-            if (nombreChat != null) {
-                nombreChat.setText((nombreCabecera));
-            }
-
-
-
 
             if (nombreUser.equals(name)) {
                 linearCardView.setGravity(Gravity.END);
@@ -121,9 +107,6 @@ public class MensajeRecyclerAdapter extends RecyclerView.Adapter <MensajeRecycle
                 linearCardView.setGravity(Gravity.START);
 
             }
-
-
-
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

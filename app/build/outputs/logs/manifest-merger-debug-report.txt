@@ -139,7 +139,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\da
 	android:allowBackup
 		ADDED from C:\Users\david\AndroidStudioProjects\WhatsApp\app\src\main\AndroidManifest.xml:7:9-35
 	android:theme
-		ADDED from C:\Users\david\AndroidStudioProjects\WhatsApp\app\src\main\AndroidManifest.xml:13:9-59
+		ADDED from C:\Users\david\AndroidStudioProjects\WhatsApp\app\src\main\AndroidManifest.xml:13:9-65
 	android:dataExtractionRules
 		ADDED from C:\Users\david\AndroidStudioProjects\WhatsApp\app\src\main\AndroidManifest.xml:8:9-65
 	android:name

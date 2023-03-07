@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pdg.WhatsApp.R;
@@ -69,6 +70,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
 
         TextView nombredelChat;
         ImageView imagendelChat;
+        CardView cardView;
 
         public RecyclerDataHolder(@NonNull View itemView){
             super(itemView);
@@ -77,6 +79,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
             mensajeChat = (TextView) itemView.findViewById(R.id.textViewMensajeChat);
             horaChat = (TextView) itemView.findViewById(R.id.textViewHoraChat);
             cantidadMensajes = (TextView) itemView.findViewById(R.id.textViewCantidadMensajes);
+            cardView = itemView.findViewById(R.id.cardviewCantidad);
 
             //Mensaje
             imagendelChat  = (ImageView) itemView.findViewById(R.id.imageView);
@@ -92,11 +95,25 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
             if (chats.getMensajes().size() == 0){
                 this.mensajeChat.setText("");
                 this.horaChat.setText("");
+                this.cantidadMensajes.setText("");
+                this.cardView.setVisibility(View.GONE);
             }else{
                 Mensaje ultimoMensaje = chats.getMensajes().get(chats.getMensajes().size() - 1);
                 this.mensajeChat.setText(ultimoMensaje.getMensaje());
                 this.horaChat.setText(ultimoMensaje.getTiempo().toString());
-                //this.cantidadMensajes.setText();
+                int mensajesNoLeidos = 0;
+                for (Mensaje mensaje : chats.getMensajes()) {
+                    if (mensaje.getId() > chats.getUltimoMensajeLeido()) {
+                        mensajesNoLeidos++;
+                    }
+                }
+                this.cantidadMensajes.setText(String.valueOf(mensajesNoLeidos));
+
+            }
+            if (cantidadMensajes.getText() == "") {
+                cardView.setVisibility(View.GONE);
+            } else {
+                cardView.setVisibility(View.VISIBLE);
             }
 
             this.nombreChat.setText(chats.getNombreChat());

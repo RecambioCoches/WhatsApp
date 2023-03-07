@@ -24,14 +24,17 @@ public class Chats extends RealmObject {
     public Chats() {
     }
 
-    public Chats(String nombreChat, RealmList<Mensaje> mensajes, int imagen, RealmList<String> users, boolean esGrupo) {
+    public Chats(String nombreChat, RealmList<Mensaje> mensajes, int imagen, RealmList<String> users, boolean esGrupo,int ultimoMensajeLeido) {
         this.id = MyApplication.chatId.incrementAndGet();
         this.nombreChat = nombreChat;
         this.mensajes = mensajes;
         this.imagen = imagen;
         this.nombreUsers = users;
         this.esGrupo = esGrupo;
-        this.ultimoMensajeLeido = 0;
+        this.ultimoMensajeLeido = ultimoMensajeLeido;
+
+
+
     }
 
     public int getId() {
@@ -82,14 +85,7 @@ public class Chats extends RealmObject {
         this.ultimoMensajeLeido = ultimoMensajeLeido;
     }
 
-    public int getNumeroMensajesNoLeidos() {
-        int ultimoLeido = this.getUltimoMensajeLeido();
-        RealmList<Mensaje> mensajes = this.getMensajes();
-        int numMensajes = mensajes.size();
-        if (ultimoLeido >= numMensajes) {
-            return 0;
-        } else {
-            return numMensajes - ultimoLeido;
-        }
-    }
+
+
+
 }

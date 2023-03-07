@@ -156,13 +156,13 @@ public class Utils {
 
 
         //lista de chats persona1 con otras personas
-        Chats c = new Chats("María Álvarez",mensaje1,R.drawable.nina,Participantes1 ,false);
-        Chats c2 = new Chats("Francisco Flores",mensaje2,R.drawable.chico,Participantes2,false );
-        Chats c3 = new Chats("Carolina Gonzalez",mensaje3,R.drawable.mujer_1,Participantes3 ,false);
-        Chats c4 = new Chats("David Salas",new RealmList<Mensaje>(),R.drawable.hijo,Participantes4,false );
-        Chats c5 = new Chats("Paco",new RealmList<Mensaje>(),R.drawable.avatardehombre,Participantes5,false );
-        Chats c6 = new Chats("Pepito",new RealmList<Mensaje>(),R.drawable.carafeliz,Participantes6,false );
-        Chats grupal = new Chats("Grupo 2 Dam",new RealmList<Mensaje>(),R.drawable.diversidad,Participantes7,true );
+        Chats c = new Chats("María Álvarez",mensaje1,R.drawable.nina,Participantes1 ,false,0);
+        Chats c2 = new Chats("Francisco Flores",mensaje2,R.drawable.chico,Participantes2,false ,0);
+        Chats c3 = new Chats("Carolina Gonzalez",mensaje3,R.drawable.mujer_1,Participantes3 ,false,0);
+        Chats c4 = new Chats("David Salas",new RealmList<Mensaje>(),R.drawable.hijo,Participantes4,false,0 );
+        Chats c5 = new Chats("Paco",new RealmList<Mensaje>(),R.drawable.avatardehombre,Participantes5,false ,0);
+        Chats c6 = new Chats("Pepito",new RealmList<Mensaje>(),R.drawable.carafeliz,Participantes6,false,0 );
+        Chats grupal = new Chats("Grupo 2 Dam",new RealmList<Mensaje>(),R.drawable.diversidad,Participantes7,true ,0);
         listChats.add(c);
         listChats.add(c2);
         listChats.add(c3);
@@ -171,10 +171,10 @@ public class Utils {
         listChats.add(c6);
         listChats.add(grupal);
 
-        Chats cDavid2= new Chats("Felipe Gonzalez",new RealmList<Mensaje>(),R.drawable.evaluar,ParticipantesdeDavid3,false );
-        Chats cDavid3 = new Chats("Paco",new RealmList<Mensaje>(),R.drawable.avatardehombre,ParticipantesdeDavid5,false );
-        Chats cDavid4 = new Chats("Pepito",new RealmList<Mensaje>(),R.drawable.mujer_1,ParticipantesdeDavid6,false );
-        Chats cDavidGrupo = new Chats("Grupo de Bingo",new RealmList<Mensaje>(),R.drawable.diversidad,ParticipantesdeDavid8,true);
+        Chats cDavid2= new Chats("Felipe Gonzalez",new RealmList<Mensaje>(),R.drawable.evaluar,ParticipantesdeDavid3,false ,0);
+        Chats cDavid3 = new Chats("Paco",new RealmList<Mensaje>(),R.drawable.avatardehombre,ParticipantesdeDavid5,false ,0);
+        Chats cDavid4 = new Chats("Pepito",new RealmList<Mensaje>(),R.drawable.mujer_1,ParticipantesdeDavid6,false,0 );
+        Chats cDavidGrupo = new Chats("Grupo de Bingo",new RealmList<Mensaje>(),R.drawable.diversidad,ParticipantesdeDavid8,true,0);
 
         listChats.add(cDavid2);
         listChats.add(cDavid3);

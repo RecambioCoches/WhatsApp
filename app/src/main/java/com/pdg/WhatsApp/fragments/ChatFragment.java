@@ -21,6 +21,7 @@ import com.pdg.WhatsApp.activities.Chat;
 import com.pdg.WhatsApp.adapters.ChatRecyclerAdapter;
 import com.pdg.WhatsApp.model.Chats;
 import com.pdg.WhatsApp.model.Mensaje;
+import com.pdg.WhatsApp.utils.Utils;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -42,7 +43,7 @@ public class ChatFragment extends Fragment {
         RealmList<Chats> result = new RealmList<>();
         for (Chats chat : realmChat2) {
             RealmList<String> chatUsers = chat.getNombreUsers();
-            if (chatUsers.size() == 2) { // Individual chat
+            if (chatUsers.size() == 2) {
                 String user1 = chatUsers.get(0);
                 String user2 = chatUsers.get(1);
                 String chatName;
@@ -53,11 +54,11 @@ public class ChatFragment extends Fragment {
                 } else {
                     continue;
                 }
-                Chats renamedChat = new Chats(chatName, chat.getMensajes(), chat.getImagen(), chatUsers, false);
+                Chats renamedChat = new Chats(chatName, chat.getMensajes(), chat.getImagen(), chatUsers, false,chat.getUltimoMensajeLeido());
                 renamedChat.setId(chat.getId());
                 result.add(renamedChat);
             } else if (chatUsers.contains(nombre)) { // Group chat
-                Chats renamedChat = new Chats(chat.getNombreChat(), chat.getMensajes(), chat.getImagen(), chatUsers, true);
+                Chats renamedChat = new Chats(chat.getNombreChat(), chat.getMensajes(), chat.getImagen(), chatUsers, true,chat.getUltimoMensajeLeido());
                 renamedChat.setId(chat.getId());
                 result.add(renamedChat);
             }
@@ -120,7 +121,18 @@ public class ChatFragment extends Fragment {
                 intent.putExtra("nameCabecera", nombreCabecera);
                 intent.putExtra("imagen", imagen);
 
+                Chats chat = realm.where(Chats.class).equalTo("id", id).findFirst();
+                int ultimoMensajeId = chat.getMensajes().last().getId();
+                realm.beginTransaction();
+                chat.setUltimoMensajeLeido(ultimoMensajeId);
+                realm.copyToRealmOrUpdate(chat);
+                realm.commitTransaction();
+
+
+
                 startActivity(intent);
+
+
             }
         });
 

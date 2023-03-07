@@ -4,6 +4,10 @@
         "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\mipmap-hdpi\\icono_app_round.png"
     },
     {
+        "merged": "com.pdg.WhatsApp.app-merged_res-31:/layout_chat_list.xml.flat",
+        "source": "com.pdg.WhatsApp.app-main-33:/layout/chat_list.xml"
+    },
+    {
         "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\drawable_carretera.png.flat",
         "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\drawable\\carretera.png"
     },
@@ -82,10 +86,6 @@
     {
         "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\mipmap-mdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.pdg.WhatsApp.app-merged_res-31:/layout_activity_chat.xml.flat",
-        "source": "com.pdg.WhatsApp.app-main-33:/layout/activity_chat.xml"
     },
     {
         "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
@@ -208,16 +208,16 @@
         "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-pngs-26:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
+        "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\layout_activity_inicio_de_sesion.xml.flat",
+        "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\layout\\activity_inicio_de_sesion.xml"
+    },
+    {
         "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\mipmap-xxhdpi_icono_app.png.flat",
         "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\mipmap-xxhdpi\\icono_app.png"
     },
     {
         "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\mipmap-mdpi_icono_app.png.flat",
         "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\mipmap-mdpi\\icono_app.png"
-    },
-    {
-        "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\layout_activity_inicio_de_sesion.xml.flat",
-        "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\layout\\activity_inicio_de_sesion.xml"
     },
     {
         "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\drawable_camara_icon.png.flat",
@@ -228,12 +228,12 @@
         "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\mipmap-xxhdpi\\icono_app_foreground.png"
     },
     {
-        "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\drawable_chico_1.png.flat",
-        "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\drawable\\chico_1.png"
-    },
-    {
         "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\drawable_chico_1.png.flat",
+        "source": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-main-33:\\drawable\\chico_1.png"
     },
     {
         "merged": "C:\\Users\\david\\.gradle\\daemon\\7.5\\com.pdg.WhatsApp.app-merged_res-31:\\layout_chat_list.xml.flat",

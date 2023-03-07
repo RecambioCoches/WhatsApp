@@ -7,6 +7,7 @@ color purple_700
 color teal_200
 color teal_700
 color verde_whatsapp
+color whatsapp_green
 color white
 drawable arbol
 drawable avatar
@@ -39,6 +40,7 @@ id btnLogin
 id buttonSend
 id camara
 id card
+id cardviewCantidad
 id cerrar_sesion
 id editTextNuevoMensaje
 id imageView

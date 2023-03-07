@@ -57,8 +57,8 @@
 32        android:supportsRtl="true"
 32-->C:\Users\david\AndroidStudioProjects\WhatsApp\app\src\main\AndroidManifest.xml:12:9-35
 33        android:testOnly="true"
-34        android:theme="@style/Theme.AppCompat.NoActionBar" >
-34-->C:\Users\david\AndroidStudioProjects\WhatsApp\app\src\main\AndroidManifest.xml:13:9-59
+34        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+34-->C:\Users\david\AndroidStudioProjects\WhatsApp\app\src\main\AndroidManifest.xml:13:9-65
 35        <activity
 35-->C:\Users\david\AndroidStudioProjects\WhatsApp\app\src\main\AndroidManifest.xml:15:9-24:20
 36            android:name="com.pdg.WhatsApp.activities.SplashActivity"

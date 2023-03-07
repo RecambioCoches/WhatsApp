@@ -1844,6 +1844,7 @@ color teal_700
 color tooltip_background_dark
 color tooltip_background_light
 color verde_whatsapp
+color whatsapp_green
 color white
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
@@ -2771,6 +2772,7 @@ id callMeasure
 id camara
 id cancel_button
 id card
+id cardviewCantidad
 id carryVelocity
 id center
 id centerCrop

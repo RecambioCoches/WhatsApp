@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.pdg.WhatsApp.R;
 import com.pdg.WhatsApp.adapters.ChatRecyclerAdapter;
@@ -41,7 +43,8 @@ public class Chat extends AppCompatActivity {
     Chats c;
     String nombreCabecera;
     Integer imagenCabecera;
-
+    TextView nombreChat;
+    ImageView imagenChat;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,11 @@ public class Chat extends AppCompatActivity {
         c = realm.where(Chats.class).equalTo("id",chatId).findFirst();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerMensajeId);
 
+        nombreChat = (TextView) findViewById(R.id.textViewNombreCabecera);
+        imagenChat = (ImageView) findViewById(R.id.imageView);
+
+        nombreChat.setText(nombreCabecera);
+        imagenChat.setImageResource(imagenCabecera);
 
         mensajeRecyclerAdapter = new MensajeRecyclerAdapter(c.getMensajes(), nombreUserLog,imagenCabecera,nombreCabecera, new MensajeRecyclerAdapter.OnItemClickListener() {
             @Override
@@ -94,6 +102,8 @@ public class Chat extends AppCompatActivity {
                 realm.copyToRealmOrUpdate(c);
                 realm.commitTransaction();
                 editTextNuevoMensaje.setText("");
+
+
 
 
 
