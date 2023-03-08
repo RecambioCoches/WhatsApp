@@ -19,8 +19,7 @@ import io.realm.Realm;
 
 public class InicioDeSesion extends AppCompatActivity {
     Realm realm;
-    EditText txtUsername;
-    EditText txtPassword;
+    EditText txtUsername,txtPassword;
     Button btnLogin;
 
     @Override
@@ -29,9 +28,9 @@ public class InicioDeSesion extends AppCompatActivity {
         setContentView(R.layout.activity_inicio_de_sesion);
         realm = Realm.getDefaultInstance();
 
-        //realm.beginTransaction();
-        //realm.deleteAll();
-        //realm.commitTransaction();
+        realm.beginTransaction();
+        realm.deleteAll();
+        realm.commitTransaction();
 
 
         if (realm.isEmpty()){

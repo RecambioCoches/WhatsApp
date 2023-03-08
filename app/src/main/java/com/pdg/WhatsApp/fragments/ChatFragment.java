@@ -29,7 +29,6 @@ import io.realm.RealmResults;
 
 public class ChatFragment extends Fragment {
     Realm realm;
-    RealmResults<Chats> realmChat;
     RealmResults<Chats> realmChat2;
     RealmList<Chats> chats;
     RecyclerView recyclerView;
@@ -57,7 +56,7 @@ public class ChatFragment extends Fragment {
                 Chats renamedChat = new Chats(chatName, chat.getMensajes(), chat.getImagen(), chatUsers, false,chat.getUltimoMensajeLeido());
                 renamedChat.setId(chat.getId());
                 result.add(renamedChat);
-            } else if (chatUsers.contains(nombre)) { // Group chat
+            } else if (chatUsers.contains(nombre)) {
                 Chats renamedChat = new Chats(chat.getNombreChat(), chat.getMensajes(), chat.getImagen(), chatUsers, true,chat.getUltimoMensajeLeido());
                 renamedChat.setId(chat.getId());
                 result.add(renamedChat);
@@ -89,51 +88,29 @@ public class ChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         realm = Realm.getDefaultInstance();
-
-        //Lista de todos los chats
         realmChat2 = realm.where(Chats.class).findAll();
-
-
-
         chats = getChatByName(nombre,realmChat2);
-
-
-
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
+        recyclerView = view.findViewById(R.id.recyclerChatId);
+        chatRecyclerAdapter = new ChatRecyclerAdapter(chats, (mensajes, position) -> {
+            Integer id = chats.get(position).getId();
+            Integer imagen = chats.get(position).getImagen();
+            String nombreCabecera = chats.get(position).getNombreChat();
+            callback.sendData(id);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerChatId);
+            Intent intent = new Intent(getActivity(), Chat.class);
+            intent.putExtra("name", nombre);
+            intent.putExtra("id", id);
+            intent.putExtra("nameCabecera", nombreCabecera);
+            intent.putExtra("imagen", imagen);
 
-
-
-        chatRecyclerAdapter = new ChatRecyclerAdapter(chats, getActivity().getBaseContext(), new ChatRecyclerAdapter.OnItemClickListener(){
-
-            @Override
-            public void onItemClick(RealmList<Mensaje> mensajes, int position) {
-                Integer id = chats.get(position).getId();
-                Integer imagen = chats.get(position).getImagen();
-                String nombreCabecera = chats.get(position).getNombreChat();
-                callback.sendData(id);
-
-
-                Intent intent = new Intent(getActivity(), Chat.class);
-                intent.putExtra("name", nombre);
-                intent.putExtra("id", id);
-                intent.putExtra("nameCabecera", nombreCabecera);
-                intent.putExtra("imagen", imagen);
-
-                Chats chat = realm.where(Chats.class).equalTo("id", id).findFirst();
-                int ultimoMensajeId = chat.getMensajes().last().getId();
-                realm.beginTransaction();
-                chat.setUltimoMensajeLeido(ultimoMensajeId);
-                realm.copyToRealmOrUpdate(chat);
-                realm.commitTransaction();
-
-
-
-                startActivity(intent);
-
-
-            }
+            Chats chat = realm.where(Chats.class).equalTo("id", id).findFirst();
+            int ultimoMensajeId = chat.getMensajes().last().getId();
+            realm.beginTransaction();
+            chat.setUltimoMensajeLeido(ultimoMensajeId);
+            realm.copyToRealmOrUpdate(chat);
+            realm.commitTransaction();
+            startActivity(intent);
         });
 
         recyclerView.setAdapter(chatRecyclerAdapter);

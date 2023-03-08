@@ -20,7 +20,7 @@ public class EstadoRecyclerAdapter extends RecyclerView.Adapter <EstadoRecyclerA
     RealmResults<Estado> realmChat;
 
 
-    public EstadoRecyclerAdapter(RealmResults<Estado> realmChat, Context baseContext) {
+    public EstadoRecyclerAdapter(RealmResults<Estado> realmChat) {
         this.realmChat = realmChat;
     }
 
@@ -43,14 +43,13 @@ public class EstadoRecyclerAdapter extends RecyclerView.Adapter <EstadoRecyclerA
 
     public class RecyclerDataHolder extends RecyclerView.ViewHolder{
         ImageView imagenChat;
-        TextView nombreChat;
-        TextView horaChat;
+        TextView nombreChat,horaChat;
 
         public RecyclerDataHolder(@NonNull View itemView){
             super(itemView);
-            imagenChat = (ImageView) itemView.findViewById(R.id.imgEstado);
-            nombreChat = (TextView) itemView.findViewById(R.id.txtNombreEstado);
-            horaChat = (TextView) itemView.findViewById(R.id.txtTiempoEstado);
+            imagenChat = itemView.findViewById(R.id.imgEstado);
+            nombreChat = itemView.findViewById(R.id.txtNombreEstado);
+            horaChat = itemView.findViewById(R.id.txtTiempoEstado);
         }
 
 

@@ -33,9 +33,9 @@ public class EstadoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerChatId);
+        recyclerView = view.findViewById(R.id.recyclerChatId);
 
-        EstadoRecyclerAdapter estadoRecyclerAdapter = new EstadoRecyclerAdapter(realmEstado,getActivity().getBaseContext());
+        EstadoRecyclerAdapter estadoRecyclerAdapter = new EstadoRecyclerAdapter(realmEstado);
 
         recyclerView.setAdapter(estadoRecyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(),1));

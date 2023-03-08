@@ -20,7 +20,7 @@ public class LlamadaRecyclerAdapter extends RecyclerView.Adapter <LlamadaRecycle
     RealmResults<Llamada> realmChat;
 
 
-    public LlamadaRecyclerAdapter(RealmResults<Llamada> realmChat, Context baseContext) {
+    public LlamadaRecyclerAdapter(RealmResults<Llamada> realmChat) {
         this.realmChat = realmChat;
     }
 
@@ -42,17 +42,15 @@ public class LlamadaRecyclerAdapter extends RecyclerView.Adapter <LlamadaRecycle
     }
 
     public class RecyclerDataHolder extends RecyclerView.ViewHolder{
-        TextView nombre;
-        TextView fecha;
-        TextView estado;
+        TextView nombre,fecha,estado;
         ImageView foto;
 
         public RecyclerDataHolder(@NonNull View itemView){
             super(itemView);
-            nombre = (TextView) itemView.findViewById(R.id.txtNombreLlamada);
-            fecha = (TextView) itemView.findViewById(R.id.txtHoraLlamada);
-            estado = (TextView) itemView.findViewById(R.id.txtEstadoLlamada);
-            foto = (ImageView) itemView.findViewById(R.id.imgLlamada);
+            nombre = itemView.findViewById(R.id.txtNombreLlamada);
+            fecha = itemView.findViewById(R.id.txtHoraLlamada);
+            estado = itemView.findViewById(R.id.txtEstadoLlamada);
+            foto = itemView.findViewById(R.id.imgLlamada);
         }
 
 

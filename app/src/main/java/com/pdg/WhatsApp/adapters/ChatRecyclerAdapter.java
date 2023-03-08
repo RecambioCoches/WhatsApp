@@ -20,15 +20,13 @@ import io.realm.RealmList;
 
 public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapter.RecyclerDataHolder> implements View.OnClickListener {
 
-    Realm realm;
     RealmList<Chats> realmChat;
-    private View.OnClickListener listener;
     private OnItemClickListener itemListener;
 
 
-    public ChatRecyclerAdapter(RealmList<Chats> realmChat, Context baseContext, OnItemClickListener onItemClickListener) {
+    public ChatRecyclerAdapter(RealmList<Chats> realmChat, OnItemClickListener onItemClickListener) {
         this.realmChat = realmChat;
-        this.itemListener = (OnItemClickListener) onItemClickListener;
+        this.itemListener = onItemClickListener;
     }
 
     @NonNull
@@ -41,8 +39,6 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerDataHolder holder, int position) {
-        View itemView = holder.itemView;
-        Chats chat = realmChat.get(position);
         holder.assignDataChat(realmChat.get(position),itemListener);
     }
 
@@ -57,36 +53,23 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
     }
     public interface OnItemClickListener{
         void onItemClick(RealmList<Mensaje> mensajes, int position);
-
-
     }
 
     public class RecyclerDataHolder extends RecyclerView.ViewHolder{
-        ImageView imagenChat;
-        TextView nombreChat;
-        TextView mensajeChat;
-        TextView horaChat;
-        TextView cantidadMensajes;
-
-        TextView nombredelChat;
-        ImageView imagendelChat;
+        ImageView imagenChat,imagendelChat;
+        TextView nombreChat,mensajeChat,horaChat,cantidadMensajes,nombredelChat;
         CardView cardView;
 
         public RecyclerDataHolder(@NonNull View itemView){
             super(itemView);
-            imagenChat = (ImageView) itemView.findViewById(R.id.imageViewChat);
-            nombreChat = (TextView) itemView.findViewById(R.id.textViewNombreChat);
-            mensajeChat = (TextView) itemView.findViewById(R.id.textViewMensajeChat);
-            horaChat = (TextView) itemView.findViewById(R.id.textViewHoraChat);
-            cantidadMensajes = (TextView) itemView.findViewById(R.id.textViewCantidadMensajes);
+            imagenChat = itemView.findViewById(R.id.imageViewChat);
+            nombreChat = itemView.findViewById(R.id.textViewNombreChat);
+            mensajeChat = itemView.findViewById(R.id.textViewMensajeChat);
+            horaChat = itemView.findViewById(R.id.textViewHoraChat);
+            cantidadMensajes = itemView.findViewById(R.id.textViewCantidadMensajes);
             cardView = itemView.findViewById(R.id.cardviewCantidad);
-
-            //Mensaje
-            imagendelChat  = (ImageView) itemView.findViewById(R.id.imageView);
-            nombredelChat = (TextView) itemView.findViewById(R.id.textViewNombreCabecera);
-
-
-
+            imagendelChat  = itemView.findViewById(R.id.imageView);
+            nombredelChat = itemView.findViewById(R.id.textViewNombreCabecera);
         }
 
 
@@ -107,7 +90,13 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
                         mensajesNoLeidos++;
                     }
                 }
-                this.cantidadMensajes.setText(String.valueOf(mensajesNoLeidos));
+                if (mensajesNoLeidos == 0){
+                    this.cantidadMensajes.setText("");
+                }else {
+                    this.cantidadMensajes.setText(String.valueOf(mensajesNoLeidos));
+                }
+
+
 
             }
             if (cantidadMensajes.getText() == "") {
@@ -117,19 +106,11 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter <ChatRecyclerAdapt
             }
 
             this.nombreChat.setText(chats.getNombreChat());
-
-
-
             this.imagenChat.setImageResource(chats.getImagen());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     onItemClickListener.onItemClick(chats.getMensajes(),getAdapterPosition());
-
-
-
-
-
                 }
             });
         }

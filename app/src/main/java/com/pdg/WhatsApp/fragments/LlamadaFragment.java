@@ -33,9 +33,9 @@ public class LlamadaFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerChatId);
+        recyclerView = view.findViewById(R.id.recyclerChatId);
 
-        LlamadaRecyclerAdapter llamadaRecyclerAdapter = new LlamadaRecyclerAdapter(realmLlamada,getActivity().getBaseContext());
+        LlamadaRecyclerAdapter llamadaRecyclerAdapter = new LlamadaRecyclerAdapter(realmLlamada);
 
         recyclerView.setAdapter(llamadaRecyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(),1));
