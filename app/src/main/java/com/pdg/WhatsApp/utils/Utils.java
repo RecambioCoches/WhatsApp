@@ -16,16 +16,15 @@ import io.realm.RealmResults;
 
 public class    Utils {
 
-    public static String nombreGlobal = "";
-    public static String mensajeGlobal = "";
+    public static String nombreGlobal,mensajeGlobal = "";
     public static List<User> getDummyDataUsers() {
 
         List<User> listUsers = new ArrayList<>();
 
-        listUsers.add(new User("Persona1","Grupo1","persona1@gmail.com","password1"));
-        listUsers.add(new User("Persona2","","persona2@gmail.com","password2"));
-        listUsers.add(new User("Persona3","Grupo3","persona3@gmail.com","password3"));
-        listUsers.add(new User("Persona4","Grupo4","persona4@gmail.com","password4"));
+        listUsers.add(new User("Fernando","Grupo1","fernando@gmail.com","password1"));
+        listUsers.add(new User("Lucia","","lucia@gmail.com","password2"));
+        listUsers.add(new User("Esteban","Grupo3","esteban@gmail.com","password3"));
+        listUsers.add(new User("Amaia","Grupo4","amaia@gmail.com","password4"));
         return listUsers;
     }
 
@@ -56,61 +55,61 @@ public class    Utils {
         List<Chats> listChats = new ArrayList<>();
 
         RealmList<String> ChatP1P2 = new RealmList<>();
-        ChatP1P2.add("Persona1");
-        ChatP1P2.add("Persona2");
+        ChatP1P2.add("Fernando");
+        ChatP1P2.add("Lucia");
 
         RealmList<String> ChatP1P3 = new RealmList<>();
-        ChatP1P3.add("Persona1");
-        ChatP1P3.add("Persona3");
+        ChatP1P3.add("Fernando");
+        ChatP1P3.add("Esteban");
 
 
         RealmList<String> ChatP1P4 = new RealmList<>();
-        ChatP1P4.add("Persona1");
-        ChatP1P4.add("Persona4");
+        ChatP1P4.add("Fernando");
+        ChatP1P4.add("Amaia");
 
 
         RealmList<String> Grupo2DAM = new RealmList<>();
-        Grupo2DAM.add("Persona1");
-        Grupo2DAM.add("Persona2");
-        Grupo2DAM.add("Persona3");
+        Grupo2DAM.add("Fernando");
+        Grupo2DAM.add("Lucia");
+        Grupo2DAM.add("Esteban");
 
 
 
         RealmList<Mensaje> mensajesP1P2 = new RealmList<>();
-        mensajesP1P2.add(new Mensaje("Hola","Persona2"));
-        mensajesP1P2.add(new Mensaje("¿Que tal?","Persona1"));
-        mensajesP1P2.add(new Mensaje("Aqui estamos","Persona2"));
-        mensajesP1P2.add(new Mensaje("Todo bien","Persona2"));
+        mensajesP1P2.add(new Mensaje("Hola","Lucia"));
+        mensajesP1P2.add(new Mensaje("¿Que tal?","Fernando"));
+        mensajesP1P2.add(new Mensaje("Aqui estamos","Lucia"));
+        mensajesP1P2.add(new Mensaje("Todo bien","Lucia"));
 
 
         RealmList<Mensaje> mensajesP1P3 = new RealmList<>();
-        mensajesP1P3.add(new Mensaje("Cuando era el examen de Moviles???","Persona1"));
-        mensajesP1P3.add(new Mensaje("Noo me acuerdo, puede que mañana :v","Persona3"));
-        mensajesP1P3.add(new Mensaje("¿Como no te puedes acordar?","Persona1"));
-        mensajesP1P3.add(new Mensaje("Me di un golpe en la cabeza","Persona3"));
+        mensajesP1P3.add(new Mensaje("Cuando era el examen de Moviles???","Fernando"));
+        mensajesP1P3.add(new Mensaje("Noo me acuerdo, puede que mañana :v","Esteban"));
+        mensajesP1P3.add(new Mensaje("¿Como no te puedes acordar?","Fernando"));
+        mensajesP1P3.add(new Mensaje("Me di un golpe en la cabeza","Esteban"));
 
         RealmList<Mensaje> mensajesP1P4 = new RealmList<>();
-        mensajesP1P4.add(new Mensaje("Buenos dias","Persona1"));
-        mensajesP1P4.add(new Mensaje("Que pasa","Persona4"));
-        mensajesP1P4.add(new Mensaje("Te recuerdo que me tienes que pagar el alquiler.","Persona1"));
-        mensajesP1P4.add(new Mensaje("Va","Persona4"));
+        mensajesP1P4.add(new Mensaje("Buenos dias","Fernando"));
+        mensajesP1P4.add(new Mensaje("Que pasa","Amaia"));
+        mensajesP1P4.add(new Mensaje("Te recuerdo que me tienes que pagar el alquiler.","Fernando"));
+        mensajesP1P4.add(new Mensaje("Va","Amaia"));
 
         RealmList<Mensaje> mensajesGrupo2DAM = new RealmList<>();
-        mensajesGrupo2DAM.add(new Mensaje("Buenos dias Chicos","Persona1"));
-        mensajesGrupo2DAM.add(new Mensaje("Buenas","Persona2"));
-        mensajesGrupo2DAM.add(new Mensaje("Holaaaaaa","Persona3"));
-        mensajesGrupo2DAM.add(new Mensaje("Que quereis hacer hoy?","Persona1"));
+        mensajesGrupo2DAM.add(new Mensaje("Buenos dias Chicos","Fernando"));
+        mensajesGrupo2DAM.add(new Mensaje("Buenas","Lucia"));
+        mensajesGrupo2DAM.add(new Mensaje("Holaaaaaa","Esteban"));
+        mensajesGrupo2DAM.add(new Mensaje("Que quereis hacer hoy?","Fernando"));
 
 
-        Chats c = new Chats("María Álvarez",mensajesP1P2,R.drawable.nina,ChatP1P2 ,false,0);
-        Chats c2 = new Chats("Francisco Flores",mensajesP1P3,R.drawable.chico,ChatP1P3,false ,0);
-        Chats c3 = new Chats("Carolina Gonzalez",mensajesP1P4,R.drawable.mujer_1,ChatP1P4 ,false,0);
+        Chats chat1 = new Chats("Chat1",mensajesP1P2,R.drawable.nina,ChatP1P2 ,false,0);
+        Chats chat2 = new Chats("Chat2",mensajesP1P3,R.drawable.chico,ChatP1P3,false ,0);
+        Chats chat3 = new Chats("Chat3",mensajesP1P4,R.drawable.mujer_1,ChatP1P4 ,false,0);
 
-        Chats grupal = new Chats("Grupo 2 Dam",mensajesGrupo2DAM,R.drawable.diversidad,Grupo2DAM,true ,0);
+        Chats grupal = new Chats("2ºDAM",mensajesGrupo2DAM,R.drawable.diversidad,Grupo2DAM,true ,0);
 
-        listChats.add(c);
-        listChats.add(c2);
-        listChats.add(c3);
+        listChats.add(chat1);
+        listChats.add(chat2);
+        listChats.add(chat3);
         listChats.add(grupal);
 
         return listChats;
