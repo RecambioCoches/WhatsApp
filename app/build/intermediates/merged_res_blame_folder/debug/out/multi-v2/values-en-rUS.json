@@ -4,7 +4,7 @@
             "outputFile": "com.pdg.WhatsApp.app-mergeDebugResources-29:/values-en-rUS/values-en-rUS.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\bcuta\\Desktop\\WhatsApp\\app\\src\\main\\res\\values-en-rUS\\strings.xml",
+                    "source": "C:\\Users\\david\\AndroidStudioProjects\\WhatsApp\\app\\src\\main\\res\\values-en-rUS\\strings.xml",
                     "from": {
                         "startLines": "2,13,5,4,6,10,8,12,11,7,9",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
